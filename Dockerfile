@@ -39,7 +39,7 @@ RUN echo "=== /app top level ===" && ls -la /app && \
 
 # Install Node dependencies and Playwright browsers
 RUN cd /app/whatsapp-bulk-sender/wa-server && npm install
-RUN playwright install --with-deps chromium || true
+RUN playwright install --with-deps chromium chrome || true
 
 # Configure Nginx
 RUN cp /app/nginx.conf.template /etc/nginx/nginx.conf.template

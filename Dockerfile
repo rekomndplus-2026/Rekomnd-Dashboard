@@ -8,7 +8,7 @@ RUN apt-get update && \
 
 WORKDIR /app
 
-ARG CACHE_DATE=20260717
+ARG CACHE_DATE=20260718b
 
 # Force fresh copy with --link to bypass Railway stale cache
 COPY --link . /app

@@ -1,0 +1,186 @@
+services:
+  # ─────────────────────────────────────────────
+  # Redis - Required by Evolution API and Celery
+  # ─────────────────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    container_name: wbs_redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes --requirepass "${REDIS_PASSWORD:-redispassword}"
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - wbs_network
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD:-redispassword}", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ─────────────────────────────────────────────
+  # Evolution API - WhatsApp gateway
+  # ─────────────────────────────────────────────
+  evolution_api:
+    image: evoapicloud/evolution-api:latest
+    container_name: wbs_evolution
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      SERVER_URL: "http://localhost:8080"
+      AUTHENTICATION_API_KEY: "${EVOLUTION_API_KEY:-supersecretapikey}"
+      AUTHENTICATION_EXPOSE_IN_FETCH_INSTANCES: "true"
+
+      DATABASE_ENABLED: "true"
+      DATABASE_PROVIDER: "postgresql"
+      DATABASE_CONNECTION_URI: "postgresql://${POSTGRES_USER:-evolution}:${POSTGRES_PASSWORD:-evolutionpass}@postgres:5432/${POSTGRES_DB:-evolution}"
+      DATABASE_CONNECTION_CLIENT_NAME: "evolution_exchange"
+      DATABASE_SAVE_DATA_INSTANCE: "true"
+      DATABASE_SAVE_DATA_NEW_MESSAGE: "true"
+      DATABASE_SAVE_MESSAGE_UPDATE: "true"
+      DATABASE_SAVE_DATA_CONTACTS: "true"
+      DATABASE_SAVE_DATA_CHATS: "true"
+
+      CACHE_REDIS_ENABLED: "true"
+      CACHE_REDIS_URI: "redis://:${REDIS_PASSWORD:-redispassword}@redis:6379/6"
+      CACHE_REDIS_PREFIX_KEY: "evolution"
+      CACHE_REDIS_SAVE_INSTANCES: "false"
+      CACHE_LOCAL_ENABLED: "false"
+
+      CONFIG_SESSION_PHONE_CLIENT: "Rekomnd+"
+      CONFIG_SESSION_PHONE_NAME: "Chrome"
+      QRCODE_LIMIT: "30"
+      QRCODE_COLOR: "#198754"
+
+      WEBHOOK_GLOBAL_ENABLED: "false"
+      WEBHOOK_EVENTS_APPLICATION_STARTUP: "false"
+      WEBHOOK_EVENTS_QRCODE_UPDATED: "true"
+      WEBHOOK_EVENTS_CONNECTION_UPDATE: "true"
+      WEBHOOK_EVENTS_MESSAGES_UPSERT: "true"
+
+      DEL_INSTANCE: "false"
+
+    volumes:
+      - evolution_instances:/evolution/instances
+      - evolution_store:/evolution/store
+    networks:
+      - wbs_network
+    depends_on:
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+
+  # ─────────────────────────────────────────────
+  # PostgreSQL - Evolution API database
+  # ─────────────────────────────────────────────
+  postgres:
+    image: postgres:15-alpine
+    container_name: wbs_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: "${POSTGRES_USER:-evolution}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:-evolutionpass}"
+      POSTGRES_DB: "${POSTGRES_DB:-evolution}"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - wbs_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-evolution}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ─────────────────────────────────────────────
+  # FastAPI Backend
+  # ─────────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: wbs_backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      EVOLUTION_API_URL: "http://evolution_api:8080"
+      EVOLUTION_API_KEY: "${EVOLUTION_API_KEY:-supersecretapikey}"
+      REDIS_URL: "redis://:${REDIS_PASSWORD:-redispassword}@redis:6379/0"
+      FRONTEND_ORIGIN: "http://localhost:3000"
+      SEND_RATE_LIMIT: "30"
+      MESSAGE_DELAY_MIN: "1.5"
+      MESSAGE_DELAY_MAX: "3.5"
+    volumes:
+      - ./backend:/app
+      - upload_temp:/app/uploads
+    networks:
+      - wbs_network
+    depends_on:
+      evolution_api:
+        condition: service_started
+      redis:
+        condition: service_healthy
+
+  # ─────────────────────────────────────────────
+  # Celery Worker for Background Jobs
+  # ─────────────────────────────────────────────
+  celery_worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: wbs_celery_worker
+    restart: unless-stopped
+    command: celery -A celery_worker.celery_app worker --loglevel=info
+    environment:
+      EVOLUTION_API_URL: "http://evolution_api:8080"
+      EVOLUTION_API_KEY: "${EVOLUTION_API_KEY:-supersecretapikey}"
+      REDIS_URL: "redis://:${REDIS_PASSWORD:-redispassword}@redis:6379/0"
+    volumes:
+      - ./backend:/app
+      - upload_temp:/app/uploads
+    networks:
+      - wbs_network
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  # ─────────────────────────────────────────────
+  # Next.js Frontend
+  # ─────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_BACKEND_URL: "http://localhost:8000"
+    container_name: wbs_frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_BACKEND_URL: "http://localhost:8000"
+      BACKEND_INTERNAL_URL: "http://backend:8000"
+    networks:
+      - wbs_network
+    depends_on:
+      - backend
+
+# ─────────────────────────────────────────────
+# Named Volumes
+# ─────────────────────────────────────────────
+volumes:
+  redis_data:
+  postgres_data:
+  evolution_instances:
+  evolution_store:
+  upload_temp:
+
+# ─────────────────────────────────────────────
+# Internal Network
+# ─────────────────────────────────────────────
+networks:
+  wbs_network:
+    driver: bridge

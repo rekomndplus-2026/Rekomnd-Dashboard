@@ -8,7 +8,7 @@ RUN apt-get update && \
 
 WORKDIR /app
 
-ARG CACHE_DATE=20260718b
+ARG CACHE_DATE=20260717
 
 # Force fresh copy with --link to bypass Railway stale cache
 COPY --link . /app
@@ -39,6 +39,6 @@ RUN playwright install --with-deps chromium || true
 RUN cp /app/nginx.conf.template /etc/nginx/nginx.conf.template
 RUN cp /app/start.sh /start.sh && chmod +x /start.sh
 
-EXPOSE 8080
+EXPOSE 80
 
 CMD ["/start.sh"]

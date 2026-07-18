@@ -1,0 +1,468 @@
+{% extends "base.html" %}
+{% block title %}Buyer Leads — REKOMND+{% endblock %}
+
+{% block head %}
+<style>
+.buyers-grid { display: grid; grid-template-columns: 280px 1fr; gap: 1.5rem; }
+@media(max-width:1024px){ .buyers-grid { grid-template-columns:1fr; } }
+
+.lead-score-bar {
+  height: 6px;
+  background: rgba(255,255,255,.08);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.lead-score-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width .5s ease;
+}
+
+.filter-tabs { display:flex; gap:.25rem; background:var(--bg-input); padding:.25rem; border-radius:var(--radius-full); width:fit-content; }
+.filter-tab {
+  padding:.35rem .9rem; border-radius:var(--radius-full);
+  border:none; background:transparent; cursor:pointer;
+  font-size:.8rem; font-weight:600; color:var(--text-muted);
+  transition:var(--transition); font-family:inherit;
+}
+.filter-tab.active { background:var(--accent); color:#000; }
+.filter-tab:hover:not(.active) { color:var(--text-primary); }
+
+.contacted-badge { display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;font-weight:600; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="section">
+  <div class="section-header">
+    <div>
+      <h1 style="font-size:1.6rem; margin-bottom:.25rem;">🏠 Egypt Buyer Leads</h1>
+      <p style="font-size:.9rem;">Real estate buyer intent leads scraped from Egyptian Facebook groups</p>
+    </div>
+    <div style="display:flex;gap:.75rem;align-items:center;">
+      <span class="status-pill status-idle" id="run-status-pill">
+        <span class="pulse-dot"></span> Idle
+      </span>
+      <button class="btn btn-secondary btn-sm" onclick="refreshSession()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 102.5-6.5L2 8"/></svg>
+        Refresh Login
+      </button>
+      <button class="btn btn-secondary btn-sm" onclick="exportLeads('xlsx')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Export Excel
+      </button>
+      <button class="btn btn-primary" id="btn-run" onclick="startScrape()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Scrape Now
+      </button>
+      <button class="btn btn-danger btn-sm" id="btn-stop" style="display:none;" onclick="stopScrape()">■ Stop</button>
+    </div>
+  </div>
+
+  <div id="offline-warn" class="card" style="display:none; border-color:rgba(239,68,68,.3); background:var(--red-dim); margin-bottom:1rem;">
+    <p style="color:var(--red); font-size:.9rem;">⚠️ Buyers API is offline (port 8000). Make sure to start it via the launcher.</p>
+  </div>
+
+  <div class="buyers-grid">
+    <!-- Left -->
+    <div style="display:flex;flex-direction:column;gap:1.25rem;">
+      <!-- Stats -->
+      <div class="stats-grid" style="grid-template-columns:1fr;">
+        <div class="stat-card">
+          <div class="stat-icon" style="background:var(--green-dim);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          </div>
+          <div class="stat-value" id="st-total">—</div>
+          <div class="stat-label">Total Leads</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="st-contacted" style="color:var(--green);">0</div>
+          <div class="stat-label">Contacted</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="st-high" style="color:var(--accent);">0</div>
+          <div class="stat-label">Hot Leads</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="st-phone" style="color:var(--blue);">0</div>
+          <div class="stat-label">Have Phone</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="st-avg" style="color:var(--purple);">0</div>
+          <div class="stat-label">Avg Score</div>
+        </div>
+      </div>
+
+      <!-- Groups -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">📋 Groups</div>
+          <button class="btn btn-secondary btn-sm" onclick="showAddGroup()">+ Add</button>
+        </div>
+        <div id="groups-list" style="display:flex;flex-direction:column;gap:.5rem;max-height:280px;overflow-y:auto;"></div>
+        <div id="add-grp-form" style="display:none;margin-top:.75rem;">
+          <input class="form-control" id="new-grp-url" placeholder="https://facebook.com/groups/..." style="margin-bottom:.5rem;" />
+          <div style="display:flex;gap:.5rem;">
+            <button class="btn btn-primary btn-sm" onclick="addGroup()">Add</button>
+            <button class="btn btn-secondary btn-sm" onclick="document.getElementById('add-grp-form').style.display='none'">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scrape Comments (Single Post) -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">💬 Scrape Comments (Single Post)</div>
+        </div>
+        <p style="font-size: .85rem; color: var(--text-muted); margin-bottom: .75rem;">
+          Mine a specific Facebook post for buyer leads hidden in its comments.
+        </p>
+        <div style="display:flex;flex-direction:column;gap:.5rem;">
+          <input class="form-control" id="single-post-url" placeholder="https://facebook.com/groups/.../posts/..." />
+          <button class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="scrapePost()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Scrape Post
+          </button>
+        </div>
+      </div>
+
+      <!-- Live log -->
+      <div class="card" style="margin-top: .5rem;">
+        <div class="card-header">
+          <div class="card-title">📡 Live Log</div>
+          <button class="btn btn-secondary btn-sm" onclick="clearLog()">Clear</button>
+        </div>
+        <div class="log-container" id="run-log" style="max-height:200px;overflow-y:auto;background:var(--bg-card);padding:.5rem;border-radius:var(--radius-md);font-family:monospace;font-size:12px;color:var(--text-muted);">
+          <div class="empty-state" style="padding:1rem;">Waiting for logs...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: leads table -->
+    <div style="display:flex;flex-direction:column;gap:1rem;">
+      <div class="card" style="flex:1;">
+        <div class="card-header" style="flex-wrap:wrap;gap:.75rem;">
+          <div class="card-title">
+            🏠 Lead Database
+            <span class="badge badge-green" id="lead-count">0</span>
+          </div>
+          <div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;">
+            <div class="filter-tabs">
+              <button class="filter-tab active" onclick="setFilter('all',this)">All</button>
+              <button class="filter-tab" onclick="setFilter('high',this)">High Score</button>
+              <button class="filter-tab" onclick="setFilter('new',this)">New</button>
+              <button class="filter-tab" onclick="setFilter('contacted',this)">Contacted</button>
+            </div>
+            <input id="lead-search" type="text" placeholder="🔍 Search…"
+              style="padding:.4rem .9rem;background:var(--bg-input);border:1px solid var(--border);border-radius:var(--radius-full);color:var(--text-primary);font-family:inherit;font-size:.82rem;outline:none;"
+              oninput="filterLeads()" />
+          </div>
+        </div>
+
+        <div id="leads-empty" class="empty-state">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          <p>No leads found. Click <strong>Scrape Now</strong> to start.</p>
+        </div>
+
+        <div id="leads-table-wrap" style="display:none;">
+          <div class="table-wrapper">
+            <table class="data-table" id="leads-table">
+              <thead>
+                <tr>
+                  <th data-col="lead_score">Score</th>
+                  <th data-col="name">Name</th>
+                  <th data-col="phone">Phone</th>
+                  <th>Location</th>
+                  <th data-col="budget">Budget</th>
+                  <th>Post Preview</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="leads-tbody"></tbody>
+            </table>
+          </div>
+          <div class="pagination" id="leads-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const BASE = '{{ BUYERS_URL }}';
+let allLeads = [];
+let currentFilter = 'all';
+let currentPage = 1;
+const PAGE_SIZE = 30;
+
+async function init() {
+  try {
+    const r = await fetch(`${BASE}/api/stats`, { signal: AbortSignal.timeout(3000) });
+    if (!r.ok) throw new Error('offline');
+    document.getElementById('offline-warn').style.display = 'none';
+    loadStats();
+    loadGroups();
+    loadLeads();
+    pollStatus();
+    pollLogs();
+  } catch(e) {
+    document.getElementById('offline-warn').style.display = '';
+  }
+}
+
+async function loadStats() {
+  try {
+    const d = await API.get(`${BASE}/api/stats`);
+    document.getElementById('st-total').textContent     = (d.total_leads    || 0).toLocaleString();
+    document.getElementById('st-contacted').textContent = (d.contacted      || 0).toLocaleString();
+    document.getElementById('st-high').textContent      = (d.hot_leads      || 0).toLocaleString();
+    if (document.getElementById('st-phone'))
+      document.getElementById('st-phone').textContent   = (d.with_phone     || 0).toLocaleString();
+    if (document.getElementById('st-avg'))
+      document.getElementById('st-avg').textContent     = (d.avg_lead_score || 0).toFixed(1);
+  } catch {}
+}
+
+async function loadLeads(page = 1) {
+  currentPage = page;
+  try {
+    const skip = (page - 1) * PAGE_SIZE;
+    const leads = await API.get(`${BASE}/api/leads?limit=${PAGE_SIZE}&skip=${skip}`);
+    if (page === 1) allLeads = leads;
+    else allLeads = [...allLeads, ...leads];
+    renderLeads();
+  } catch { document.getElementById('leads-empty').querySelector('p').textContent = 'Could not load leads'; }
+}
+
+function getScoreColor(score) {
+  if (score >= 80) return 'var(--green)';
+  if (score >= 60) return 'var(--accent)';
+  if (score >= 40) return 'var(--blue)';
+  return 'var(--text-muted)';
+}
+
+function renderLeads() {
+  const q = document.getElementById('lead-search').value.toLowerCase();
+  let filtered = allLeads;
+
+  if (currentFilter === 'high')      filtered = filtered.filter(l => (l.lead_score || 0) >= 60);
+  else if (currentFilter === 'new')  filtered = filtered.filter(l => !l.is_contacted);
+  else if (currentFilter === 'contacted') filtered = filtered.filter(l => l.is_contacted);
+
+  if (q) filtered = filtered.filter(l =>
+    (l.buyer_name||l.author||'').toLowerCase().includes(q) ||
+    (l.phone_numbers||'').includes(q) ||
+    (l.locations||'').toLowerCase().includes(q) ||
+    (l.raw_text||'').toLowerCase().includes(q) ||
+    (l.group_name||'').toLowerCase().includes(q)
+  );
+
+  document.getElementById('lead-count').textContent = filtered.length;
+
+  const empty = document.getElementById('leads-empty');
+  const wrap  = document.getElementById('leads-table-wrap');
+  if (!filtered.length) { empty.style.display = ''; wrap.style.display = 'none'; return; }
+  empty.style.display = 'none'; wrap.style.display = '';
+
+  const tbody = document.getElementById('leads-tbody');
+  tbody.innerHTML = filtered.map(l => {
+    const score = l.lead_score || 0;
+    const color = getScoreColor(score);
+    const name  = l.buyer_name || l.author || '—';
+    const phones = l.phone_numbers || l.comment_phones || '—';
+    const loc   = trunc(l.locations || l.governorates || '—', 18);
+    const budgetMin = l.budget_min ? `${(l.budget_min/1000000).toFixed(1)}M` : '';
+    const budgetMax = l.budget_max ? `${(l.budget_max/1000000).toFixed(1)}M` : '';
+    const budget = budgetMin || budgetMax ? `${budgetMin}${budgetMin && budgetMax ? ' - ' : ''}${budgetMax}` : '—';
+    const grade = l.lead_grade || '';
+    const preview = trunc(l.raw_text || '', 55);
+    return `
+    <tr data-lead-score="${score}" data-name="${name.toLowerCase()}">
+      <td>
+        <div style="font-weight:700;color:${color};font-size:1.1rem;">${score}</div>
+        <div class="lead-score-bar" style="width:60px;margin-top:3px;">
+          <div class="lead-score-fill" style="width:${Math.min(score,100)}%;background:${color};"></div>
+        </div>
+        ${grade ? `<span class="badge badge-muted" style="margin-top:4px;display:inline-block;">${grade}</span>` : ''}
+      </td>
+      <td style="font-weight:600;color:var(--text-primary);max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${name}">${name}</td>
+      <td>${phones !== '—' ? `<a href="tel:${phones.split(',')[0].trim()}" style="color:var(--green);font-family:monospace;font-size:.82rem;">${phones.split(',')[0].trim()}</a>` : '—'}</td>
+      <td><span class="badge badge-muted">${loc}</span></td>
+      <td>${budget !== '—' ? `<span class="badge badge-accent" style="font-size:.75rem;">${budget}</span>` : '—'}</td>
+      <td style="max-width:220px;" title="${(l.raw_text||'').replace(/"/g,"'")}">${preview}</td>
+      <td>
+        ${l.is_contacted
+          ? '<span class="badge badge-green">✓ Contacted</span>'
+          : '<span class="badge badge-muted">New</span>'}
+      </td>
+      <td>
+        <div style="display:flex;gap:.3rem;">
+          <button class="btn btn-secondary btn-sm" style="padding:.2rem .5rem;font-size:.75rem;"
+            onclick="markContacted('${l.id}', ${!l.is_contacted})">
+            ${l.is_contacted ? '↩ Unmark' : '✓ Mark'}
+          </button>
+          ${l.profile_url ? `<a href="${l.profile_url}" target="_blank" class="btn btn-secondary btn-sm" style="padding:.2rem .5rem;font-size:.75rem;">FB</a>` : ''}
+          ${l.post_url ? `<a href="${l.post_url}" target="_blank" class="btn btn-secondary btn-sm" style="padding:.2rem .5rem;font-size:.75rem;">Post</a>` : ''}
+        </div>
+      </td>
+    </tr>`;
+  }).join('');
+
+  makeSortable(document.getElementById('leads-table'));
+}
+
+function setFilter(f, btn) {
+  currentFilter = f;
+  document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderLeads();
+}
+
+function filterLeads() { renderLeads(); }
+
+async function markContacted(id, contacted) {
+  try {
+    await fetch(`${BASE}/api/leads/${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ is_contacted: contacted }),
+    });
+    const lead = allLeads.find(l => l.id === id);
+    if (lead) lead.is_contacted = contacted;
+    renderLeads();
+    loadStats();
+  } catch(e) { Toast.error(e.message); }
+}
+
+function exportLeads(fmt) {
+  window.open(`${BASE}/api/export?format=${fmt}`, '_blank');
+  Toast.success('Downloading…');
+}
+
+async function pollStatus() {
+  try {
+    const d = await API.get(`${BASE}/api/status`);
+    const pill = document.getElementById('run-status-pill');
+    if (d && d.is_running) {
+      pill.className = 'status-pill status-running';
+      pill.innerHTML = `<span class="pulse-dot"></span> Scraping…`;
+      document.getElementById('btn-stop').style.display = '';
+      document.getElementById('btn-run').disabled = true;
+      loadLeads(); // refresh during scrape
+    } else {
+      pill.className = 'status-pill status-idle';
+      pill.innerHTML = '<span class="pulse-dot"></span> Idle';
+      document.getElementById('btn-stop').style.display = 'none';
+      document.getElementById('btn-run').disabled = false;
+    }
+  } catch {}
+  setTimeout(pollStatus, 3000);
+}
+
+// Polling Logs
+let lastLogText = "";
+async function pollLogs() {
+  try {
+    const d = await API.get(`${BASE}/api/logs`);
+    if (d && d.logs && d.logs.length > 0) {
+      const logText = d.logs.join('');
+      if (logText !== lastLogText) {
+        lastLogText = logText;
+        const el = document.getElementById('run-log');
+        el.innerHTML = '';
+        d.logs.forEach(line => {
+          const div = document.createElement('div');
+          div.style.marginBottom = "4px";
+          div.textContent = line;
+          el.appendChild(div);
+        });
+        el.scrollTop = el.scrollHeight;
+      }
+    }
+  } catch {}
+  setTimeout(pollLogs, 2000);
+}
+function clearLog() { document.getElementById('run-log').innerHTML = ''; }
+
+async function startScrape() {
+  try {
+    await fetch(`${BASE}/api/actions/scrape`, { method: 'POST' });
+    Toast.success('Scrape started!');
+  } catch(e) { Toast.error('Failed: ' + e.message); }
+}
+async function stopScrape() {
+  try {
+    await fetch(`${BASE}/api/actions/stop`, { method: 'POST' });
+    Toast.info('Stop requested');
+  } catch {}
+}
+
+// Groups
+async function loadGroups() {
+  try {
+    const groups = await API.get(`${BASE}/api/groups`);
+    const el = document.getElementById('groups-list');
+    el.innerHTML = groups.map(g => `
+      <div style="display:flex;align-items:center;gap:.5rem;background:var(--bg-input);border:1px solid var(--border);border-radius:var(--radius-md);padding:.55rem .85rem;">
+        <div style="flex:1;overflow:hidden;">
+          <div style="font-size:.83rem;font-weight:600;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;" title="${g.url}">${g.name || g.url}</div>
+          <div style="font-size:.72rem;color:var(--text-muted);">${g.region || ''}</div>
+        </div>
+        <label class="switch"><input type="checkbox" ${g.enabled !== false ? 'checked':''} onchange="toggleGroup('${g.url}',this.checked)"><span class="switch-slider"></span></label>
+      </div>`).join('') || '<p style="font-size:.83rem;color:var(--text-muted);">No groups</p>';
+  } catch {}
+}
+function showAddGroup() { document.getElementById('add-grp-form').style.display = ''; }
+async function addGroup() {
+  const url = document.getElementById('new-grp-url').value.trim();
+  if (!url) return;
+  try {
+    await API.post(`${BASE}/api/groups`, { url, name: url, region: 'Egypt', enabled: true });
+    document.getElementById('add-grp-form').style.display = 'none';
+    document.getElementById('new-grp-url').value = '';
+    loadGroups();
+    Toast.success('Group added!');
+  } catch(e) { Toast.error(e.message); }
+}
+async function toggleGroup(url, enabled) {
+  const groups = await API.get(`${BASE}/api/groups`).catch(() => []);
+  const g = groups.find(gr => gr.url === url);
+  if (g) {
+    await fetch(`${BASE}/api/groups`, { method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify({...g, enabled}) }).catch(()=>{});
+  }
+}
+
+async function refreshSession() {
+  Toast.info('Starting Chrome to refresh session...', 'info');
+  try {
+    const res = await API.post(`${BASE}/api/actions/refresh`, {});
+    if (res.message) {
+      Toast.success('Session refresh started! Please log in and close Chrome.');
+    }
+  } catch (err) { Toast.error('Failed to refresh session: ' + err.message); }
+}
+
+async function scrapePost() {
+  const url = document.getElementById('single-post-url').value.trim();
+  if (!url) return Toast.error('Please enter a post URL');
+  
+  Toast.info('Starting post scrape...');
+  try {
+    const res = await fetch(`${BASE}/api/actions/scrape-post`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.detail || data.error || 'Failed');
+    Toast.success('Scrape started! Check the live log.');
+    document.getElementById('single-post-url').value = '';
+  } catch (err) { Toast.error('Failed: ' + err.message); }
+}
+
+init();
+</script>
+{% endblock %}

@@ -1,0 +1,75 @@
+{
+  "cookies": [
+    {
+      "name": "datr",
+      "value": "9yk1aiW0e3iXZSz9PqaJ2G1h",
+      "domain": ".facebook.com",
+      "path": "/",
+      "expires": 1816429047.965029,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "sb",
+      "value": "-Ck1ainIe9SYZK-qNYcpomaD",
+      "domain": ".facebook.com",
+      "path": "/",
+      "expires": 1816429112.214925,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "c_user",
+      "value": "61573173503832",
+      "domain": ".facebook.com",
+      "path": "/",
+      "expires": 1813405119.462419,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "xs",
+      "value": "1%3AP5UsljuJXdgCog%3A2%3A1781869110%3A-1%3A-1%3A%3AAcz3Mbv8zbQuWN5Ng0dBdm6yikL4VxIiXApOorvL4Q",
+      "domain": ".facebook.com",
+      "path": "/",
+      "expires": 1813405119.462842,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "i_user",
+      "value": "61578558765604",
+      "domain": ".facebook.com",
+      "path": "/",
+      "expires": 1813405129.817694,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "fr",
+      "value": "1sf0hxNXjjGA1ixu6..BqNSo-..AAA.0.0.BqNSpi.AWdcQsRrcvppmyiwpRWruQl7tbM",
+      "domain": ".facebook.com",
+      "path": "/",
+      "expires": 1789645155.192232,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "wd",
+      "value": "1280x720",
+      "domain": ".facebook.com",
+      "path": "/",
+      "expires": 1782473960,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": []
+}

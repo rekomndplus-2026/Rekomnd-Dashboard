@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}REKOMND+{% endblock %}</title>
+  <meta name="description" content="{% block meta_desc %}REKOMND+ — Unified real estate automation platform{% endblock %}" />
+  <link rel="stylesheet" href="/static/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>" />
+  {% block head %}{% endblock %}
+</head>
+<body>
+
+<!-- ── Navbar ─────────────────────────────────────────── -->
+<nav class="navbar">
+  <a href="/" class="navbar-logo">REKOMND<span>+</span></a>
+
+  <ul class="navbar-nav">
+    <li>
+      <a href="/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        Dashboard
+      </a>
+    </li>
+    <li>
+      <a href="/gmaps">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        GMaps Scraper
+      </a>
+    </li>
+    <li>
+      <a href="/poster">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+        FB Auto Poster
+      </a>
+    </li>
+    <li>
+      <a href="/commenter">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        FB Commenter
+      </a>
+    </li>
+    <li>
+      <a href="/buyers">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        Buyer Leads
+      </a>
+    </li>
+    <li>
+      <a href="/whatsapp">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        WhatsApp
+      </a>
+    </li>
+  </ul>
+
+  <!-- User info / auth -->
+  <div class="navbar-right">
+    {% if current_user %}
+      {% if current_user.is_admin %}
+      <a href="/admin/users" class="btn btn-secondary btn-sm" title="User Management" style="padding:0.35rem 0.7rem;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      </a>
+      {% endif %}
+      <a href="/profile" class="user-avatar-nav" title="Profile: {{ current_user.display_name }}"
+         style="background: {{ current_user.avatar_color }};">
+        {{ current_user.initials }}
+      </a>
+      <div class="user-nav-info">
+        <a href="/profile" class="user-nav-name">{{ current_user.display_name }}</a>
+        <a href="/logout" class="user-nav-logout">Sign out</a>
+      </div>
+    {% else %}
+      <a href="/login" class="btn btn-primary btn-sm">Sign In</a>
+    {% endif %}
+  </div>
+</nav>
+
+<!-- ── Page ──────────────────────────────────────────── -->
+<main class="page-content">
+  {% block content %}{% endblock %}
+</main>
+
+<!-- ── Toast Stack ───────────────────────────────────── -->
+<div id="toast-stack" class="toast-stack"></div>
+
+<script src="/static/app.js"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

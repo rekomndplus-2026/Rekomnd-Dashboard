@@ -1,0 +1,169 @@
+[
+  {
+    "started_at": "2026-07-15T21:20:15.765262+00:00",
+    "ended_at": "2026-07-15T21:27:04.007114+00:00",
+    "groups_processed": 1,
+    "posts_scanned": 7,
+    "posts_matched": 5,
+    "comments_posted": 5,
+    "comments_failed": 0,
+    "errors": [],
+    "id": "b5e5d736c194"
+  },
+  {
+    "started_at": "2026-07-15T15:19:41.302113+00:00",
+    "ended_at": "2026-07-15T15:21:19.966767+00:00",
+    "groups_processed": 1,
+    "posts_scanned": 3,
+    "posts_matched": 1,
+    "comments_posted": 1,
+    "comments_failed": 0,
+    "errors": [],
+    "id": "23190f48953c"
+  },
+  {
+    "started_at": "2026-07-15T15:18:05.172667+00:00",
+    "ended_at": "2026-07-15T15:19:32.632362+00:00",
+    "groups_processed": 1,
+    "posts_scanned": 10,
+    "posts_matched": 11,
+    "comments_posted": 0,
+    "comments_failed": 11,
+    "errors": [],
+    "id": "c1e5a515a2f5"
+  },
+  {
+    "started_at": "2026-07-15T14:06:36.071685+00:00",
+    "ended_at": "2026-07-15T14:07:10.707028+00:00",
+    "groups_processed": 0,
+    "posts_scanned": 0,
+    "posts_matched": 0,
+    "comments_posted": 0,
+    "comments_failed": 0,
+    "errors": [
+      "Failed to load group Data Analysis Jobs: Page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://web.facebook.com/groups/809679153921791\", waiting until \"domcontentloaded\"\n"
+    ],
+    "id": "af7b2cbe2f04"
+  },
+  {
+    "started_at": "2026-07-04T18:11:55.601798+00:00",
+    "ended_at": "2026-07-04T18:13:35.981276+00:00",
+    "groups_processed": 1,
+    "posts_scanned": 3,
+    "posts_matched": 1,
+    "comments_posted": 1,
+    "comments_failed": 0,
+    "errors": [],
+    "id": "64846ad1a200"
+  },
+  {
+    "started_at": "2026-07-04T17:51:44.979168+00:00",
+    "ended_at": "2026-07-04T17:54:00.061405+00:00",
+    "groups_processed": 1,
+    "posts_scanned": 5,
+    "posts_matched": 2,
+    "comments_posted": 2,
+    "comments_failed": 0,
+    "errors": [],
+    "id": "bdbc69d306f4"
+  },
+  {
+    "started_at": "2026-07-04T15:55:23.829360+00:00",
+    "ended_at": "2026-07-04T15:56:40.764782+00:00",
+    "groups_processed": 1,
+    "posts_scanned": 6,
+    "posts_matched": 1,
+    "comments_posted": 1,
+    "comments_failed": 0,
+    "errors": [],
+    "id": "2eaa6fb2032e"
+  },
+  {
+    "started_at": "2026-06-19T12:21:00.077036+00:00",
+    "ended_at": "2026-06-19T12:22:59.942281+00:00",
+    "groups_processed": 1,
+    "posts_scanned": 6,
+    "posts_matched": 1,
+    "comments_posted": 1,
+    "comments_failed": 0,
+    "errors": [],
+    "id": "1e54ba867a8b"
+  },
+  {
+    "started_at": "2026-06-19T12:15:07.426084+00:00",
+    "ended_at": "2026-06-19T12:16:19.606226+00:00",
+    "groups_processed": 1,
+    "posts_scanned": 6,
+    "posts_matched": 1,
+    "comments_posted": 0,
+    "comments_failed": 1,
+    "errors": [],
+    "id": "dc89828bb61a"
+  },
+  {
+    "started_at": "2026-06-19T12:09:46.442573+00:00",
+    "ended_at": "2026-06-19T12:13:24.905177+00:00",
+    "groups_processed": 1,
+    "posts_scanned": 6,
+    "posts_matched": 3,
+    "comments_posted": 0,
+    "comments_failed": 3,
+    "errors": [],
+    "id": "fb1fedbfb352"
+  },
+  {
+    "started_at": "2026-06-19T11:59:37.491039+00:00",
+    "ended_at": "2026-06-19T11:59:58.374233+00:00",
+    "groups_processed": 1,
+    "posts_scanned": 6,
+    "posts_matched": 0,
+    "comments_posted": 0,
+    "comments_failed": 0,
+    "errors": [],
+    "id": "e734507c95c5"
+  },
+  {
+    "started_at": "2026-06-19T11:57:02.130924+00:00",
+    "ended_at": "2026-06-19T11:57:16.377235+00:00",
+    "groups_processed": 1,
+    "posts_scanned": 6,
+    "posts_matched": 0,
+    "comments_posted": 0,
+    "comments_failed": 0,
+    "errors": [],
+    "id": "8978b215c1ac"
+  },
+  {
+    "started_at": "2026-06-19T11:56:32.161827+00:00",
+    "ended_at": "2026-06-19T11:56:56.241779+00:00",
+    "groups_processed": 1,
+    "posts_scanned": 6,
+    "posts_matched": 0,
+    "comments_posted": 0,
+    "comments_failed": 0,
+    "errors": [],
+    "id": "b9da81f91684"
+  },
+  {
+    "started_at": "2026-06-19T11:53:40.855133+00:00",
+    "ended_at": "2026-06-19T11:54:05.780776+00:00",
+    "groups_processed": 1,
+    "posts_scanned": 6,
+    "posts_matched": 0,
+    "comments_posted": 0,
+    "comments_failed": 0,
+    "errors": [],
+    "id": "7ee9536de245"
+  },
+  {
+    "started_at": "2026-06-19T11:50:01.649147+00:00",
+    "ended_at": "2026-06-19T11:50:25.580216+00:00",
+    "groups_processed": 1,
+    "posts_scanned": 6,
+    "posts_matched": 0,
+    "comments_posted": 0,
+    "comments_failed": 0,
+    "errors": [],
+    "id": "2806c7e81395"
+  }
+]

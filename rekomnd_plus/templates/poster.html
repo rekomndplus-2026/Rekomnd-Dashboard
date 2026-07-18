@@ -1,0 +1,646 @@
+{% extends "base.html" %}
+{% block title %}FB Auto Poster — REKOMND+{% endblock %}
+
+{% block head %}
+<style>
+.poster-grid { display: grid; grid-template-columns: 340px 1fr; gap: 1.5rem; }
+@media(max-width:1024px){ .poster-grid { grid-template-columns:1fr; } }
+
+.post-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  transition: var(--transition);
+}
+.post-card:hover { border-color: rgba(255,255,255,.12); }
+.post-original { font-size:.82rem; color:var(--text-muted); line-height:1.5; white-space:pre-wrap; max-height:120px; overflow-y:auto; }
+.post-rewritten { font-size:.82rem; color:var(--text-secondary); line-height:1.5; white-space:pre-wrap; max-height:120px; overflow-y:auto; background:rgba(245,158,11,.05); border:1px solid rgba(245,158,11,.1); border-radius:var(--radius-sm); padding:.5rem; }
+.post-actions { display:flex; gap:.4rem; flex-wrap:wrap; }
+
+.group-row {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:.6rem .9rem;
+  background:var(--bg-input); border:1px solid var(--border); border-radius:var(--radius-md);
+  gap:.5rem;
+}
+.group-name { font-size:.85rem; font-weight:600; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.group-url  { font-size:.75rem; color:var(--text-muted); flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+
+.sched-tab {
+  flex:1; padding:.45rem; border:none; background:transparent; color:var(--text-muted);
+  font-size:.8rem; font-weight:600; border-radius:var(--radius-sm); cursor:pointer;
+  transition:all .15s; font-family:inherit;
+}
+.sched-tab:hover { color:var(--text-secondary); }
+.sched-tab.active { background:var(--accent); color:#000; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="section">
+  <div class="section-header">
+    <div>
+      <h1 style="font-size:1.6rem; margin-bottom:.25rem;">📢 FB Auto Poster</h1>
+      <p style="font-size:.9rem;">Manual/AI Posts → Facebook Groups</p>
+    </div>
+    <div style="display:flex;gap:.75rem;align-items:center;" id="run-controls">
+      <span class="status-pill status-idle" id="run-status-pill">
+        <span class="pulse-dot"></span> Idle
+      </span>
+      <button class="btn btn-primary" id="btn-run" onclick="startRun()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Run Now
+      </button>
+      <button class="btn btn-danger btn-sm" id="btn-stop" style="display:none;" onclick="stopRun()">■ Stop</button>
+    </div>
+  </div>
+
+  <!-- Offline warning -->
+  <div id="offline-warn" class="card" style="display:none; border-color:rgba(239,68,68,.3); background:var(--red-dim); margin-bottom:1rem;">
+    <p style="color:var(--red); font-size:.9rem;">⚠️ FB Auto Poster service is offline (port 5000). Make sure to start it via the launcher.</p>
+  </div>
+
+  <div class="poster-grid">
+    <!-- Left sidebar -->
+    <div style="display:flex;flex-direction:column;gap:1.25rem;">
+      <!-- Stats -->
+      <div class="stats-grid" style="grid-template-columns:1fr 1fr;">
+        <div class="stat-card">
+          <div class="stat-value" id="st-posted">—</div>
+          <div class="stat-label">Posted</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="st-failed">—</div>
+          <div class="stat-label">Failed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="st-rewritten">—</div>
+          <div class="stat-label">Rewritten</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="st-groups">—</div>
+          <div class="stat-label">Groups</div>
+        </div>
+      </div>
+
+      <!-- Session status -->
+      <div class="card">
+        <div class="card-title" style="margin-bottom:.75rem;">🔐 Session</div>
+        <div id="session-status-box">
+          <span class="status-pill status-idle">Checking…</span>
+        </div>
+        <div style="display:flex;gap:.5rem;margin-top:.75rem;">
+          <button class="btn btn-secondary btn-sm" onclick="checkSession()">Check</button>
+          <button class="btn btn-secondary btn-sm" onclick="refreshSession()">Refresh Login</button>
+        </div>
+      </div>
+
+      <!-- Scheduler -->
+      <div class="card">
+        <div class="card-title" style="margin-bottom:.75rem;">⏱️ Scheduler</div>
+        <div class="form-group" style="display:flex;align-items:center;gap:.5rem;">
+          <input type="checkbox" id="schedule-enabled" onchange="saveSchedule()">
+          <label for="schedule-enabled" style="margin:0;">Enable Auto-Schedule</label>
+        </div>
+
+        <!-- Mode tabs -->
+        <div style="display:flex;gap:.25rem;margin:.75rem 0 .5rem;background:var(--bg-input);border-radius:var(--radius-md);padding:3px;">
+          <button class="sched-tab" data-mode="times" onclick="switchSchedMode('times')">Times</button>
+          <button class="sched-tab" data-mode="interval" onclick="switchSchedMode('interval')">Interval</button>
+          <button class="sched-tab" data-mode="burst" onclick="switchSchedMode('burst')">Burst</button>
+        </div>
+
+        <!-- Times mode -->
+        <div id="sched-mode-times" class="sched-panel">
+          <div class="form-group" style="margin:0;">
+            <label class="form-label" style="font-size:0.8rem; margin-bottom:0.2rem;">Times (HH:MM comma-separated)</label>
+            <input class="form-control" id="schedule-times" placeholder="e.g. 09:00,15:00" onchange="saveSchedule()">
+          </div>
+        </div>
+
+        <!-- Interval mode -->
+        <div id="sched-mode-interval" class="sched-panel" style="display:none;">
+          <div class="form-group" style="margin:0;">
+            <label class="form-label" style="font-size:0.8rem; margin-bottom:0.2rem;">Every N hours</label>
+            <input class="form-control" type="number" step="0.5" id="schedule-interval" placeholder="4.0" onchange="saveSchedule()">
+          </div>
+        </div>
+
+        <!-- Burst mode -->
+        <div id="sched-mode-burst" class="sched-panel" style="display:none;">
+          <div class="form-group" style="margin:0;">
+            <label class="form-label" style="font-size:0.8rem; margin-bottom:0.2rem;">Start time (HH:MM)</label>
+            <input class="form-control" type="time" id="burst-start" value="09:00" onchange="saveSchedule()">
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.5rem;">
+            <div class="form-group" style="margin:0;">
+              <label class="form-label" style="font-size:0.8rem; margin-bottom:0.2rem;">Runs per day</label>
+              <input class="form-control" type="number" min="1" max="24" id="burst-count" value="4" onchange="saveSchedule()">
+            </div>
+            <div class="form-group" style="margin:0;">
+              <label class="form-label" style="font-size:0.8rem; margin-bottom:0.2rem;">Every N minutes</label>
+              <input class="form-control" type="number" min="5" step="5" id="burst-interval" value="120" onchange="saveSchedule()">
+            </div>
+          </div>
+        </div>
+
+        <div style="font-size:0.75rem; color:var(--text-muted); margin-top:.75rem;" id="schedule-next-run">
+          Loading schedule...
+        </div>
+      </div>
+
+      <!-- Groups -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">📋 Groups</div>
+          <button class="btn btn-secondary btn-sm" onclick="showAddGroup()">+ Add</button>
+        </div>
+        <div id="groups-list" style="display:flex;flex-direction:column;gap:.5rem;"></div>
+
+        <div id="add-group-form" style="display:none;margin-top:.75rem;">
+          <div class="form-group">
+            <label class="form-label">Group URL</label>
+            <input class="form-control" id="new-group-url" placeholder="https://facebook.com/groups/..." />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Name (optional)</label>
+            <input class="form-control" id="new-group-name" placeholder="Group nickname" />
+          </div>
+          <div style="display:flex;gap:.5rem;">
+            <button class="btn btn-primary btn-sm" onclick="addGroup()">Save</button>
+            <button class="btn btn-secondary btn-sm" onclick="document.getElementById('add-group-form').style.display='none'">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Posts + Log -->
+    <div style="display:flex;flex-direction:column;gap:1.25rem;">
+      <!-- Live log -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">📡 Live Log</div>
+          <button class="btn btn-secondary btn-sm" onclick="clearLog()">Clear</button>
+        </div>
+        <div class="log-container" id="run-log"></div>
+      </div>
+
+      <!-- Posts -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">📝 Posts Queue</div>
+          <div>
+            <button class="btn btn-primary btn-sm" onclick="openPostModal()">➕ Add Post</button>
+            <button class="btn btn-secondary btn-sm" onclick="loadPosts()">↻ Refresh</button>
+          </div>
+        </div>
+        <div id="posts-list" style="display:flex;flex-direction:column;gap:.75rem;max-height:500px;overflow-y:auto;">
+          <div class="empty-state"><p>Loading posts…</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add Post Modal -->
+<div id="add-post-modal" class="modal-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:1000; align-items:center; justify-content:center; backdrop-filter:blur(4px);" onclick="if(event.target===this)this.style.display='none'">
+  <div class="modal-box card" style="width:90%; max-width:600px; padding:1.5rem; background:var(--bg-surface); border:1px solid rgba(255,255,255,0.1); display:flex; flex-direction:column; gap:1rem;">
+    <div class="modal-title" id="post-modal-title" style="font-size:1.25rem; font-weight:600;">➕ Add New Post</div>
+    <form id="post-form" onsubmit="savePost(event)">
+      <input type="hidden" id="post-id">
+      <input type="hidden" id="post-skip-ai" value="false">
+      
+      <div class="form-group">
+        <label class="form-label" style="display:block; margin-bottom:.5rem; font-weight:500; font-size:.9rem;">Original Content / Idea</label>
+        <textarea class="form-control" id="post-text" rows="4" placeholder="Type your post or idea here..." style="width:100%; resize:vertical; padding:.75rem; border-radius:var(--radius-sm); border:1px solid var(--border); background:var(--bg-input); color:var(--text-primary);" required></textarea>
+      </div>
+      
+      <div class="form-group" style="margin-top:1rem;">
+        <label class="form-label" style="display:block; margin-bottom:.5rem; font-weight:500; font-size:.9rem;">Attach Media (Image / Video)</label>
+        <input type="file" class="form-control" id="post-image" accept="image/*,video/*" style="width:100%; padding:.5rem; border-radius:var(--radius-sm); border:1px solid var(--border); background:var(--bg-input); color:var(--text-primary);">
+        <div class="text-muted" style="font-size:.75rem;margin-top:.4rem;" id="post-image-help">Upload an image or video (Max 10MB)</div>
+      </div>
+
+      <div id="post-rewrites-container" style="margin-top:1.5rem; padding-top:1.25rem; border-top:1px solid var(--border);">
+        <div class="form-group">
+          <label class="form-label" style="display:block; margin-bottom:.5rem; font-weight:500; font-size:.9rem;">AI Instructions (Optional)</label>
+          <input type="text" class="form-control" id="post-ai-note" placeholder="E.g., Make it formal, add emojis, translate to Arabic..." style="width:100%; padding:.75rem; border-radius:var(--radius-sm); border:1px solid var(--border); background:var(--bg-input); color:var(--text-primary);">
+        </div>
+        <div class="form-group" style="margin-top:1rem;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-end;">
+            <label class="form-label" style="display:block; font-weight:500; font-size:.9rem;">AI Rewritten / Final Content</label>
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-generate-ai" onclick="generateAiInModal()" style="padding:.3rem .75rem; font-size:.8rem;">✨ Generate AI</button>
+          </div>
+          <textarea class="form-control" id="post-rewritten-text" rows="5" placeholder="AI output will appear here..." style="width:100%; resize:vertical; margin-top:.5rem; padding:.75rem; border-radius:var(--radius-sm); border:1px solid var(--border); background:var(--bg-input); color:var(--text-primary);"></textarea>
+        </div>
+      </div>
+
+      <div class="modal-actions" style="margin-top:1.5rem; display:flex; justify-content:flex-end; gap:.75rem;">
+        <button type="button" class="btn btn-secondary" onclick="document.getElementById('add-post-modal').style.display='none'">Cancel</button>
+        <button type="button" class="btn btn-secondary" onclick="savePost(event, true)">Save (Skip AI)</button>
+        <button type="submit" class="btn btn-primary">Save to Queue</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const BASE = '{{ POSTER_URL }}';
+let logStream = null;
+
+// ── Init ────────────────────────────────────────────────
+async function init() {
+  try {
+    await fetch(`${BASE}/api/run/status`, { signal: AbortSignal.timeout(2000) });
+    document.getElementById('offline-warn').style.display = 'none';
+    pollStatus();
+    loadGroups();
+    loadPosts();
+    checkSession();
+    startLogStream();
+  } catch {
+    document.getElementById('offline-warn').style.display = '';
+    const pill = document.getElementById('run-status-pill');
+    pill.className = 'status-pill status-error';
+    pill.innerHTML = '<span class="pulse-dot"></span> Offline';
+  }
+}
+
+// ── Status polling ──────────────────────────────────────
+async function pollStatus() {
+  try {
+    const d = await API.get(`${BASE}/api/run/status`);
+    const pill = document.getElementById('run-status-pill');
+    if (d.running) {
+      pill.className = 'status-pill status-running';
+      pill.innerHTML = `<span class="pulse-dot"></span> Running (${d.groups_done}/${d.groups_total} groups)`;
+      document.getElementById('btn-stop').style.display = '';
+      document.getElementById('btn-run').disabled = true;
+    } else {
+      pill.className = 'status-pill status-idle';
+      pill.innerHTML = '<span class="pulse-dot"></span> Idle';
+      document.getElementById('btn-stop').style.display = 'none';
+      document.getElementById('btn-run').disabled = false;
+    }
+    document.getElementById('st-posted').textContent    = d.posts_posted || 0;
+    document.getElementById('st-failed').textContent    = d.posts_failed || 0;
+    document.getElementById('st-rewritten').textContent = d.posts_rewritten || 0;
+  } catch {}
+  setTimeout(pollStatus, 3000);
+}
+
+// ── Log stream ──────────────────────────────────────────
+function startLogStream() {
+  if (logStream) logStream.close();
+  logStream = new EventSource(`${BASE}/api/run/stream`);
+  logStream.onmessage = e => {
+    try {
+      const d = JSON.parse(e.data);
+      addLog(d.message || JSON.stringify(d), d.level || 'info');
+    } catch {}
+  };
+}
+
+function addLog(msg, level = 'info') {
+  const el = document.getElementById('run-log');
+  const line = document.createElement('div');
+  line.className = `log-line ${level === 'error' ? 'error' : level === 'success' ? 'success' : 'info'}`;
+  line.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+  el.appendChild(line);
+  el.scrollTop = el.scrollHeight;
+}
+function clearLog() { document.getElementById('run-log').innerHTML = ''; }
+
+// ── Run controls ────────────────────────────────────────
+async function startRun() {
+  try {
+    await fetch(`${BASE}/api/run/start`, { method: 'POST' });
+    Toast.success('Run started!');
+  } catch { Toast.error('Failed to start run'); }
+}
+async function stopRun() {
+  try {
+    await fetch(`${BASE}/api/run/stop`, { method: 'POST' });
+    Toast.info('Stop requested');
+  } catch { Toast.error('Failed to stop'); }
+}
+
+
+
+// ── Session ─────────────────────────────────────────────
+async function checkSession() {
+  try {
+    const d = await API.get(`${BASE}/api/session/status`);
+    const box = document.getElementById('session-status-box');
+    const cls = d.valid ? 'status-done' : 'status-error';
+    const label = d.valid ? 'Session Active' : (d.error || 'Session Invalid');
+    box.innerHTML = `<span class="status-pill ${cls}"><span class="pulse-dot"></span> ${label}</span>`;
+  } catch { document.getElementById('session-status-box').innerHTML = '<span class="badge badge-red">Offline</span>'; }
+}
+async function refreshSession() {
+  Toast.info('Launching login browser…');
+  try {
+    const d = await API.post(`${BASE}/api/session/refresh`, {});
+    d.success ? Toast.success('Session refreshed!') : Toast.error('Login failed: ' + d.stderr);
+  } catch(e) { Toast.error(e.message); }
+}
+
+// ── Groups ──────────────────────────────────────────────
+async function loadGroups() {
+  try {
+    const groups = await API.get(`${BASE}/api/groups`);
+    document.getElementById('st-groups').textContent = groups.length;
+    const el = document.getElementById('groups-list');
+    if (!groups.length) { el.innerHTML = '<p style="font-size:.85rem;color:var(--text-muted);">No groups yet</p>'; return; }
+    el.innerHTML = groups.map(g => `
+      <div class="group-row">
+        <div style="flex:1;overflow:hidden;">
+          <div class="group-name">${g.name || g.url}</div>
+          <div class="group-url">${g.url}</div>
+        </div>
+        <label class="switch">
+          <input type="checkbox" ${g.active ? 'checked' : ''} onchange="toggleGroup('${g.id}')">
+          <span class="switch-slider"></span>
+        </label>
+        <button class="btn btn-danger btn-sm" style="padding:.2rem .4rem;" onclick="deleteGroup('${g.id}')">✕</button>
+      </div>
+    `).join('');
+  } catch {}
+}
+function showAddGroup() { document.getElementById('add-group-form').style.display = ''; }
+async function addGroup() {
+  const url = document.getElementById('new-group-url').value.trim();
+  const name = document.getElementById('new-group-name').value.trim();
+  if (!url) { Toast.error('URL required'); return; }
+  try {
+    await API.post(`${BASE}/api/groups`, { url, name });
+    document.getElementById('add-group-form').style.display = 'none';
+    document.getElementById('new-group-url').value = '';
+    document.getElementById('new-group-name').value = '';
+    loadGroups();
+    Toast.success('Group added!');
+  } catch(e) { Toast.error(e.message); }
+}
+async function toggleGroup(id) {
+  try { await fetch(`${BASE}/api/groups/${id}/toggle`, { method: 'PATCH' }); loadGroups(); } catch {}
+}
+async function deleteGroup(id) {
+  if (!confirm('Remove this group?')) return;
+  try { await fetch(`${BASE}/api/groups/${id}`, { method: 'DELETE' }); loadGroups(); Toast.success('Removed'); } catch {}
+}
+
+// ── Posts ───────────────────────────────────────────────
+async function loadPosts() {
+  try {
+    const posts = await API.get(`${BASE}/api/posts`);
+    const el = document.getElementById('posts-list');
+    if (!posts.length) {
+      el.innerHTML = '<div class="empty-state"><p>No posts in queue</p></div>';
+      return;
+    }
+    const statusColors = { new:'badge-blue', rewritten:'badge-purple', posted:'badge-green', failed:'badge-red', pending:'badge-muted' };
+    el.innerHTML = posts.slice(-20).reverse().map(p => `
+      <div class="post-card">
+        <div style="display:flex;align-items:center;gap:.5rem;justify-content:space-between;">
+          <span class="badge ${statusColors[p.status] || 'badge-muted'}">${p.status}</span>
+          <span style="font-size:.75rem;color:var(--text-muted);">${p.id?.slice(0,8)}</span>
+          <button class="btn btn-danger btn-sm" style="padding:.15rem .4rem;" onclick="deletePost('${p.id}')">✕</button>
+        </div>
+        <div class="post-original">${p.original_text || '—'}</div>
+        ${p.rewritten_text ? `<div class="post-rewritten">${p.rewritten_text}</div>` : ''}
+        <div class="post-actions">
+          ${p.status !== 'posted' ? `<button class="btn btn-secondary btn-sm" onclick="rewritePost('${p.id}')">✨ Rewrite</button>` : ''}
+        </div>
+      </div>
+    `).join('');
+  } catch { document.getElementById('posts-list').innerHTML = '<div class="empty-state"><p>Could not load posts</p></div>'; }
+}
+
+let postsData = [];
+
+async function openPostModal(p = null) {
+  document.getElementById('post-form').reset();
+  const rewriteContainer = document.getElementById('post-rewrites-container');
+  
+  if (p) {
+    document.getElementById('post-modal-title').textContent = '✏️ Edit Post';
+    document.getElementById('post-id').value = p.id;
+    document.getElementById('post-text').value = p.original_text;
+    
+    const imgInput = document.getElementById('post-image');
+    imgInput.value = '';
+    if (p.image_path) {
+      imgInput.dataset.existingPath = p.image_path;
+      document.getElementById('post-image-help').textContent = `Current media: ${p.image_path.split(/[\\\\/]/).pop()} (Select new to replace)`;
+    } else {
+      delete imgInput.dataset.existingPath;
+      document.getElementById('post-image-help').textContent = 'Upload an image or video (Max 10MB)';
+    }
+    document.getElementById('post-rewritten-text').value = p.rewritten_text || '';
+  } else {
+    document.getElementById('post-modal-title').textContent = '➕ Add New Post';
+    document.getElementById('post-id').value = '';
+    document.getElementById('post-text').value = '';
+    
+    const imgInput = document.getElementById('post-image');
+    imgInput.value = '';
+    delete imgInput.dataset.existingPath;
+    document.getElementById('post-image-help').textContent = 'Upload an image or video (Max 10MB)';
+    document.getElementById('post-rewritten-text').value = '';
+  }
+  document.getElementById('add-post-modal').style.display = 'flex';
+}
+
+async function generateAiInModal() {
+  const text = document.getElementById('post-text').value;
+  const note = document.getElementById('post-ai-note').value;
+  if (!text) {
+    Toast.error('Please enter Original Content first');
+    return;
+  }
+  
+  const btn = document.getElementById('btn-generate-ai');
+  const originalHtml = btn.innerHTML;
+  btn.innerHTML = '⏳ Generating...';
+  btn.disabled = true;
+  
+  try {
+    // Generate AI by posting to an in-memory generation endpoint or just re-using the rewrite endpoint on a dummy post?
+    // Wait, fb-auto-poster doesn't have a standalone /api/generate endpoint out of the box in the new app.py
+    // It has /api/posts/{pid}/rewrite. To rewrite before saving, we can just hit /api/posts/{pid}/rewrite if editing, 
+    // BUT if it's a new post we don't have a PID. Let's create the post first behind the scenes, OR fallback to saving it first.
+    // Let's modify logic: If no PID, we create a temporary post first.
+    let pid = document.getElementById('post-id').value;
+    if (!pid) {
+      const res = await API.post(`${BASE}/api/posts`, { text: text, status: 'new' });
+      pid = res.id;
+      document.getElementById('post-id').value = pid;
+    } else {
+      // Update original text first so rewrite uses it
+      await API.put(`${BASE}/api/posts/${pid}`, { text: text });
+    }
+    const rewriteRes = await API.post(`${BASE}/api/posts/${pid}/rewrite`, { note: note });
+    document.getElementById('post-rewritten-text').value = rewriteRes.rewritten_text || '';
+    Toast.success('AI Rewrite complete');
+  } catch (err) {
+    Toast.error(err.message || 'AI Generation failed');
+  } finally {
+    btn.innerHTML = originalHtml;
+    btn.disabled = false;
+  }
+}
+
+async function savePost(e, skipAi = false) {
+  e.preventDefault();
+  const id = document.getElementById('post-id').value;
+  const text = document.getElementById('post-text').value;
+  const imgInput = document.getElementById('post-image');
+  const rewritten_text = document.getElementById('post-rewritten-text').value;
+  
+  const formData = new FormData();
+  formData.append('text', text);
+  if (rewritten_text && !skipAi) formData.append('rewritten_text', rewritten_text);
+  if (skipAi) formData.append('status', 'new');
+  
+  if (imgInput.files && imgInput.files.length > 0) {
+    formData.append('image', imgInput.files[0]);
+  } else if (imgInput.dataset.existingPath) {
+    formData.append('image_path', imgInput.dataset.existingPath);
+  }
+  
+  try {
+    if (id) {
+      const res = await fetch(`${BASE}/api/posts/${id}`, { method: 'PUT', body: formData });
+      if (!res.ok) throw new Error(await res.text());
+      Toast.success('Post updated');
+    } else {
+      const res = await fetch(`${BASE}/api/posts`, { method: 'POST', body: formData });
+      if (!res.ok) throw new Error(await res.text());
+      Toast.success('Post added');
+    }
+    document.getElementById('add-post-modal').style.display = 'none';
+    loadPosts();
+  } catch(err) { Toast.error(err.message); }
+}
+
+function editPost(id) {
+  const p = postsData.find(x => x.id === id);
+  if (p) openPostModal(p);
+}
+
+async function loadPosts() {
+  try {
+    postsData = await API.get(`${BASE}/api/posts`);
+    const el = document.getElementById('posts-list');
+    if (!postsData.length) {
+      el.innerHTML = '<div class="empty-state"><p>No posts in queue</p></div>';
+      return;
+    }
+    const statusColors = { new:'badge-blue', rewritten:'badge-purple', posted:'badge-green', failed:'badge-red', pending:'badge-muted' };
+    el.innerHTML = postsData.slice(-20).reverse().map(p => `
+      <div class="post-card">
+        <div style="display:flex;align-items:center;gap:.5rem;justify-content:space-between;">
+          <span class="badge ${statusColors[p.status] || 'badge-muted'}">${p.status}</span>
+          <span style="font-size:.75rem;color:var(--text-muted);">${p.id?.slice(0,8)}</span>
+          <div style="display:flex; gap:.3rem;">
+            <button class="btn btn-secondary btn-sm" style="padding:.15rem .4rem;" onclick="editPost('${p.id}')">✏️ Edit</button>
+            <button class="btn btn-danger btn-sm" style="padding:.15rem .4rem;" onclick="deletePost('${p.id}')">✕</button>
+          </div>
+        </div>
+        <div class="post-original">${p.has_image ? '📷 ' : ''}${p.original_text || '—'}</div>
+        ${p.rewritten_text ? `<div class="post-rewritten">${p.rewritten_text}</div>` : ''}
+      </div>
+    `).join('');
+  } catch { document.getElementById('posts-list').innerHTML = '<div class="empty-state"><p>Could not load posts</p></div>'; }
+}
+
+let currentSchedMode = 'times';
+
+function switchSchedMode(mode, skipSave) {
+  currentSchedMode = mode;
+  document.querySelectorAll('.sched-tab').forEach(t => t.classList.toggle('active', t.dataset.mode === mode));
+  document.querySelectorAll('.sched-panel').forEach(p => p.style.display = 'none');
+  const panel = document.getElementById('sched-mode-' + mode);
+  if (panel) panel.style.display = '';
+  if (!skipSave) saveSchedule();
+}
+
+async function loadSchedule() {
+  try {
+    const res = await fetch(`${BASE}/api/schedule/status`);
+    if (!res.ok) return;
+    const data = await res.json();
+    document.getElementById('schedule-enabled').checked = data.enabled;
+
+    const mode = data.mode || 'interval';
+    currentSchedMode = mode;
+    switchSchedMode(mode, true);
+
+    document.getElementById('schedule-times').value = data.times || '';
+    document.getElementById('schedule-interval').value = data.interval_hours || 4.0;
+    document.getElementById('burst-start').value = data.burst_start_time || '09:00';
+    document.getElementById('burst-count').value = data.burst_count || 4;
+    document.getElementById('burst-interval').value = data.burst_interval_minutes || 120;
+
+    let nextStr = 'None';
+    if (data.next_runs && data.next_runs.length > 0) {
+      nextStr = data.next_runs[0];
+    }
+    let extra = '';
+    if (mode === 'burst' && data.burst_remaining != null) {
+      extra = ` · ${data.burst_remaining} runs left today`;
+    }
+    document.getElementById('schedule-next-run').innerText = `Next run: ${nextStr}${extra}`;
+  } catch(e) {}
+}
+
+async function saveSchedule() {
+  const enabled = document.getElementById('schedule-enabled').checked;
+  const payload = { auto_schedule_enabled: enabled };
+
+  if (currentSchedMode === 'times') {
+    payload.schedule_times = document.getElementById('schedule-times').value;
+    payload.auto_schedule_interval_hours = parseFloat(document.getElementById('schedule-interval').value) || 4.0;
+    payload.schedule_burst_enabled = false;
+  } else if (currentSchedMode === 'interval') {
+    payload.auto_schedule_interval_hours = parseFloat(document.getElementById('schedule-interval').value) || 4.0;
+    payload.schedule_times = '';
+    payload.schedule_burst_enabled = false;
+  } else if (currentSchedMode === 'burst') {
+    payload.schedule_burst_enabled = true;
+    payload.schedule_burst_start_time = document.getElementById('burst-start').value || '09:00';
+    payload.schedule_burst_count = parseInt(document.getElementById('burst-count').value) || 4;
+    payload.schedule_burst_interval_minutes = parseFloat(document.getElementById('burst-interval').value) || 120;
+    payload.schedule_times = '';
+  }
+
+  try {
+    await API.put(`${BASE}/api/settings`, payload);
+    Toast.success('Schedule saved');
+    loadSchedule();
+  } catch (e) {
+    console.error('Schedule save error:', e);
+    Toast.error('Failed to save schedule: ' + (e.message || e));
+  }
+}
+
+async function deletePost(id) {
+  if(!confirm("Delete this post?")) return;
+  try {
+    await fetch(`${BASE}/api/posts/${id}`, { method: 'DELETE' });
+    loadPosts();
+    Toast.success('Post deleted');
+  } catch {}
+}
+
+init();
+loadSchedule();
+setInterval(loadSchedule, 30000);
+</script>
+{% endblock %}

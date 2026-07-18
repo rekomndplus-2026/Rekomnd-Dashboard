@@ -1,0 +1,263 @@
+{% extends "base.html" %}
+{% block title %}REKOMND+ — Dashboard{% endblock %}
+{% block meta_desc %}REKOMND+ unified real estate automation platform — manage all your tools in one place{% endblock %}
+
+{% block content %}
+<!-- Hero -->
+<div class="hero" style="background-image: url('/static/hero.png'); background-size: cover; background-position: center; position: relative;">
+<div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(11,15,26,.92) 0%,rgba(11,15,26,.75) 50%,rgba(11,15,26,.88) 100%);"></div>
+<div style="position:relative;z-index:1;">
+  <div class="hero-eyebrow">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+    Automation Suite
+  </div>
+  <h1>Your <span>Real Estate</span> Command Center</h1>
+  <p>All five automation tools unified under one premium interface. Scrape, post, comment, WhatsApp-blast, and track leads — all from REKOMND+.</p>
+  {% if current_user %}
+  <div style="display:inline-flex; align-items:center; gap:.75rem; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:var(--radius-full); padding:.5rem 1.25rem; font-size:.875rem;">
+    <div class="user-avatar-sm" style="background:{{ current_user.avatar_color }}; width:28px; height:28px; font-size:.7rem;">{{ current_user.initials }}</div>
+    Welcome back, <strong style="color:var(--text-primary);">{{ current_user.display_name }}</strong>
+  </div>
+  {% endif %}
+</div><!-- /z-index content -->
+</div><!-- /hero -->
+
+<!-- Stats -->
+<div class="section" style="padding-top: 2rem;">
+  <div class="stats-grid" id="stats-grid">
+    <div class="stat-card">
+      <div class="stat-icon" style="background: var(--accent-dim);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      </div>
+      <div class="stat-value" id="stat-gmaps">—</div>
+      <div class="stat-label">GMaps Businesses Scraped</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon" style="background: var(--blue-dim);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5"/></svg>
+      </div>
+      <div class="stat-value" id="stat-poster">—</div>
+      <div class="stat-label">Posts Published</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon" style="background: var(--purple-dim);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      </div>
+      <div class="stat-value" id="stat-commenter">—</div>
+      <div class="stat-label">Comments Posted</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon" style="background: var(--green-dim);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+      </div>
+      <div class="stat-value" id="stat-buyers">—</div>
+      <div class="stat-label">Buyer Leads Found</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon" style="background: var(--wa-dim);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--wa-green)" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+      </div>
+      <div class="stat-value" id="stat-whatsapp">—</div>
+      <div class="stat-label">WhatsApp Messages Sent</div>
+    </div>
+  </div>
+</div>
+
+<!-- Tools -->
+<div class="section" style="padding-top: 1rem;">
+  <div class="section-header">
+    <h2 class="section-title">🛠 Your Tools</h2>
+  </div>
+
+  <div class="tools-grid">
+    <!-- GMaps Scraper -->
+    <a href="/gmaps" class="tool-card" style="--card-accent: var(--accent);">
+      <div class="tool-icon" style="background: var(--accent-dim);">🗺️</div>
+      <div>
+        <h3>GMaps Scraper</h3>
+        <p>Scrape Google Maps businesses by keyword. Get names, ratings, phones, addresses and reviews — exported to CSV or Excel in one click.</p>
+      </div>
+      <div style="display:flex; gap:.5rem; flex-wrap:wrap;">
+        <span class="badge badge-accent">Live Streaming</span>
+        <span class="badge badge-muted">CSV / Excel Export</span>
+        <span class="badge badge-muted">SQLite Storage</span>
+      </div>
+      <div class="tool-arrow">→</div>
+    </a>
+
+    <!-- FB Auto Poster -->
+    <a href="/poster" class="tool-card" style="--card-accent: var(--blue);">
+      <div class="tool-icon" style="background: var(--blue-dim);">📢</div>
+      <div>
+        <h3>FB Auto Poster</h3>
+        <p>Listen to Telegram channels, rewrite posts with AI, and automatically publish to multiple Facebook groups on schedule.</p>
+      </div>
+      <div style="display:flex; gap:.5rem; flex-wrap:wrap;">
+        <span class="badge badge-blue">Telegram → FB</span>
+        <span class="badge badge-muted">OpenAI Rewrite</span>
+        <span class="badge badge-muted">Scheduler</span>
+      </div>
+      <div class="tool-arrow">→</div>
+    </a>
+
+    <!-- FB Commenter -->
+    <a href="/commenter" class="tool-card" style="--card-accent: var(--purple);">
+      <div class="tool-icon" style="background: var(--purple-dim);">💬</div>
+      <div>
+        <h3>FB Auto Commenter</h3>
+        <p>Scan Facebook groups for keyword-matching posts and automatically drop targeted comments to engage buyer leads.</p>
+      </div>
+      <div style="display:flex; gap:.5rem; flex-wrap:wrap;">
+        <span class="badge badge-purple">Keyword Match</span>
+        <span class="badge badge-muted">Multi-Group</span>
+        <span class="badge badge-muted">Smart Delays</span>
+      </div>
+      <div class="tool-arrow">→</div>
+    </a>
+
+    <!-- Buyer Leads -->
+    <a href="/buyers" class="tool-card" style="--card-accent: var(--green);">
+      <div class="tool-icon" style="background: var(--green-dim);">🏠</div>
+      <div>
+        <h3>Egypt Buyer Leads</h3>
+        <p>Scrape real estate buyer intent posts from Egyptian Facebook groups. Score leads by urgency, budget, and location.</p>
+      </div>
+      <div style="display:flex; gap:.5rem; flex-wrap:wrap;">
+        <span class="badge badge-green">Lead Scoring</span>
+        <span class="badge badge-muted">SQLite DB</span>
+        <span class="badge badge-muted">Excel Export</span>
+      </div>
+      <div class="tool-arrow">→</div>
+    </a>
+
+    <!-- WhatsApp Bulk Sender -->
+    <a href="/whatsapp" class="tool-card" style="--card-accent: var(--wa-green);">
+      <div class="tool-icon" style="background: var(--wa-dim);">📲</div>
+      <div>
+        <h3>WhatsApp Bulk Sender</h3>
+        <p>Send personalized WhatsApp messages at scale via Evolution API. Import contacts from Excel, scan QR code, and blast campaigns.</p>
+      </div>
+      <div style="display:flex; gap:.5rem; flex-wrap:wrap;">
+        <span class="badge badge-wa">QR Code Auth</span>
+        <span class="badge badge-muted">Excel Import</span>
+        <span class="badge badge-muted">Delivery Monitor</span>
+      </div>
+      <div class="tool-arrow">→</div>
+    </a>
+  </div>
+</div>
+
+<!-- Service status -->
+<div class="section" style="padding-top: 0.5rem;">
+  <div class="section-header">
+    <h2 class="section-title">🟢 Service Status</h2>
+    <button class="btn btn-secondary btn-sm" onclick="checkStatus()">Refresh</button>
+  </div>
+  <div class="card">
+    <div id="status-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:1rem;">
+      <div class="status-item" id="svc-gmaps">
+        <span class="status-pill status-idle"><span class="pulse-dot"></span> Checking…</span>
+        <span style="margin-left:.75rem; font-size:.85rem; color:var(--text-secondary);">GMaps API (:7070)</span>
+      </div>
+      <div class="status-item" id="svc-poster">
+        <span class="status-pill status-idle"><span class="pulse-dot"></span> Checking…</span>
+        <span style="margin-left:.75rem; font-size:.85rem; color:var(--text-secondary);">FB Poster (:5000)</span>
+      </div>
+      <div class="status-item" id="svc-commenter">
+        <span class="status-pill status-idle"><span class="pulse-dot"></span> Checking…</span>
+        <span style="margin-left:.75rem; font-size:.85rem; color:var(--text-secondary);">FB Commenter (:5001)</span>
+      </div>
+      <div class="status-item" id="svc-buyers">
+        <span class="status-pill status-idle"><span class="pulse-dot"></span> Checking…</span>
+        <span style="margin-left:.75rem; font-size:.85rem; color:var(--text-secondary);">Buyers API (:8000)</span>
+      </div>
+      <div class="status-item" id="svc-whatsapp">
+        <span class="status-pill status-idle"><span class="pulse-dot"></span> Checking…</span>
+        <span style="margin-left:.75rem; font-size:.85rem; color:var(--text-secondary);">WhatsApp (:3001)</span>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const POSTER_URL = "{{ POSTER_URL }}";
+const COMMENTER_URL = "{{ COMMENTER_URL }}";
+const BUYERS_URL = "{{ BUYERS_URL }}";
+const WHATSAPP_URL = "{{ WHATSAPP_URL }}";
+
+async function checkStatus() {
+  const checks = [
+    { id: 'svc-gmaps',     url: '/api/health',                      label: 'GMaps API (:7070)' },
+    { id: 'svc-poster',    url: `${POSTER_URL}/api/run/status`, label: 'FB Poster' },
+    { id: 'svc-commenter', url: `${COMMENTER_URL}/api/run/status`, label: 'FB Commenter' },
+    { id: 'svc-buyers',    url: `${BUYERS_URL}/api/stats`,   label: 'Buyers API' },
+    { id: 'svc-whatsapp',  url: `${WHATSAPP_URL}/api/health`,  label: 'WhatsApp' },
+  ];
+
+  for (const c of checks) {
+    const el = document.getElementById(c.id);
+    try {
+      const r = await fetch(c.url, { signal: AbortSignal.timeout(3000) });
+      const ok = r.ok;
+      el.innerHTML = `
+        <span class="status-pill ${ok ? 'status-done' : 'status-error'}">
+          <span class="pulse-dot"></span> ${ok ? 'Online' : 'Error ' + r.status}
+        </span>
+        <span style="margin-left:.75rem; font-size:.85rem; color:var(--text-secondary);">${c.label}</span>`;
+    } catch {
+      el.innerHTML = `
+        <span class="status-pill status-error">
+          <span class="pulse-dot"></span> Offline
+        </span>
+        <span style="margin-left:.75rem; font-size:.85rem; color:var(--text-secondary);">${c.label}</span>`;
+    }
+  }
+}
+
+async function loadStats() {
+  try {
+    const sessions = await API.get('/api/gmaps/sessions');
+    const total = sessions.reduce((s, r) => s + (r.row_count || 0), 0);
+    document.getElementById('stat-gmaps').textContent = total.toLocaleString();
+  } catch {}
+
+  try {
+    const r = await fetch(`${POSTER_URL}/api/run/status`, { signal: AbortSignal.timeout(2000) });
+    if (r.ok) {
+      const d = await r.json();
+      document.getElementById('stat-poster').textContent = (d.posts_posted || 0).toLocaleString();
+    }
+  } catch {}
+
+  try {
+    const r = await fetch(`${COMMENTER_URL}/api/run/status`, { signal: AbortSignal.timeout(2000) });
+    if (r.ok) {
+      const d = await r.json();
+      document.getElementById('stat-commenter').textContent = (d.comments_posted || 0).toLocaleString();
+    }
+  } catch {}
+
+  try {
+    const r = await fetch(`${BUYERS_URL}/api/stats`, { signal: AbortSignal.timeout(2000) });
+    if (r.ok) {
+      const d = await r.json();
+      document.getElementById('stat-buyers').textContent = (d.total_leads || 0).toLocaleString();
+    }
+  } catch {}
+
+  // WhatsApp stats — check backend monitor
+  try {
+    const r = await fetch(`${WHATSAPP_URL}/api/monitor/status`, { signal: AbortSignal.timeout(2000) });
+    if (r.ok) {
+      const d = await r.json();
+      document.getElementById('stat-whatsapp').textContent = (d.messages_sent || 0).toLocaleString();
+    }
+  } catch {}
+}
+
+checkStatus();
+loadStats();
+</script>
+{% endblock %}

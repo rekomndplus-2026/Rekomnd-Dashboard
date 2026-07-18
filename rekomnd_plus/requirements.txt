@@ -1,0 +1,12 @@
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+jinja2==3.1.4
+python-multipart==0.0.9
+httpx==0.27.0
+openpyxl==3.1.2
+aiofiles==23.2.1
+itsdangerous==2.1.2
+# GMaps scraper deps (inherited from gmaps-telegram-bot)
+playwright==1.44.0
+pydantic==2.7.1
+pydantic-settings==2.2.1

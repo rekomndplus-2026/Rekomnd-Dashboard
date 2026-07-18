@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In — REKOMND+</title>
+  <meta name="description" content="Sign in to REKOMND+ — Your unified real estate automation platform" />
+  <link rel="stylesheet" href="/static/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>" />
+  <style>
+    /* ── Auth page overrides ── */
+    body { overflow: hidden; }
+
+    .auth-bg {
+      position: fixed;
+      inset: 0;
+      background: var(--bg-base);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    /* Animated gradient blobs */
+    .auth-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.35;
+      animation: blobFloat 8s ease-in-out infinite;
+    }
+    .auth-blob-1 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(245,158,11,0.6), transparent 70%);
+      top: -10%; left: -10%;
+      animation-delay: 0s;
+    }
+    .auth-blob-2 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(99,102,241,0.6), transparent 70%);
+      bottom: -15%; right: -5%;
+      animation-delay: -3s;
+    }
+    .auth-blob-3 {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(16,185,129,0.5), transparent 70%);
+      top: 60%; left: 50%;
+      animation-delay: -5s;
+    }
+
+    @keyframes blobFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33%       { transform: translate(30px, -20px) scale(1.05); }
+      66%       { transform: translate(-20px, 15px) scale(0.95); }
+    }
+
+    /* Grid dots background */
+    .auth-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    /* Auth card */
+    .auth-container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 440px;
+      padding: 1rem;
+    }
+
+    .auth-card {
+      background: rgba(17, 24, 39, 0.85);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(245,158,11,0.05);
+    }
+
+    .auth-logo {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .auth-logo-text {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: var(--text-primary);
+    }
+    .auth-logo-text span { color: var(--accent); }
+
+    .auth-logo-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* Tab switcher */
+    .auth-tabs {
+      display: flex;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      padding: 4px;
+      margin-bottom: 2rem;
+    }
+
+    .auth-tab {
+      flex: 1;
+      padding: 0.6rem;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      font-weight: 600;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .auth-tab.active {
+      background: var(--accent);
+      color: #000;
+      box-shadow: 0 0 16px rgba(245,158,11,0.4);
+    }
+
+    /* Error / success alerts */
+    .auth-alert {
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius-md);
+      font-size: 0.875rem;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .auth-alert-error {
+      background: rgba(239,68,68,0.12);
+      border: 1px solid rgba(239,68,68,0.25);
+      color: #fca5a5;
+    }
+    .auth-alert-success {
+      background: rgba(16,185,129,0.12);
+      border: 1px solid rgba(16,185,129,0.25);
+      color: #6ee7b7;
+    }
+
+    /* Submit button */
+    .auth-btn {
+      width: 100%;
+      padding: 0.85rem;
+      background: linear-gradient(135deg, var(--accent), #fbbf24);
+      color: #000;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border: none;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+      margin-top: 0.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .auth-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent, rgba(255,255,255,0.15), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.4s;
+    }
+    .auth-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,158,11,0.4); }
+    .auth-btn:hover::before { transform: translateX(100%); }
+    .auth-btn:active { transform: translateY(0); }
+
+    /* Form enhancements */
+    .auth-form .form-control {
+      padding: 0.75rem 1rem;
+      font-size: 0.95rem;
+      border-radius: 10px;
+    }
+
+    .input-with-icon {
+      position: relative;
+    }
+    .input-with-icon .form-control {
+      padding-left: 2.75rem;
+    }
+    .input-icon {
+      position: absolute;
+      left: 0.9rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      width: 18px; height: 18px;
+      pointer-events: none;
+    }
+
+    .auth-footer {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    .auth-footer a {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* Panel switching */
+    .auth-panel { display: none; }
+    .auth-panel.active { display: block; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .auth-panel.active { animation: fadeInUp 0.3s ease; }
+  </style>
+</head>
+<body>
+
+<div class="auth-bg">
+  <div class="auth-grid"></div>
+  <div class="auth-blob auth-blob-1"></div>
+  <div class="auth-blob auth-blob-2"></div>
+  <div class="auth-blob auth-blob-3"></div>
+
+  <div class="auth-container">
+    <div class="auth-card">
+
+      <!-- Logo -->
+      <div class="auth-logo">
+        <div class="auth-logo-text">REKOMND<span>+</span></div>
+        <div class="auth-logo-sub">Real Estate Automation Platform</div>
+      </div>
+
+      <!-- Tab switcher -->
+      <div class="auth-tabs" role="tablist">
+        <button class="auth-tab {% if tab == 'login' or not tab %}active{% endif %}"
+                id="tab-login-btn" onclick="switchTab('login')" role="tab">
+          Sign In
+        </button>
+        <button class="auth-tab {% if tab == 'register' %}active{% endif %}"
+                id="tab-register-btn" onclick="switchTab('register')" role="tab">
+          Create Account
+        </button>
+      </div>
+
+      <!-- Error alert (shared) -->
+      {% if error %}
+      <div class="auth-alert auth-alert-error" role="alert">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        {{ error }}
+      </div>
+      {% endif %}
+
+      <!-- LOGIN PANEL -->
+      <div class="auth-panel {% if tab == 'login' or not tab %}active{% endif %}" id="panel-login">
+        <form method="POST" action="/login" class="auth-form">
+          <input type="hidden" name="next" value="{{ next or '/' }}" />
+
+          <div class="form-group">
+            <label class="form-label">Username</label>
+            <div class="input-with-icon">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+              </svg>
+              <input type="text" name="username" class="form-control" placeholder="Enter your username"
+                     autocomplete="username" required autofocus />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <div class="input-with-icon">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
+              </svg>
+              <input type="password" name="password" class="form-control" placeholder="Enter your password"
+                     autocomplete="current-password" required />
+            </div>
+          </div>
+
+          <button type="submit" class="auth-btn" id="login-submit-btn">
+            Sign In →
+          </button>
+        </form>
+
+        <div class="auth-footer">
+          Don't have an account?
+          <a href="#" onclick="switchTab('register'); return false;">Create one free</a>
+        </div>
+      </div>
+
+      <!-- REGISTER PANEL -->
+      <div class="auth-panel {% if tab == 'register' %}active{% endif %}" id="panel-register">
+        <form method="POST" action="/register" class="auth-form">
+
+          <div class="form-group">
+            <label class="form-label">Username <span style="color:var(--red)">*</span></label>
+            <div class="input-with-icon">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+              </svg>
+              <input type="text" name="username" class="form-control" placeholder="Choose a username"
+                     autocomplete="username" required minlength="3" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Display Name</label>
+            <div class="input-with-icon">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+              </svg>
+              <input type="text" name="display_name" class="form-control" placeholder="Your full name (optional)"
+                     autocomplete="name" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <div class="input-with-icon">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <input type="email" name="email" class="form-control" placeholder="Email address (optional)"
+                     autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Password <span style="color:var(--red)">*</span></label>
+            <div class="input-with-icon">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
+              </svg>
+              <input type="password" name="password" class="form-control" placeholder="Min 6 characters"
+                     autocomplete="new-password" required minlength="6" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Confirm Password <span style="color:var(--red)">*</span></label>
+            <div class="input-with-icon">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <input type="password" name="confirm_password" class="form-control" placeholder="Repeat your password"
+                     autocomplete="new-password" required />
+            </div>
+          </div>
+
+          <button type="submit" class="auth-btn">
+            Create Account →
+          </button>
+        </form>
+
+        <div class="auth-footer">
+          Already have an account?
+          <a href="#" onclick="switchTab('login'); return false;">Sign in</a>
+        </div>
+      </div>
+
+    </div><!-- /auth-card -->
+  </div><!-- /auth-container -->
+</div><!-- /auth-bg -->
+
+<script>
+  function switchTab(tab) {
+    document.querySelectorAll('.auth-tab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.auth-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('tab-' + tab + '-btn').classList.add('active');
+    document.getElementById('panel-' + tab).classList.add('active');
+  }
+
+  // Show register tab if URL has ?tab=register
+  const urlTab = new URLSearchParams(window.location.search).get('tab');
+  if (urlTab === 'register') switchTab('register');
+
+  // Loading state on submit
+  document.querySelectorAll('.auth-btn').forEach(btn => {
+    btn.closest('form')?.addEventListener('submit', () => {
+      btn.textContent = 'Please wait…';
+      btn.disabled = true;
+    });
+  });
+</script>
+</body>
+</html>

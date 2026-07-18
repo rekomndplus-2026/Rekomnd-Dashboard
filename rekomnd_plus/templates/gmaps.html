@@ -1,0 +1,637 @@
+{% extends "base.html" %}
+{% block title %}GMaps Scraper — REKOMND+{% endblock %}
+{% block meta_desc %}Scrape Google Maps businesses by keyword. Live streaming results with CSV and Excel export.{% endblock %}
+
+{% block head %}
+<style>
+.gmaps-layout { display: grid; grid-template-columns: 360px 1fr; gap: 1.5rem; }
+@media (max-width: 1024px) { .gmaps-layout { grid-template-columns: 1fr; } }
+
+.sessions-list { display: flex; flex-direction: column; gap: 0.5rem; max-height: 320px; overflow-y: auto; }
+.session-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.65rem 1rem;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition);
+  gap: 0.5rem;
+}
+.session-item:hover, .session-item.active {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}
+.session-item.active .session-query { color: var(--accent); }
+.session-query { font-size: 0.85rem; font-weight: 600; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.session-meta  { font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; }
+
+.scrape-progress {
+  display: none;
+  background: rgba(245,158,11,0.05);
+  border: 1px solid rgba(245,158,11,0.15);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+}
+.scrape-progress.visible { display: block; }
+.progress-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
+.progress-text { font-size: 0.85rem; color: var(--text-secondary); }
+
+.result-count-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.8rem;
+  background: var(--accent-dim);
+  border: 1px solid rgba(245,158,11,0.2);
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.phone-link { color: var(--green); font-family: monospace; }
+.website-link { color: var(--blue); }
+.maps-link { color: var(--purple); }
+.rating-val { color: var(--accent); font-weight: 700; }
+
+.filter-bar {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.filter-bar input {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.55rem 1rem;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.85rem;
+  outline: none;
+  transition: var(--transition);
+}
+.filter-bar input:focus { border-color: var(--border-focus); }
+.filter-bar input::placeholder { color: var(--text-muted); }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="section">
+  <!-- Header -->
+  <div class="section-header">
+    <div>
+      <h1 style="font-size:1.6rem; margin-bottom:.25rem;">🗺️ Google Maps Scraper</h1>
+      <p style="font-size:.9rem;">Search any keyword → live-stream business data → export to CSV or Excel</p>
+    </div>
+    <div style="display:flex; gap:.5rem; align-items:center;" id="session-export-btns" style="display:none;">
+      <button class="btn btn-secondary btn-sm" id="btn-export-csv" onclick="exportData('csv')" style="display:none;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        CSV
+      </button>
+      <button class="btn btn-secondary btn-sm" id="btn-export-xlsx" onclick="exportData('xlsx')" style="display:none;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Excel
+      </button>
+    </div>
+  </div>
+
+  <!-- Main grid -->
+  <div class="gmaps-layout">
+
+    <!-- Left: controls + sessions -->
+    <div style="display:flex; flex-direction:column; gap:1.25rem;">
+
+      <!-- Search card -->
+      <div class="card">
+        <div class="card-title" style="margin-bottom:1rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          New Scrape
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Search Query</label>
+          <input type="text" class="form-control" id="query-input"
+            placeholder="e.g. real estate agents in Cairo"
+            onkeydown="if(event.key==='Enter') startScrape()" />
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:.75rem; margin-bottom:1rem;">
+          <div class="form-group" style="margin-bottom:0;">
+            <label class="form-label">Max Businesses</label>
+            <select class="form-control" id="max-biz">
+              <option value="10">10</option>
+              <option value="25">25</option>
+              <option value="50" selected>50</option>
+              <option value="100">100</option>
+              <option value="200">200</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom:0;">
+            <label class="form-label">Max Reviews/Biz</label>
+            <select class="form-control" id="max-rev">
+              <option value="0">0 (skip)</option>
+              <option value="10">10</option>
+              <option value="20" selected>20</option>
+              <option value="50">50</option>
+              <option value="99999">All (Scrape till end)</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" style="width:100%;" id="btn-scrape" onclick="startScrape()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Start Scraping
+        </button>
+
+        <button class="btn btn-danger btn-sm" style="width:100%; margin-top:.5rem; display:none;" id="btn-stop" onclick="stopScrape()">
+          Stop
+        </button>
+      </div>
+
+      <!-- Progress -->
+      <div class="scrape-progress" id="scrape-progress">
+        <div class="progress-top">
+          <span class="status-pill status-running">
+            <span class="pulse-dot"></span>
+            <span id="progress-label">Scraping…</span>
+          </span>
+          <span class="result-count-badge">
+            <span id="result-count">0</span> found
+          </span>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar" id="progress-bar" style="width:5%;"></div>
+        </div>
+        <div class="progress-text" id="progress-biz" style="margin-top:.5rem;">Starting browser…</div>
+      </div>
+
+      <!-- Sessions -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Saved Sessions
+          </div>
+          <button class="btn btn-secondary btn-sm" onclick="loadSessions()">↻</button>
+        </div>
+        <div class="sessions-list" id="sessions-list">
+          <div class="empty-state" style="padding:1.5rem;">
+            <p>No sessions yet</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: results table -->
+    <div style="display:flex; flex-direction:column; gap:1rem;">
+      <div class="card" style="flex:1; min-height:500px;">
+        <div class="card-header">
+          <div class="card-title">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            Results
+            <span class="result-count-badge" id="table-count" style="display:none;">0</span>
+          </div>
+          <div style="display:flex; gap:.5rem;">
+            <input class="filter-bar" id="table-search" type="text" placeholder="🔍 Filter results…"
+              style="padding:.4rem .9rem; background:var(--bg-input); border:1px solid var(--border); border-radius:var(--radius-full); color:var(--text-primary); font-family:inherit; font-size:.82rem; outline:none;"
+              oninput="filterTable(this.value)" />
+            <button class="btn btn-secondary btn-sm" id="btn-export-csv2" onclick="exportData('csv')" style="display:none;">⬇ CSV</button>
+            <button class="btn btn-primary btn-sm"   id="btn-export-xlsx2" onclick="exportData('xlsx')" style="display:none;">⬇ Excel</button>
+          </div>
+        </div>
+
+        <div id="results-empty" class="empty-state">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <p>Enter a search query and click <strong>Start Scraping</strong><br>Results will appear here in real time</p>
+        </div>
+
+        <div class="table-wrapper" id="results-wrapper" style="display:none;">
+          <table class="data-table" id="results-table">
+            <thead>
+              <tr>
+                <th data-col="name">#  Name</th>
+                <th data-col="rating">Rating</th>
+                <th data-col="review_count">Reviews</th>
+                <th data-col="category">Category</th>
+                <th data-col="address">Address</th>
+                <th data-col="phone">Phone</th>
+                <th data-col="website">Website</th>
+                <th>Maps Link</th>
+                <th data-col="reviews_scraped">Rev. Scraped</th>
+              </tr>
+            </thead>
+            <tbody id="results-tbody">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Reviews Modal -->
+<div class="modal" id="reviews-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:1000; align-items:center; justify-content:center; backdrop-filter:blur(4px);">
+  <div class="card" style="width:90%; max-width:700px; max-height:85vh; display:flex; flex-direction:column; padding:0; background:var(--bg-surface); border:1px solid rgba(255,255,255,0.1); box-shadow:0 10px 40px rgba(0,0,0,0.8);">
+    <div class="card-header" style="border-bottom:1px solid var(--border); padding:1rem 1.5rem; display:flex; justify-content:space-between; align-items:center;">
+      <h3 style="margin:0; font-size:1.1rem; display:flex; align-items:center; gap:0.5rem;" id="reviews-modal-title">
+        ★ Reviews
+      </h3>
+      <button class="btn btn-secondary btn-sm" onclick="closeReviewsModal()" style="padding:.2rem .5rem;">✕</button>
+    </div>
+    <div id="reviews-modal-body" style="padding:1.5rem; overflow-y:auto; flex:1; display:flex; flex-direction:column; gap:1rem;">
+      <!-- Content injected here -->
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+let currentSessionId = null;
+let currentAbortController = null;   // ← AbortController for the active fetch
+let allRows = [];
+let rowIndex = 0;
+
+// ── Sessions ────────────────────────────────────────────
+async function loadSessions() {
+  try {
+    const sessions = await API.get('/api/gmaps/sessions');
+    const el = document.getElementById('sessions-list');
+    if (!sessions.length) {
+      el.innerHTML = '<div class="empty-state" style="padding:1.5rem;"><p>No sessions yet</p></div>';
+      return;
+    }
+    el.innerHTML = sessions.map(s => `
+      <div class="session-item ${s.id === currentSessionId ? 'active' : ''}"
+           onclick="loadSession('${s.id}')"
+           data-id="${s.id}">
+        <div>
+          <div class="session-query" title="${s.query}">${s.query}</div>
+          <div class="session-meta">${new Date(s.created_at).toLocaleDateString()} · ${s.row_count} businesses</div>
+        </div>
+        <button class="btn btn-danger btn-sm" style="padding:.25rem .5rem; flex-shrink:0;"
+          onclick="event.stopPropagation(); deleteSession('${s.id}')">✕</button>
+      </div>
+    `).join('');
+  } catch(e) {
+    Toast.error('Could not load sessions: ' + e.message);
+  }
+}
+
+async function loadSession(sid) {
+  currentSessionId = sid;
+  document.querySelectorAll('.session-item').forEach(el => {
+    el.classList.toggle('active', el.dataset.id === sid);
+  });
+  try {
+    const rows = await API.get(`/api/gmaps/results/${sid}`);
+    allRows = rows;
+    renderTable(rows);
+    showExportBtns();
+  } catch(e) {
+    Toast.error('Failed to load session: ' + e.message);
+  }
+}
+
+async function deleteSession(sid) {
+  if (!confirm('Delete this session and all its results?')) return;
+  try {
+    await API.del(`/api/gmaps/sessions/${sid}`);
+    if (currentSessionId === sid) {
+      currentSessionId = null;
+      clearTable();
+      hideExportBtns();
+    }
+    loadSessions();
+    Toast.success('Session deleted');
+  } catch(e) {
+    Toast.error(e.message);
+  }
+}
+
+// ── Table rendering ─────────────────────────────────────
+function makeReviewsLink(row) {
+  if (row.reviews_scraped && row.reviews_scraped > 0) {
+    return `<button onclick="viewReviews('${row.id}', \`${(row.name||'').replace(/`/g,"'")}\`)"
+              class="btn btn-secondary btn-sm"
+              style="color:var(--accent);font-weight:700;padding:.2rem .5rem;"
+              title="View scraped reviews">
+              ★ ${row.reviews_scraped} reviews ↗
+            </button>`;
+  }
+  if (row.review_count && row.maps_url) {
+    return `<a href="${row.maps_url}" target="_blank"
+              style="color:var(--text-muted);font-size:.8rem;text-decoration:none;"
+              title="View on Google Maps">
+              ${fmtNum(row.review_count)} on Maps ↗
+            </a>`;
+  }
+  return '<span style="color:var(--text-muted);">—</span>';
+}
+
+async function viewReviews(resultId, bizName) {
+  const modal = document.getElementById('reviews-modal');
+  const title = document.getElementById('reviews-modal-title');
+  const body = document.getElementById('reviews-modal-body');
+  
+  title.textContent = `★ Reviews for ${bizName}`;
+  body.innerHTML = '<div style="text-align:center; padding:2rem; color:var(--text-muted);">Loading reviews...</div>';
+  modal.style.display = 'flex';
+
+  try {
+    const reviews = await API.get(`/api/gmaps/reviews/${resultId}`);
+    if (!reviews || !reviews.length) {
+      body.innerHTML = '<div style="text-align:center; padding:2rem; color:var(--text-muted);">No reviews scraped for this business.</div>';
+      return;
+    }
+
+    body.innerHTML = reviews.map(r => `
+      <div style="background:var(--bg-input); padding:1rem; border-radius:var(--radius-md); border:1px solid var(--border);">
+        <div style="display:flex; justify-content:space-between; margin-bottom:.5rem;">
+          <div style="font-weight:600; color:var(--text-primary);">${r.author || 'Anonymous'}</div>
+          <div style="color:var(--text-muted); font-size:.8rem;">${r.date || ''}</div>
+        </div>
+        <div style="color:var(--accent); font-weight:700; margin-bottom:.5rem;">
+          ${'★'.repeat(r.rating || 0)}${'☆'.repeat(5 - (r.rating || 0))}
+        </div>
+        <div style="color:var(--text-secondary); font-size:.9rem; line-height:1.4;">
+          ${r.text || '<span style="color:var(--text-muted);font-style:italic;">No text provided</span>'}
+        </div>
+        ${r.likes ? `<div style="margin-top:.5rem; color:var(--text-muted); font-size:.8rem;">👍 ${r.likes}</div>` : ''}
+      </div>
+    `).join('');
+  } catch (e) {
+    body.innerHTML = `<div style="color:var(--red); padding:1rem;">Failed to load reviews: ${e.message}</div>`;
+  }
+}
+
+function closeReviewsModal() {
+  document.getElementById('reviews-modal').style.display = 'none';
+}
+
+function renderTable(rows) {
+  const tbody   = document.getElementById('results-tbody');
+  const wrapper = document.getElementById('results-wrapper');
+  const empty   = document.getElementById('results-empty');
+  const countBadge = document.getElementById('table-count');
+
+  if (!rows.length) {
+    wrapper.style.display = 'none';
+    empty.style.display   = '';
+    countBadge.style.display = 'none';
+    hideExportBtns();
+    return;
+  }
+
+  wrapper.style.display    = '';
+  empty.style.display      = 'none';
+  countBadge.style.display = '';
+  countBadge.textContent   = rows.length;
+
+  tbody.innerHTML = rows.map((r, i) => `
+    <tr data-name="${(r.name||'').toLowerCase()}"
+        data-category="${(r.category||'').toLowerCase()}"
+        data-address="${(r.address||'').toLowerCase()}"
+        data-rating="${r.rating || 0}"
+        data-review_count="${r.review_count || 0}"
+        data-reviews_scraped="${r.reviews_scraped || 0}">
+      <td title="${r.name || ''}">${i+1}. ${trunc(r.name, 28)}</td>
+      <td>
+        ${r.rating
+          ? `<span style="color:var(--accent);font-weight:700;">★ ${r.rating}</span>`
+          : '—'}
+      </td>
+      <td>${r.review_count ? fmtNum(r.review_count) : '—'}</td>
+      <td><span class="badge badge-muted">${trunc(r.category, 20) || '—'}</span></td>
+      <td title="${r.address || ''}">${trunc(r.address, 30) || '—'}</td>
+      <td>${r.phone
+        ? `<a href="tel:${r.phone}" class="phone-link">${r.phone}</a>`
+        : '—'}</td>
+      <td>${r.website
+        ? `<a href="${r.website}" target="_blank" class="website-link"
+              title="${r.website}">🔗 ${trunc(r.website.replace(/https?:\/\//, ''), 22)}</a>`
+        : '—'}</td>
+      <td>${r.maps_url
+        ? `<a href="${r.maps_url}" target="_blank" class="maps-link">📍 Maps</a>`
+        : '—'}</td>
+      <td>${makeReviewsLink(r)}</td>
+    </tr>
+  `).join('');
+
+  makeSortable(document.getElementById('results-table'));
+}
+
+function appendRow(row) {
+  const tbody   = document.getElementById('results-tbody');
+  const wrapper = document.getElementById('results-wrapper');
+  const empty   = document.getElementById('results-empty');
+  const countBadge = document.getElementById('table-count');
+
+  wrapper.style.display = '';
+  empty.style.display   = 'none';
+
+  rowIndex++;
+  const tr = document.createElement('tr');
+  tr.dataset.name          = (row.name || '').toLowerCase();
+  tr.dataset.category      = (row.category || '').toLowerCase();
+  tr.dataset.address       = (row.address || '').toLowerCase();
+  tr.dataset.rating        = row.rating || 0;
+  tr.dataset.review_count  = row.review_count || 0;
+  tr.dataset.reviews_scraped = row.reviews_scraped || 0;
+  tr.innerHTML = `
+    <td title="${row.name || ''}">${rowIndex}. ${trunc(row.name, 28)}</td>
+    <td>${row.rating
+      ? `<span style="color:var(--accent);font-weight:700;">★ ${row.rating}</span>`
+      : '—'}</td>
+    <td>${row.review_count ? fmtNum(row.review_count) : '—'}</td>
+    <td><span class="badge badge-muted">${trunc(row.category, 20) || '—'}</span></td>
+    <td title="${row.address || ''}">${trunc(row.address, 30) || '—'}</td>
+    <td>${row.phone
+      ? `<a href="tel:${row.phone}" class="phone-link">${row.phone}</a>`
+      : '—'}</td>
+    <td>${row.website
+      ? `<a href="${row.website}" target="_blank" class="website-link"
+            title="${row.website}">🔗 ${trunc(row.website.replace(/https?:\/\//, ''), 22)}</a>`
+      : '—'}</td>
+    <td>${row.maps_url
+      ? `<a href="${row.maps_url}" target="_blank" class="maps-link">📍 Maps</a>`
+      : '—'}</td>
+    <td>${makeReviewsLink(row)}</td>`;
+  tbody.appendChild(tr);
+  tr.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+  countBadge.style.display = '';
+  countBadge.textContent   = rowIndex;
+}
+
+function clearTable() {
+  document.getElementById('results-tbody').innerHTML = '';
+  document.getElementById('results-wrapper').style.display = 'none';
+  document.getElementById('results-empty').style.display   = '';
+  document.getElementById('table-count').style.display     = 'none';
+  allRows   = [];
+  rowIndex  = 0;
+}
+
+function filterTable(q) {
+  document.querySelectorAll('#results-tbody tr').forEach(tr => {
+    const lq = q.toLowerCase();
+    const match = tr.dataset.name.includes(lq) ||
+                  tr.dataset.category.includes(lq) ||
+                  tr.dataset.address.includes(lq);
+    tr.style.display = match ? '' : 'none';
+  });
+}
+
+// ── Scraping (AbortController-based) ────────────────────
+async function startScrape() {
+  const query = document.getElementById('query-input').value.trim();
+  if (!query) { Toast.error('Please enter a search query'); return; }
+  if (currentAbortController) { Toast.info('A scrape is already running'); return; }
+
+  const maxBiz = parseInt(document.getElementById('max-biz').value);
+  const maxRev = parseInt(document.getElementById('max-rev').value);
+
+  clearTable();
+  hideExportBtns();
+  currentSessionId = null;
+
+  // Progress UI
+  const progress = document.getElementById('scrape-progress');
+  progress.classList.add('visible');
+  document.getElementById('progress-label').textContent = 'Scraping…';
+  document.getElementById('progress-biz').textContent   = 'Starting Playwright browser…';
+  document.getElementById('result-count').textContent   = '0';
+  document.getElementById('progress-bar').style.width   = '3%';
+  document.getElementById('btn-scrape').disabled        = true;
+  document.getElementById('btn-stop').style.display     = '';
+
+  // ← AbortController lets the Stop button cancel mid-stream
+  currentAbortController = new AbortController();
+  const signal = currentAbortController.signal;
+  let count = 0;
+
+  try {
+    const response = await fetch('/api/gmaps/search', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ query, max_businesses: maxBiz, max_reviews: maxRev }),
+      signal,
+    });
+
+    if (!response.ok) {
+      const err = await response.json().catch(() => ({}));
+      throw new Error(err.error || `HTTP ${response.status}`);
+    }
+
+    const reader  = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+
+      buffer += decoder.decode(value, { stream: true });
+      const parts = buffer.split('\n\n');
+      buffer = parts.pop();
+
+      for (const part of parts) {
+        let event = '', data = '';
+        for (const line of part.split('\n')) {
+          if (line.startsWith('event: ')) event = line.slice(7).trim();
+          if (line.startsWith('data: '))  data  = line.slice(6).trim();
+        }
+        if (!data) continue;
+
+        let payload;
+        try { payload = JSON.parse(data); } catch { continue; }
+
+        if (event === 'session_start') {
+          currentSessionId = payload.session_id;
+
+        } else if (event === 'business') {
+          count++;
+          appendRow(payload);
+          document.getElementById('result-count').textContent = count;
+          document.getElementById('progress-biz').textContent = `Last: ${payload.name}`;
+          const pct = Math.min(95, 5 + Math.round(count / maxBiz * 90));
+          document.getElementById('progress-bar').style.width = pct + '%';
+
+        } else if (event === 'error') {
+          Toast.error('Scraper: ' + payload.message);
+
+        } else if (event === 'done') {
+          document.getElementById('progress-bar').style.width  = '100%';
+          document.getElementById('progress-label').textContent = 'Done!';
+          document.getElementById('progress-biz').textContent  = `Scraped ${payload.count} businesses`;
+          Toast.success(`✅ Done! Found ${payload.count} businesses`);
+          showExportBtns();
+          loadSessions();
+        }
+      }
+    }
+
+  } catch(e) {
+    if (e.name === 'AbortError') {
+      Toast.info('⏹ Scrape stopped by user');
+      document.getElementById('progress-label').textContent = 'Stopped';
+    } else {
+      Toast.error('Scrape failed: ' + e.message);
+    }
+  } finally {
+    currentAbortController = null;
+    document.getElementById('btn-scrape').disabled    = false;
+    document.getElementById('btn-stop').style.display = 'none';
+    // Keep export buttons if we have a session
+    if (currentSessionId) showExportBtns();
+    setTimeout(() => {
+      document.getElementById('scrape-progress').classList.remove('visible');
+    }, 4000);
+  }
+}
+
+// ← Now this actually works — aborts the fetch immediately
+function stopScrape() {
+  if (currentAbortController) {
+    currentAbortController.abort();
+    currentAbortController = null;
+  }
+}
+
+// ── Export ──────────────────────────────────────────────
+function exportData(fmt) {
+  if (!currentSessionId) {
+    Toast.error('No session selected — run a search or click a saved session first');
+    return;
+  }
+  const url = `/api/gmaps/export/${currentSessionId}?format=${fmt}`;
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = '';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  Toast.success(`⬇ Downloading ${fmt.toUpperCase()}…`);
+}
+
+function showExportBtns() {
+  document.getElementById('btn-export-csv2').style.display  = '';
+  document.getElementById('btn-export-xlsx2').style.display = '';
+}
+function hideExportBtns() {
+  document.getElementById('btn-export-csv2').style.display  = 'none';
+  document.getElementById('btn-export-xlsx2').style.display = 'none';
+}
+
+// ── Init ────────────────────────────────────────────────
+loadSessions();
+</script>
+{% endblock %}
+

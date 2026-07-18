@@ -1,0 +1,10 @@
+services:
+  bot:
+    build: .
+    container_name: gmaps_scraper_bot_v1
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      # Mount the Google Service Account credentials directly
+      - ./google_credentials.json:/app/google_credentials.json:ro

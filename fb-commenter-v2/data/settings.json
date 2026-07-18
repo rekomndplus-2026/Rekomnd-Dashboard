@@ -1,0 +1,16 @@
+{
+  "comment_min_delay": 30,
+  "comment_max_delay": 90,
+  "max_posts_per_group": 10,
+  "search_comments": true,
+  "comment_depth": 3,
+  "telegram_bot_token": "",
+  "telegram_chat_id": "",
+  "session_file": "data/fb_session.json",
+  "headless": true,
+  "session_file_path": "C:\\projects\\fb-commenter-v2\\data\\fb_session.json",
+  "auto_schedule_enabled": true,
+  "auto_schedule_interval_hours": 6,
+  "schedule_times": "",
+  "schedule_burst_enabled": false
+}

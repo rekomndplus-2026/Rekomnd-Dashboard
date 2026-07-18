@@ -1,0 +1,11 @@
+flask>=3.0.0
+flask-cors>=4.0.0
+playwright>=1.44.0
+telethon>=1.34.0
+openai>=1.30.0
+python-dotenv>=1.0.0
+requests>=2.31.0
+
+gunicorn
+
+Flask-Cors

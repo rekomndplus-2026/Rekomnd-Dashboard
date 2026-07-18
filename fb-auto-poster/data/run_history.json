@@ -1,0 +1,264 @@
+[
+  {
+    "started_at": "2026-07-15T13:21:15.927542+00:00",
+    "ended_at": "2026-07-15T13:23:29.890573+00:00",
+    "groups_processed": 1,
+    "posts_rewritten": 0,
+    "posts_posted": 1,
+    "posts_failed": 0,
+    "errors": [],
+    "id": "4a2e6f6bff68"
+  },
+  {
+    "started_at": "2026-07-15T13:14:04.155233+00:00",
+    "ended_at": "2026-07-15T13:14:55.151829+00:00",
+    "groups_processed": 1,
+    "posts_rewritten": 1,
+    "posts_posted": 0,
+    "posts_failed": 1,
+    "errors": [
+      "Data analysis and SPSS: Unexpected error during posting: Page.goto: Timeout 40000ms exceeded.\nCall log:\n  - navigating to \"https://www.facebook.com/groups/1522275227985056\", waiting until \"domcontentloaded\"\n"
+    ],
+    "id": "f30ed6e9e28d"
+  },
+  {
+    "started_at": "2026-07-04T17:39:36.589292+00:00",
+    "ended_at": "2026-07-04T17:42:17.067455+00:00",
+    "groups_processed": 1,
+    "posts_rewritten": 0,
+    "posts_posted": 1,
+    "posts_failed": 0,
+    "errors": [],
+    "id": "1ef1e567face"
+  },
+  {
+    "started_at": "2026-07-04T17:28:58.276599+00:00",
+    "ended_at": "2026-07-04T17:33:44.342705+00:00",
+    "groups_processed": 1,
+    "posts_rewritten": 0,
+    "posts_posted": 1,
+    "posts_failed": 0,
+    "errors": [],
+    "id": "b89ecc7fb9aa"
+  },
+  {
+    "started_at": "2026-06-24T13:07:33.899114+00:00",
+    "ended_at": "2026-06-24T13:11:43.407609+00:00",
+    "groups_processed": 1,
+    "posts_rewritten": 1,
+    "posts_posted": 1,
+    "posts_failed": 0,
+    "errors": [],
+    "id": "114784fd7edd"
+  },
+  {
+    "started_at": "2026-06-24T12:59:46.729741+00:00",
+    "ended_at": "2026-06-24T13:02:55.570277+00:00",
+    "groups_processed": 1,
+    "posts_rewritten": 1,
+    "posts_posted": 1,
+    "posts_failed": 0,
+    "errors": [],
+    "id": "b2c7bca93f5d"
+  },
+  {
+    "started_at": "2026-06-24T12:34:48.114255+00:00",
+    "ended_at": "2026-06-24T12:40:19.477480+00:00",
+    "groups_processed": 1,
+    "posts_rewritten": 1,
+    "posts_posted": 1,
+    "posts_failed": 0,
+    "errors": [],
+    "id": "5f961cb2e834"
+  },
+  {
+    "started_at": "2026-06-24T12:22:35.205840+00:00",
+    "ended_at": "2026-06-24T12:27:30.802411+00:00",
+    "groups_processed": 1,
+    "posts_rewritten": 1,
+    "posts_posted": 1,
+    "posts_failed": 0,
+    "errors": [],
+    "id": "facfdd8c1a50"
+  },
+  {
+    "started_at": "2026-06-24T12:04:33.107644+00:00",
+    "ended_at": "2026-06-24T12:08:26.779217+00:00",
+    "groups_processed": 1,
+    "posts_rewritten": 1,
+    "posts_posted": 1,
+    "posts_failed": 0,
+    "errors": [],
+    "id": "d80c3a76ffe1"
+  },
+  {
+    "started_at": "2026-06-24T11:58:46.803837+00:00",
+    "ended_at": "2026-06-24T12:03:09.754197+00:00",
+    "groups_processed": 1,
+    "posts_rewritten": 1,
+    "posts_posted": 1,
+    "posts_failed": 0,
+    "errors": [],
+    "id": "42467029141b"
+  },
+  {
+    "started_at": "2026-06-24T11:40:20.284676+00:00",
+    "ended_at": "2026-06-24T11:44:10.034132+00:00",
+    "groups_processed": 1,
+    "posts_rewritten": 1,
+    "posts_posted": 1,
+    "posts_failed": 0,
+    "errors": [],
+    "id": "c8608f5749c1"
+  },
+  {
+    "started_at": "2026-06-24T11:32:20.370441+00:00",
+    "ended_at": "2026-06-24T11:37:06.407643+00:00",
+    "groups_processed": 1,
+    "posts_rewritten": 1,
+    "posts_posted": 1,
+    "posts_failed": 0,
+    "errors": [],
+    "id": "9f4e5eaa2838"
+  },
+  {
+    "started_at": "2026-06-24T11:20:26.000313+00:00",
+    "ended_at": "2026-06-24T11:29:21.396706+00:00",
+    "groups_processed": 1,
+    "posts_rewritten": 2,
+    "posts_posted": 2,
+    "posts_failed": 0,
+    "errors": [],
+    "id": "82fcc9ea2fc2"
+  },
+  {
+    "started_at": "2026-06-24T10:53:02.696824+00:00",
+    "ended_at": "2026-06-24T10:57:31.304015+00:00",
+    "groups_processed": 1,
+    "posts_rewritten": 1,
+    "posts_posted": 1,
+    "posts_failed": 0,
+    "errors": [],
+    "id": "c2859729c695"
+  },
+  {
+    "started_at": "2026-06-24T08:58:06.298762+00:00",
+    "ended_at": "2026-06-24T09:02:12.202828+00:00",
+    "groups_processed": 1,
+    "posts_rewritten": 0,
+    "posts_posted": 1,
+    "posts_failed": 0,
+    "errors": [],
+    "id": "46250dbcfbf0"
+  },
+  {
+    "started_at": "2026-06-24T08:44:49.197395+00:00",
+    "ended_at": "2026-06-24T08:48:59.639852+00:00",
+    "groups_processed": 1,
+    "posts_rewritten": 0,
+    "posts_posted": 1,
+    "posts_failed": 0,
+    "errors": [],
+    "id": "565ce3c0cba3"
+  },
+  {
+    "started_at": "2026-06-24T08:32:28.077940+00:00",
+    "ended_at": "2026-06-24T08:36:13.680764+00:00",
+    "groups_processed": 1,
+    "posts_rewritten": 0,
+    "posts_posted": 1,
+    "posts_failed": 0,
+    "errors": [],
+    "id": "a437c6ab18bf"
+  },
+  {
+    "started_at": "2026-06-24T08:20:27.836115+00:00",
+    "ended_at": "2026-06-24T08:23:52.342242+00:00",
+    "groups_processed": 1,
+    "posts_rewritten": 0,
+    "posts_posted": 1,
+    "posts_failed": 0,
+    "errors": [],
+    "id": "4fdd0e55a22f"
+  },
+  {
+    "started_at": "2026-06-24T08:14:20.616591+00:00",
+    "ended_at": "2026-06-24T08:18:54.081988+00:00",
+    "groups_processed": 1,
+    "posts_rewritten": 0,
+    "posts_posted": 1,
+    "posts_failed": 0,
+    "errors": [],
+    "id": "3e3fd1673e83"
+  },
+  {
+    "started_at": "2026-06-24T07:34:47.320690+00:00",
+    "ended_at": "2026-06-24T07:38:46.181356+00:00",
+    "groups_processed": 1,
+    "posts_rewritten": 0,
+    "posts_posted": 1,
+    "posts_failed": 0,
+    "errors": [],
+    "id": "60953adc8cb5"
+  },
+  {
+    "started_at": "2026-06-24T07:30:18.463194+00:00",
+    "ended_at": "2026-06-24T07:33:09.236907+00:00",
+    "groups_processed": 1,
+    "posts_rewritten": 0,
+    "posts_posted": 1,
+    "posts_failed": 0,
+    "errors": [],
+    "id": "47720ecb8101"
+  },
+  {
+    "started_at": "2026-06-24T07:19:32.995515+00:00",
+    "ended_at": "2026-06-24T07:23:20.882183+00:00",
+    "groups_processed": 1,
+    "posts_rewritten": 1,
+    "posts_posted": 1,
+    "posts_failed": 0,
+    "errors": [],
+    "id": "fba6abe47833"
+  },
+  {
+    "started_at": "2026-06-24T07:08:49.105490+00:00",
+    "ended_at": "2026-06-24T07:13:47.214854+00:00",
+    "groups_processed": 1,
+    "posts_rewritten": 0,
+    "posts_posted": 1,
+    "posts_failed": 0,
+    "errors": [],
+    "id": "dded9f6ad5f5"
+  },
+  {
+    "started_at": "2026-06-24T06:59:58.626860+00:00",
+    "ended_at": "2026-06-24T07:05:10.318446+00:00",
+    "groups_processed": 1,
+    "posts_rewritten": 0,
+    "posts_posted": 1,
+    "posts_failed": 0,
+    "errors": [],
+    "id": "ba5f54f740e8"
+  },
+  {
+    "started_at": "2026-06-24T06:58:18.451150+00:00",
+    "ended_at": null,
+    "groups_processed": 0,
+    "posts_rewritten": 0,
+    "posts_posted": 0,
+    "posts_failed": 0,
+    "errors": [],
+    "id": "77dd33fb84a1"
+  },
+  {
+    "started_at": "2026-06-24T06:48:04.594812+00:00",
+    "ended_at": "2026-06-24T06:53:38.072421+00:00",
+    "groups_processed": 1,
+    "posts_rewritten": 0,
+    "posts_posted": 1,
+    "posts_failed": 0,
+    "errors": [],
+    "id": "ea723c98c6f5"
+  }
+]

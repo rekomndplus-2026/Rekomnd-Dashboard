@@ -1,0 +1,2022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FB Auto Poster</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Colors */
+            --bg-base: #0a0a1a;
+            --bg-card: rgba(18, 18, 42, 0.7);
+            --bg-card-hover: rgba(28, 28, 62, 0.8);
+            --bg-input: rgba(10, 10, 26, 0.8);
+            
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            
+            --accent-primary: #6366f1;
+            --accent-hover: #4f46e5;
+            --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            
+            --success: #22c55e;
+            --success-bg: rgba(34, 197, 94, 0.1);
+            --warning: #f59e0b;
+            --warning-bg: rgba(245, 158, 11, 0.1);
+            --error: #ef4444;
+            --error-bg: rgba(239, 68, 68, 0.1);
+            --info: #3b82f6;
+            --info-bg: rgba(59, 130, 246, 0.1);
+            
+            --border: rgba(255, 255, 255, 0.08);
+            
+            /* Typography */
+            --font-sans: 'Inter', system-ui, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            
+            /* Effects */
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-full: 9999px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            line-height: 1.5;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Background Orbs */
+        .bg-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            animation: float 20s infinite ease-in-out alternate;
+        }
+
+        .orb-1 {
+            top: -10%;
+            left: -10%;
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            bottom: -20%;
+            right: -10%;
+            width: 60vw;
+            height: 60vw;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+            animation-delay: -5s;
+        }
+
+        .orb-3 {
+            top: 40%;
+            left: 30%;
+            width: 40vw;
+            height: 40vw;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(5%, 5%) scale(1.1); }
+        }
+
+        /* Layout */
+        .app-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            top: 0;
+            z-index: 100;
+            transition: var(--transition);
+        }
+
+        .sidebar-header {
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--accent-gradient);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+        }
+
+        .logo-text {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-menu {
+            padding: 24px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex-grow: 1;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .nav-item:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-item.active {
+            color: var(--text-primary);
+            background: rgba(99, 102, 241, 0.1);
+            border-color: rgba(99, 102, 241, 0.2);
+            box-shadow: inset 4px 0 0 var(--accent-primary);
+        }
+
+        .nav-icon {
+            font-size: 18px;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex-grow: 1;
+            margin-left: 260px;
+            padding: 0 32px 32px 32px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .header {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 26, 0.8);
+            backdrop-filter: blur(12px);
+            z-index: 90;
+            margin: 0 -32px 32px -32px;
+            padding: 0 32px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .page-title {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Cards & Containers */
+        .glass-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            outline: none;
+        }
+
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: white;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-danger {
+            background: var(--error-bg);
+            color: var(--error);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .btn-danger:hover {
+            background: rgba(239, 68, 68, 0.2);
+        }
+        
+        .btn-icon {
+            padding: 8px;
+            border-radius: var(--radius-sm);
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .btn-icon:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-success { background: var(--success-bg); color: var(--success); border: 1px solid rgba(34, 197, 94, 0.2); }
+        .badge-warning { background: var(--warning-bg); color: var(--warning); border: 1px solid rgba(245, 158, 11, 0.2); }
+        .badge-error { background: var(--error-bg); color: var(--error); border: 1px solid rgba(239, 68, 68, 0.2); }
+        .badge-info { background: var(--info-bg); color: var(--info); border: 1px solid rgba(59, 130, 246, 0.2); }
+
+        /* Forms */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Toggle Switch */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border);
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 3px;
+            bottom: 3px;
+            background-color: var(--text-secondary);
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background: var(--accent-gradient);
+            border-color: transparent;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(20px);
+            background-color: white;
+        }
+
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            background: rgba(10, 10, 26, 0.4);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            padding: 16px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        td {
+            padding: 16px;
+            font-size: 14px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Terminal */
+        .terminal {
+            background: #1a1a2e;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 400px;
+        }
+
+        .terminal-header {
+            background: #121220;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid #2a2a40;
+        }
+
+        .term-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .term-dot.r { background: #ff5f56; }
+        .term-dot.y { background: #ffbd2e; }
+        .term-dot.g { background: #27c93f; }
+
+        .terminal-body {
+            padding: 16px;
+            overflow-y: auto;
+            flex-grow: 1;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            line-height: 1.6;
+            color: #a9b7c6;
+        }
+
+        .log-line { margin-bottom: 4px; word-wrap: break-word; }
+        .log-time { color: #6272a4; margin-right: 8px; }
+        .log-info { color: #f8f8f2; }
+        .log-warning { color: #f1fa8c; }
+        .log-error { color: #ff5555; }
+        .log-debug { color: #6272a4; }
+
+        /* Dashboard Grid */
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 24px;}
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-bottom: 24px;}
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            margin-top: 8px;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Modals */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 500px;
+            padding: 24px;
+            box-shadow: var(--shadow);
+            transform: scale(0.95);
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+        
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        /* Toasts */
+        .toast-container {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .toast {
+            padding: 16px 20px;
+            border-radius: var(--radius-md);
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent-primary);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            color: white;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: slideIn 0.3s ease forwards;
+            max-width: 350px;
+        }
+
+        .toast.success { border-left-color: var(--success); }
+        .toast.error { border-left-color: var(--error); }
+        .toast.warning { border-left-color: var(--warning); }
+        .toast.info { border-left-color: var(--info); }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Utilities */
+        .hidden { display: none !important; }
+        .flex { display: flex; }
+        .justify-between { justify-content: space-between; }
+        .items-center { align-items: center; }
+        .gap-2 { gap: 8px; }
+        .gap-4 { gap: 16px; }
+        .mt-4 { margin-top: 16px; }
+        .mb-4 { margin-bottom: 16px; }
+        .mb-6 { margin-bottom: 24px; }
+        .text-sm { font-size: 14px; }
+        .text-muted { color: var(--text-muted); }
+
+        /* Filter Tabs */
+        .filter-tabs {
+            display: flex;
+            gap: 8px;
+            background: rgba(10, 10, 26, 0.4);
+            padding: 4px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+        
+        .filter-tab {
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        
+        .filter-tab:hover {
+            color: var(--text-primary);
+        }
+        
+        .filter-tab.active {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        /* History Cards */
+        .history-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+        
+        .history-header {
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .history-header:hover {
+            background: rgba(255,255,255,0.05);
+        }
+        
+        .history-body {
+            padding: 0 16px 16px 16px;
+            border-top: 1px solid var(--border);
+            display: none;
+        }
+        
+        .history-card.expanded .history-body {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 0 16px 16px 16px;
+            }
+            .header {
+                margin: 0 -16px 24px -16px;
+                padding: 0 16px;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Animation -->
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon">🚀</div>
+                <div class="logo-text">FB Poster</div>
+            </div>
+            <nav class="nav-menu">
+                <a class="nav-item active" data-tab="dashboard">
+                    <span class="nav-icon">📊</span> Dashboard
+                </a>
+                <a class="nav-item" data-tab="posts">
+                    <span class="nav-icon">📝</span> Posts
+                </a>
+                <a class="nav-item" data-tab="groups">
+                    <span class="nav-icon">👥</span> Groups
+                </a>
+                <a class="nav-item" data-tab="run">
+                    <span class="nav-icon">▶️</span> Run Pipeline
+                </a>
+                <a class="nav-item" data-tab="history">
+                    <span class="nav-icon">📜</span> History
+                </a>
+                <a class="nav-item" data-tab="settings">
+                    <span class="nav-icon">⚙️</span> Settings
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <div class="flex items-center gap-4">
+                    <button class="mobile-toggle" onclick="toggleSidebar()">☰</button>
+                    <h1 class="page-title" id="pageTitle">Dashboard</h1>
+                </div>
+            </header>
+
+            <!-- TAB: Dashboard -->
+            <section id="tab-dashboard" class="tab-content">
+                <div class="grid-4 mb-6">
+                    <div class="glass-card">
+                        <div class="card-title">Total Posts</div>
+                        <div class="stat-value" id="dash-total-posts">-</div>
+                    </div>
+                    <div class="glass-card">
+                        <div class="card-title">Groups Active</div>
+                        <div class="stat-value" id="dash-total-groups">-</div>
+                    </div>
+                    <div class="glass-card">
+                        <div class="card-title">Pending Posts</div>
+                        <div class="stat-value" id="dash-pending-posts">-</div>
+                    </div>
+                    <div class="glass-card">
+                        <div class="card-title">Total Rewritten</div>
+                        <div class="stat-value" id="dash-total-rewritten">-</div>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <!-- Session Status -->
+                    <div class="glass-card">
+                        <div class="card-header">
+                            <div class="card-title">🔑 Facebook Session</div>
+                            <span id="dash-session-badge" class="badge">Loading</span>
+                        </div>
+                        <div class="text-sm mb-4">
+                            <span class="text-muted">File:</span> <span id="dash-session-file">-</span>
+                        </div>
+                        <div class="table-container">
+                            <table>
+                                <thead><tr><th>Cookie</th><th>Expiry</th></tr></thead>
+                                <tbody id="dash-cookies-tbody">
+                                    <tr><td colspan="2" class="text-center text-muted">Loading...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mt-4 flex justify-between items-center">
+                            <div class="text-sm text-muted" id="dash-session-msg"></div>
+                            <button class="btn btn-secondary" onclick="refreshSession()">Refresh Session</button>
+                        </div>
+                    </div>
+
+                    <!-- Listener Status -->
+                    <div class="glass-card">
+                        <div class="card-header">
+                            <div class="card-title">🤖 Telegram Listener</div>
+                            <span id="dash-listener-badge" class="badge">Loading</span>
+                        </div>
+                        <p class="text-sm text-muted mb-6">Listens for incoming messages from your Telegram bot and adds them to the posting queue.</p>
+                        <div class="flex gap-4">
+                            <button class="btn btn-primary" onclick="toggleListener('start')">Start Listener</button>
+                            <button class="btn btn-secondary" onclick="toggleListener('stop')">Stop Listener</button>
+                        </div>
+                    </div>
+
+                    <!-- Pipeline Status -->
+                    <div class="glass-card">
+                        <div class="card-header">
+                            <div class="card-title">▶️ Pipeline Engine</div>
+                            <span id="dash-pipeline-badge" class="badge">Loading</span>
+                        </div>
+                        <p class="text-sm text-muted mb-4">Current state of the posting engine.</p>
+                        <div class="text-sm mb-2"><span class="text-muted">Progress:</span> <span id="dash-pipeline-progress">-</span></div>
+                        <div class="mt-4">
+                            <button class="btn btn-primary w-full" onclick="switchTab('run')">Go to Run Panel →</button>
+                        </div>
+                    </div>
+
+                    <!-- Scheduler Status — Live Card -->
+                    <div class="glass-card" style="border:1px solid rgba(99,102,241,0.2);">
+                        <div class="card-header" style="margin-bottom:.75rem;">
+                            <div class="card-title">⏰ Schedule Status</div>
+                            <span id="dash-scheduler-badge" class="badge" style="background:rgba(255,255,255,0.08);color:#9ca3af;">Loading…</span>
+                        </div>
+
+                        <!-- Status rows -->
+                        <div id="dash-schedule-body" style="font-size:.85rem;">
+                            <div style="display:flex;justify-content:space-between;margin-bottom:.4rem;">
+                                <span style="color:#9ca3af;">Mode</span>
+                                <span id="dash-sched-mode" style="color:#e5e7eb;font-weight:500;">—</span>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;margin-bottom:.4rem;">
+                                <span style="color:#9ca3af;">Last Run</span>
+                                <span id="dash-sched-last" style="color:#e5e7eb;">—</span>
+                            </div>
+                            <div style="margin-top:.6rem;">
+                                <div style="color:#9ca3af;margin-bottom:.35rem;">Next Runs</div>
+                                <div id="dash-sched-next" style="display:flex;flex-wrap:wrap;gap:.35rem;">
+                                    <span style="color:#6b7280;font-size:.8rem;">—</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display:flex;gap:.5rem;margin-top:1rem;">
+                            <button class="btn btn-primary" style="flex:1;font-size:.82rem;" onclick="runNow()">▶ Run Now</button>
+                            <button class="btn btn-secondary" style="flex:1;font-size:.82rem;" onclick="switchTab('settings')">⚙ Schedule</button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- TAB: Posts -->
+            <section id="tab-posts" class="tab-content hidden">
+                <div class="flex justify-between items-center mb-6">
+                    <div class="filter-tabs" id="posts-filters">
+                        <div class="filter-tab active" data-filter="">All</div>
+                        <div class="filter-tab" data-filter="new">New</div>
+                        <div class="filter-tab" data-filter="rewritten">Rewritten</div>
+                        <div class="filter-tab" data-filter="approved">Approved</div>
+                        <div class="filter-tab" data-filter="posting">Posting</div>
+                        <div class="filter-tab" data-filter="posted">Posted</div>
+                        <div class="filter-tab" data-filter="failed">Failed</div>
+                    </div>
+                    <div class="flex gap-4">
+                        <button class="btn btn-primary" onclick="openPostModal(null, false)">+ Add Post Idea (AI)</button>
+                        <button class="btn btn-secondary" onclick="openPostModal(null, true)">+ Add Exact Post</button>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-0">
+                    <div class="table-container" style="border:none">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Status</th>
+                                    <th>Source</th>
+                                    <th>Content</th>
+                                    <th>Added</th>
+                                    <th style="text-align:right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="posts-tbody">
+                                <tr><td colspan="5" class="text-center text-muted py-8">Loading posts...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB: Groups -->
+            <section id="tab-groups" class="tab-content hidden">
+                <div class="flex justify-between items-center mb-6">
+                    <p class="text-muted">Facebook groups where posts will be published.</p>
+                    <button class="btn btn-primary" onclick="openGroupModal()">+ Add Group</button>
+                </div>
+                
+                <div class="glass-card p-0">
+                    <div class="table-container" style="border:none">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Status</th>
+                                    <th>Name</th>
+                                    <th>URL</th>
+                                    <th style="text-align:right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="groups-tbody">
+                                <tr><td colspan="4" class="text-center text-muted py-8">Loading groups...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB: Run -->
+            <section id="tab-run" class="tab-content hidden">
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <h2 class="text-xl font-semibold mb-2 flex items-center gap-2">
+                            Pipeline Control 
+                            <span id="run-status-badge" class="badge badge-info">Idle</span>
+                        </h2>
+                        <p class="text-sm text-muted">Progress: <span id="run-progress-text">-</span></p>
+                    </div>
+                    <div class="flex gap-4">
+                        <button class="btn btn-primary" id="btn-run-start" onclick="startRun()">Start Pipeline</button>
+                        <button class="btn btn-danger" id="btn-run-stop" onclick="stopRun()" disabled>Stop</button>
+                    </div>
+                </div>
+
+                <div class="grid-4 mb-6">
+                    <div class="glass-card p-4">
+                        <div class="text-xs text-muted uppercase tracking-wider">Groups Processed</div>
+                        <div class="text-2xl font-bold mt-1"><span id="run-stat-groups">0</span> / <span id="run-stat-total">0</span></div>
+                    </div>
+                    <div class="glass-card p-4">
+                        <div class="text-xs text-muted uppercase tracking-wider">Posts Rewritten</div>
+                        <div class="text-2xl font-bold mt-1 text-info" id="run-stat-rewritten">0</div>
+                    </div>
+                    <div class="glass-card p-4">
+                        <div class="text-xs text-muted uppercase tracking-wider">Posts Published</div>
+                        <div class="text-2xl font-bold mt-1 text-success" id="run-stat-posted">0</div>
+                    </div>
+                    <div class="glass-card p-4">
+                        <div class="text-xs text-muted uppercase tracking-wider">Errors/Failed</div>
+                        <div class="text-2xl font-bold mt-1 text-error" id="run-stat-failed">0</div>
+                    </div>
+                </div>
+
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="term-dot r"></div>
+                        <div class="term-dot y"></div>
+                        <div class="term-dot g"></div>
+                        <div class="text-xs text-muted ml-2 font-mono">live_logs.sh</div>
+                    </div>
+                    <div class="terminal-body" id="run-logs">
+                        <div class="log-line log-debug">Waiting for pipeline to start...</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB: History -->
+            <section id="tab-history" class="tab-content hidden">
+                <div class="glass-card">
+                    <div class="card-header border-b border-gray-800 pb-4 mb-4">
+                        <div class="card-title">Past Runs</div>
+                        <button class="btn btn-secondary btn-sm" onclick="loadHistory()">Refresh</button>
+                    </div>
+                    <div id="history-container">
+                        <div class="text-center text-muted py-8">Loading history...</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB: Settings -->
+            <section id="tab-settings" class="tab-content hidden">
+                <form id="settings-form" onsubmit="saveSettings(event)">
+                    <div class="grid-2">
+                        <!-- Posting Behavior -->
+                        <div class="glass-card">
+                            <h3 class="font-semibold mb-4 border-b border-gray-800 pb-2">Posting Behavior</h3>
+                            <div class="flex gap-4">
+                                <div class="form-group flex-1">
+                                    <label class="form-label">Min Delay (sec)</label>
+                                    <input type="number" class="form-control" name="posting_delay_min" required min="1">
+                                </div>
+                                <div class="form-group flex-1">
+                                    <label class="form-label">Max Delay (sec)</label>
+                                    <input type="number" class="form-control" name="posting_delay_max" required min="1">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Max Posts Per Run</label>
+                                <input type="number" class="form-control" name="max_posts_per_run" required min="1" max="50">
+                            </div>
+                            <div class="form-group flex items-center justify-between mt-6">
+                                <div>
+                                    <label class="form-label mb-0">Headless Mode</label>
+                                    <div class="text-xs text-muted">Run browser invisibly</div>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" name="headless">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                                                    <!-- AI Rewriting -->
+                        <div class="glass-card" style="border: 1px solid rgba(99,102,241,0.25); background: rgba(99,102,241,0.05);">
+                            <h3 class="font-semibold mb-1" style="display:flex;align-items:center;gap:.5rem;">
+                                <span style="font-size:1.1rem;">🤖</span> AI Rewriting — OpenAI
+                            </h3>
+                            <p class="text-xs" style="color:#9ca3af;margin-bottom:1rem;line-height:1.5;">
+                                Each user enters their own OpenAI API key. Posts from Telegram will be rewritten by AI before being published to Facebook groups.
+                                Get your key at <a href="https://platform.openai.com/api-keys" target="_blank" style="color:#6366f1;">platform.openai.com/api-keys</a>
+                            </p>
+                            <div class="form-group">
+                                <label class="form-label">Your OpenAI API Key</label>
+                                <div style="display:flex;gap:.5rem;align-items:center;">
+                                    <input type="password" class="form-control" name="openai_api_key"
+                                           placeholder="sk-proj-..." id="openai-key-input"
+                                           style="flex:1;font-family:monospace;letter-spacing:.05em;" />
+                                    <button type="button" onclick="toggleKeyVisibility()"
+                                            style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:.5rem .75rem;color:#9ca3af;cursor:pointer;font-size:.8rem;white-space:nowrap;"
+                                            id="toggle-key-btn">👁 Show</button>
+                                    <button type="button" onclick="testOpenAIKey()"
+                                            style="background:rgba(99,102,241,0.2);border:1px solid rgba(99,102,241,0.3);border-radius:8px;padding:.5rem .85rem;color:#a5b4fc;cursor:pointer;font-size:.8rem;white-space:nowrap;"
+                                            id="test-key-btn">⚡ Test</button>
+                                </div>
+                                <div id="openai-key-status" style="margin-top:.5rem;font-size:.8rem;display:none;"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Model</label>
+                                <select class="form-control" name="openai_model">
+                                    <option value="gpt-4o-mini">GPT-4o Mini — Fast &amp; Cheap (Recommended)</option>
+                                    <option value="gpt-4o">GPT-4o — High Quality</option>
+                                    <option value="gpt-4-turbo">GPT-4 Turbo</option>
+                                    <option value="gpt-3.5-turbo">GPT-3.5 Turbo — Cheapest</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Rewrite Style</label>
+                                <select class="form-control" name="rewrite_style">
+                                    <option value="professional">Professional &amp; Clean</option>
+                                    <option value="casual">Casual &amp; Friendly</option>
+                                    <option value="creative">Creative &amp; Engaging</option>
+                                    <option value="viral">Viral &amp; Punchy</option>
+                                    <option value="arabic_real_estate">Arabic Real Estate</option>
+                                </select>
+                            </div>
+                        </div>
+  </div>
+                        </div>
+
+                        <!-- Telegram Integration -->
+                        <div class="glass-card">
+                            <h3 class="font-semibold mb-4 border-b border-gray-800 pb-2">Telegram Integration</h3>
+                            <div class="form-group">
+                                <label class="form-label">Bot Token</label>
+                                <input type="password" class="form-control" name="telegram_bot_token" placeholder="123456:ABC-DEF...">
+                                <div class="text-xs text-muted mt-1">From @BotFather</div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Admin Chat ID</label>
+                                <input type="text" class="form-control" name="telegram_chat_id" placeholder="123456789">
+                                <div class="text-xs text-muted mt-1">Where to send notifications</div>
+                            </div>
+                        </div>
+
+                        <!-- Scheduler & Session -->
+                        <div class="glass-card">
+                            <h3 class="font-semibold mb-4 border-b border-gray-800 pb-2">⏰ Automation & Scheduler</h3>
+
+                            <div class="form-group flex items-center justify-between">
+                                <div>
+                                    <label class="form-label mb-0">Require Manual Approval</label>
+                                    <div class="text-xs text-muted">Don't post until approved</div>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" name="require_manual_approval">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+
+                            <div class="form-group flex items-center justify-between">
+                                <div>
+                                    <label class="form-label mb-0">Auto-Pilot Scheduler</label>
+                                    <div class="text-xs text-muted">Run pipeline automatically</div>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" name="auto_schedule_enabled">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+
+                            <!-- Schedule mode selector -->
+                            <div class="form-group" style="background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.15);border-radius:10px;padding:1rem;margin-top:.5rem;">
+                                <label class="form-label" style="margin-bottom:.6rem;">
+                                    📅 Schedule Mode
+                                </label>
+                                <div style="display:flex;gap:.75rem;margin-bottom:.75rem;">
+                                    <button type="button" id="mode-times-btn" onclick="setScheduleMode('times')"
+                                            style="flex:1;padding:.5rem;border-radius:8px;font-size:.82rem;font-weight:600;cursor:pointer;border:1px solid rgba(99,102,241,0.4);background:rgba(99,102,241,0.2);color:#a5b4fc;transition:all .2s;">
+                                        🕐 Specific Times
+                                    </button>
+                                    <button type="button" id="mode-interval-btn" onclick="setScheduleMode('interval')"
+                                            style="flex:1;padding:.5rem;border-radius:8px;font-size:.82rem;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);color:#9ca3af;transition:all .2s;">
+                                        🔄 Every N Hours
+                                    </button>
+                                </div>
+
+                                <!-- Specific times input -->
+                                <div id="mode-times-panel">
+                                    <label class="form-label" style="font-size:.8rem;">Run times (comma-separated HH:MM)</label>
+                                    <input type="text" class="form-control" name="schedule_times"
+                                           id="schedule-times-input"
+                                           placeholder="09:00, 13:00, 18:00, 22:00"
+                                           style="font-family:monospace;" />
+                                    <div class="text-xs text-muted" style="margin-top:.4rem;">
+                                        Example: <code style="color:#a5b4fc;">09:00, 15:00, 21:00</code> — runs at 9 AM, 3 PM, 9 PM every day
+                                    </div>
+                                    <!-- Quick presets -->
+                                    <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.6rem;">
+                                        <button type="button" onclick="setTimes('09:00,21:00')" style="font-size:.72rem;padding:.2rem .5rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:5px;color:#9ca3af;cursor:pointer;">2×/day</button>
+                                        <button type="button" onclick="setTimes('09:00,15:00,21:00')" style="font-size:.72rem;padding:.2rem .5rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:5px;color:#9ca3af;cursor:pointer;">3×/day</button>
+                                        <button type="button" onclick="setTimes('08:00,12:00,16:00,20:00')" style="font-size:.72rem;padding:.2rem .5rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:5px;color:#9ca3af;cursor:pointer;">4×/day</button>
+                                        <button type="button" onclick="setTimes('09:00')" style="font-size:.72rem;padding:.2rem .5rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:5px;color:#9ca3af;cursor:pointer;">Morning only</button>
+                                        <button type="button" onclick="setTimes('21:00')" style="font-size:.72rem;padding:.2rem .5rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:5px;color:#9ca3af;cursor:pointer;">Evening only</button>
+                                    </div>
+                                </div>
+
+                                <!-- Interval input -->
+                                <div id="mode-interval-panel" style="display:none;">
+                                    <label class="form-label" style="font-size:.8rem;">Run every N hours</label>
+                                    <input type="number" class="form-control" name="auto_schedule_interval_hours" step="0.5" min="0.5" value="4">
+                                    <div class="text-xs text-muted" style="margin-top:.4rem;">
+                                        Runs continuously every X hours from when the server starts
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group mt-4">
+                                <label class="form-label">Session Refresh Interval (Hours)</label>
+                                <input type="number" class="form-control" name="session_refresh_hours" step="1" min="1">
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="flex justify-end mt-4">
+                        <button type="submit" class="btn btn-primary px-8">Save Settings</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- MODAL: Group -->
+    <div class="modal-overlay" id="group-modal">
+        <div class="modal-content">
+            <h3 class="text-xl font-semibold mb-4" id="group-modal-title">Add Group</h3>
+            <form id="group-form" onsubmit="saveGroup(event)">
+                <input type="hidden" id="group-id">
+                <div class="form-group">
+                    <label class="form-label">Group Name (Optional)</label>
+                    <input type="text" class="form-control" id="group-name" placeholder="E.g. Buy & Sell NYC">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Facebook Group URL</label>
+                    <input type="url" class="form-control" id="group-url" required placeholder="https://www.facebook.com/groups/123456">
+                </div>
+                <div class="form-group flex items-center justify-between mt-4">
+                    <label class="form-label mb-0">Active</label>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="group-active" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('group-modal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Group</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL: Post -->
+    <div class="modal-overlay" id="post-modal">
+        <div class="modal-content" style="max-height: 90vh; overflow-y: auto;">
+            <h3 class="text-xl font-semibold mb-4" id="post-modal-title">Add Manual Post</h3>
+            <form id="post-form" onsubmit="savePost(event)">
+                <input type="hidden" id="post-id">
+                <input type="hidden" id="post-skip-ai">
+                <div class="form-group">
+                    <label class="form-label">Original Content</label>
+                    <textarea class="form-control" id="post-text" required placeholder="Write your post here..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Image (Optional)</label>
+                    <input type="file" class="form-control" id="post-image" accept="image/*">
+                    <p class="text-xs text-gray-400 mt-1" id="post-image-help">Upload an image from your computer (Max 10MB)</p>
+                </div>
+                <div id="post-rewrites-container" class="hidden mt-6 mb-4">
+                    <h4 class="font-semibold border-b border-gray-800 pb-2 mb-4">AI Generated Post</h4>
+                    
+                    <div class="form-group">
+                        <label class="form-label">AI Instructions (Optional)</label>
+                        <div class="flex gap-2">
+                            <input type="text" class="form-control" id="post-ai-note" placeholder="e.g. Make it funny, translate to Arabic, add emojis...">
+                            <button type="button" class="btn btn-secondary flex-shrink-0" id="btn-generate-ai" onclick="generateAiInModal()">✨ Generate AI</button>
+                        </div>
+                        <div class="text-xs text-muted mt-1">Leave blank to use default settings</div>
+                    </div>
+
+                    <textarea class="form-control" id="post-rewritten-text" rows="4" placeholder="AI rewritten text will appear here. You can also edit it manually..."></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('post-modal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="post-submit-btn">Save Post</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Javascript -->
+    <script>
+        // --- API & Utils ---
+        async function apiFetch(url, options = {}) {
+            const headers = { 'Content-Type': 'application/json', ...(options.headers || {}) };
+            const merged = { ...options, headers };
+            
+            if (merged.body && merged.body instanceof FormData) {
+                delete merged.headers['Content-Type'];
+            } else if (merged.body && typeof merged.body === 'object') {
+                merged.body = JSON.stringify(merged.body);
+            }
+            
+            try {
+                const resp = await fetch(url, merged);
+                const data = await resp.json();
+                if (!resp.ok) throw new Error(data.error || `HTTP ${resp.status}`);
+                return data;
+            } catch (err) {
+                showToast(err.message, 'error');
+                throw err;
+            }
+        }
+
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            
+            const icons = { success: '✅', error: '❌', warning: '⚠️', info: 'ℹ️' };
+            toast.innerHTML = `<span>${icons[type]}</span> <div>${message}</div>`;
+            
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.style.animation = 'slideIn 0.3s ease reverse forwards';
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        }
+
+        function timeAgo(dateStr) {
+            if (!dateStr) return 'Never';
+            const date = new Date(dateStr);
+            const seconds = Math.floor((new Date() - date) / 1000);
+            let interval = seconds / 31536000;
+            if (interval > 1) return Math.floor(interval) + "y ago";
+            interval = seconds / 2592000;
+            if (interval > 1) return Math.floor(interval) + "mo ago";
+            interval = seconds / 86400;
+            if (interval > 1) return Math.floor(interval) + "d ago";
+            interval = seconds / 3600;
+            if (interval > 1) return Math.floor(interval) + "h ago";
+            interval = seconds / 60;
+            if (interval > 1) return Math.floor(interval) + "m ago";
+            return "Just now";
+        }
+
+        // --- Navigation ---
+        let currentTab = 'dashboard';
+        let sseSource = null;
+        let pollInterval = null;
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+        }
+
+        function switchTab(tabId) {
+            currentTab = tabId;
+            
+            // UI updates
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+            
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            document.querySelector(`.nav-item[data-tab="${tabId}"]`).classList.add('active');
+            
+            const titles = {
+                'dashboard': 'Dashboard Overview',
+                'posts': 'Pending & Sent Posts',
+                'groups': 'Target Facebook Groups',
+                'run': 'Pipeline Control',
+                'history': 'Run History',
+                'settings': 'Application Settings'
+            };
+            document.getElementById('pageTitle').textContent = titles[tabId];
+            
+            if (window.innerWidth <= 768) toggleSidebar();
+
+            // Load data
+            if (tabId === 'dashboard') loadDashboard();
+            if (tabId === 'posts') loadPosts();
+            if (tabId === 'groups') loadGroups();
+            if (tabId === 'run') loadRun();
+            if (tabId === 'history') loadHistory();
+            if (tabId === 'settings') loadSettings();
+            
+            // Handle SSE
+            if (tabId === 'run' && !sseSource) {
+                startSSE();
+            } else if (tabId !== 'run' && sseSource) {
+                sseSource.close();
+                sseSource = null;
+            }
+        }
+
+        document.querySelectorAll('.nav-item').forEach(el => {
+            el.addEventListener('click', () => switchTab(el.getAttribute('data-tab')));
+        });
+
+        // --- Modals ---
+        function openModal(id) { document.getElementById(id).classList.add('active'); }
+        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+
+        // --- DASHBOARD TAB ---
+        async function loadDashboard() {
+            try {
+                const [sess, list, run, statPosts, statGroups, sched] = await Promise.all([
+                    apiFetch('/api/session/status'),
+                    apiFetch('/api/listener/status'),
+                    apiFetch('/api/run/status'),
+                    apiFetch('/api/posts'),
+                    apiFetch('/api/groups'),
+                    apiFetch('/api/schedule/status'),
+                ]);
+
+                // Session
+                const sBadge = document.getElementById('dash-session-badge');
+                if (sess.valid) {
+                    sBadge.className = 'badge badge-success'; sBadge.textContent = 'Valid';
+                } else if (sess.status === 'expired') {
+                    sBadge.className = 'badge badge-warning'; sBadge.textContent = 'Expired';
+                } else {
+                    sBadge.className = 'badge badge-error'; sBadge.textContent = 'Not Found';
+                }
+                document.getElementById('dash-session-file').textContent = sess.file_path || '-';
+                document.getElementById('dash-session-msg').textContent = sess.error || '';
+
+                const tbody = document.getElementById('dash-cookies-tbody');
+                if (sess.cookies && Object.keys(sess.cookies).length > 0) {
+                    tbody.innerHTML = Object.entries(sess.cookies).map(([k,v]) =>
+                        `<tr><td><code class="text-info">${k}</code></td><td class="text-sm">${v.expiry}</td></tr>`
+                    ).join('');
+                } else {
+                    tbody.innerHTML = `<tr><td colspan="2" class="text-center text-muted">No cookies found</td></tr>`;
+                }
+
+                // Listener
+                const lBadge = document.getElementById('dash-listener-badge');
+                lBadge.className = list.running ? 'badge badge-success' : 'badge badge-error';
+                lBadge.textContent = list.running ? 'Running' : 'Stopped';
+
+                // Pipeline
+                const pBadge = document.getElementById('dash-pipeline-badge');
+                pBadge.className = run.running ? 'badge badge-success' : 'badge badge-info';
+                pBadge.textContent = run.running ? 'Running' : 'Idle';
+                document.getElementById('dash-pipeline-progress').textContent = run.progress || 'Idle';
+
+                // Stats
+                document.getElementById('dash-total-posts').textContent = statPosts.length;
+                document.getElementById('dash-total-groups').textContent = statGroups.filter(g=>g.active).length;
+                document.getElementById('dash-pending-posts').textContent = statPosts.filter(p=>['new','rewritten'].includes(p.status)).length;
+                document.getElementById('dash-total-rewritten').textContent = statPosts.filter(p=>p.status==='posted').length;
+
+                // ── Schedule status card ──────────────────────────────
+                const schBadge = document.getElementById('dash-scheduler-badge');
+                if (!sched.enabled) {
+                    schBadge.style.cssText = 'background:rgba(239,68,68,0.15);color:#fca5a5;border:1px solid rgba(239,68,68,0.3);border-radius:20px;padding:.2rem .6rem;font-size:.75rem;';
+                    schBadge.textContent = 'Disabled';
+                } else if (sched.running) {
+                    schBadge.style.cssText = 'background:rgba(16,185,129,0.15);color:#6ee7b7;border:1px solid rgba(16,185,129,0.3);border-radius:20px;padding:.2rem .6rem;font-size:.75rem;';
+                    schBadge.textContent = '▶ Running';
+                } else {
+                    schBadge.style.cssText = 'background:rgba(99,102,241,0.15);color:#a5b4fc;border:1px solid rgba(99,102,241,0.3);border-radius:20px;padding:.2rem .6rem;font-size:.75rem;';
+                    schBadge.textContent = 'Active';
+                }
+
+                const modeEl = document.getElementById('dash-sched-mode');
+                if (modeEl) {
+                    if (!sched.enabled) {
+                        modeEl.textContent = 'Off';
+                    } else if (sched.mode === 'times') {
+                        modeEl.textContent = `🕐 Specific Times (${(sched.times || '').split(',').length} slots)`;
+                    } else {
+                        modeEl.textContent = `🔄 Every ${sched.interval_hours}h`;
+                    }
+                }
+
+                const lastEl = document.getElementById('dash-sched-last');
+                if (lastEl) lastEl.textContent = sched.last_run || 'Never';
+
+                const nextEl = document.getElementById('dash-sched-next');
+                if (nextEl) {
+                    if (!sched.enabled || !sched.next_runs?.length) {
+                        nextEl.innerHTML = '<span style="color:#6b7280;font-size:.8rem;">Not scheduled</span>';
+                    } else {
+                        nextEl.innerHTML = sched.next_runs.map(t =>
+                            `<span style="background:rgba(99,102,241,0.15);color:#a5b4fc;border:1px solid rgba(99,102,241,0.25);border-radius:6px;padding:.15rem .5rem;font-size:.78rem;font-weight:600;">${t}</span>`
+                        ).join('');
+                    }
+                }
+
+            } catch (err) {
+                console.error("Dashboard load error", err);
+            }
+        }
+
+
+        async function refreshSession() {
+            showToast('Starting Chrome to refresh session...', 'info');
+            try {
+                const res = await apiFetch('/api/session/refresh', { method: 'POST' });
+                if (res.success) {
+                    showToast('Session refreshed successfully!', 'success');
+                    loadDashboard();
+                } else {
+                    showToast('Failed to refresh session.', 'error');
+                }
+            } catch (err) {}
+        }
+
+        async function toggleListener(action) {
+            try {
+                await apiFetch(`/api/listener/${action}`, { method: 'POST' });
+                showToast(`Listener ${action}ed`, 'success');
+                loadDashboard();
+            } catch(e) {}
+        }
+
+        // --- POSTS TAB ---
+        let postsData = [];
+        let postsFilter = '';
+
+        document.querySelectorAll('.filter-tab').forEach(el => {
+            el.addEventListener('click', () => {
+                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                el.classList.add('active');
+                postsFilter = el.getAttribute('data-filter');
+                renderPosts();
+            });
+        });
+
+        async function loadPosts() {
+            postsData = await apiFetch('/api/posts');
+            renderPosts();
+        }
+
+        function renderPosts() {
+            const tbody = document.getElementById('posts-tbody');
+            let filtered = postsFilter ? postsData.filter(p => p.status === postsFilter) : postsData;
+            
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="text-center text-muted py-8">No posts found</td></tr>`;
+                return;
+            }
+
+            const badges = {
+                'new': 'badge-info', 'rewritten': 'badge-info', 'approved': 'badge-success',
+                'posting': 'badge-warning', 'posted': 'badge-success', 'failed': 'badge-error'
+            };
+
+            tbody.innerHTML = filtered.map(p => `
+                <tr>
+                    <td><span class="badge ${badges[p.status] || 'badge-info'}">${p.status}</span></td>
+                    <td>${p.source === 'telegram' ? '📱 Telegram' : '💻 Manual'}</td>
+                    <td style="max-width:300px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+                        ${p.has_image ? '📷 ' : ''}${p.original_text}
+                    </td>
+                    <td class="text-sm text-muted">${timeAgo(p.captured_at)}</td>
+                    <td style="text-align:right; min-width: 120px;">
+                        ${['new', 'rewritten', 'failed'].includes(p.status) ? `<button class="btn-icon" onclick="approvePost('${p.id}')" title="Approve">✅</button>` : ''}
+                        <button class="btn-icon" onclick="editPost('${p.id}')" title="Edit">✏️</button>
+                        <button class="btn-icon" onclick="deletePost('${p.id}')" title="Delete">🗑️</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        async function approvePost(id) {
+            try {
+                await apiFetch(`/api/posts/${id}`, { method: 'PUT', body: { status: 'approved' } });
+                showToast('Post approved for posting', 'success');
+                loadPosts();
+            } catch(e) {}
+        }
+
+        async function openPostModal(p = null, skipAi = false) {
+            document.getElementById('post-form').reset();
+            const rewriteContainer = document.getElementById('post-rewrites-container');
+            document.getElementById('post-skip-ai').value = skipAi ? 'true' : 'false';
+            
+            if (p) {
+                document.getElementById('post-modal-title').textContent = 'Edit Post';
+                document.getElementById('post-id').value = p.id;
+                document.getElementById('post-text').value = p.original_text;
+                
+                const imgInput = document.getElementById('post-image');
+                imgInput.value = ''; // Clear file selection
+                if (p.image_path) {
+                    imgInput.dataset.existingPath = p.image_path;
+                    document.getElementById('post-image-help').textContent = `Current image: ${p.image_path.split(/[\\/]/).pop()} (Select new to replace)`;
+                } else {
+                    delete imgInput.dataset.existingPath;
+                    document.getElementById('post-image-help').textContent = 'Upload an image from your computer (Max 10MB)';
+                }
+                
+                rewriteContainer.classList.remove('hidden');
+                document.getElementById('post-rewritten-text').value = p.rewritten_text || '';
+            } else {
+                document.getElementById('post-modal-title').textContent = skipAi ? 'Add Exact Post' : 'Add Post Idea (AI)';
+                document.getElementById('post-id').value = '';
+                document.getElementById('post-text').value = '';
+                
+                const imgInput = document.getElementById('post-image');
+                imgInput.value = '';
+                delete imgInput.dataset.existingPath;
+                document.getElementById('post-image-help').textContent = 'Upload an image from your computer (Max 10MB)';
+                
+                if (!skipAi) {
+                    rewriteContainer.classList.remove('hidden');
+                    document.getElementById('post-rewritten-text').value = '';
+                } else {
+                    rewriteContainer.classList.add('hidden');
+                }
+            }
+            openModal('post-modal');
+        }
+
+        async function generateAiInModal() {
+            const text = document.getElementById('post-text').value;
+            const note = document.getElementById('post-ai-note') ? document.getElementById('post-ai-note').value : '';
+            if (!text) {
+                showToast('Please enter Original Content first', 'error');
+                return;
+            }
+            
+            const btn = document.getElementById('btn-generate-ai');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<span class="spinner"></span>';
+            btn.disabled = true;
+            
+            try {
+                const res = await apiFetch('/api/generate', {
+                    method: 'POST',
+                    body: { text: text, note: note }
+                });
+                if (res.generated_text) {
+                    document.getElementById('post-rewritten-text').value = res.generated_text;
+                    showToast('AI Generation complete', 'success');
+                }
+            } catch (err) {
+                // error handled by apiFetch toast
+            } finally {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }
+        }
+
+        function editPost(id) {
+            const p = postsData.find(x => x.id === id);
+            if (p) openPostModal(p);
+        }
+
+        async function generateRewrite(pid) {
+            const note = document.getElementById('post-ai-note') ? document.getElementById('post-ai-note').value : '';
+            showToast('Generating AI rewrite...', 'info');
+            try {
+                const res = await apiFetch(`/api/posts/${pid}/rewrite`, { 
+                    method: 'POST',
+                    body: { note: note }
+                });
+                document.getElementById('post-rewritten-text').value = res.rewritten_text;
+                showToast('AI Rewrite successful', 'success');
+                loadPosts(); // refresh background data
+            } catch(e) {
+                showToast('Failed to generate rewrite', 'error');
+            }
+        }
+
+        async function savePost(e) {
+            e.preventDefault();
+            const id = document.getElementById('post-id').value;
+            const skipAi = document.getElementById('post-skip-ai').value === 'true';
+            const text = document.getElementById('post-text').value;
+            const imgInput = document.getElementById('post-image');
+            const rewritten_text = document.getElementById('post-rewritten-text') ? document.getElementById('post-rewritten-text').value : '';
+            
+            const formData = new FormData();
+            formData.append('text', text);
+            formData.append('skip_ai', skipAi);
+            if (rewritten_text) formData.append('rewritten_text', rewritten_text);
+            if (imgInput.files && imgInput.files.length > 0) {
+                formData.append('image', imgInput.files[0]);
+            } else if (imgInput.dataset.existingPath) {
+                formData.append('image_path', imgInput.dataset.existingPath);
+            }
+            
+            try {
+                if (id) {
+                    await apiFetch(`/api/posts/${id}`, { 
+                        method: 'PUT', 
+                        body: formData 
+                    });
+                    showToast('Post updated', 'success');
+                } else {
+                    await apiFetch('/api/posts', { 
+                        method: 'POST', 
+                        body: formData 
+                    });
+                    showToast('Post added', 'success');
+                }
+                closeModal('post-modal');
+                loadPosts();
+            } catch(e) {}
+        }
+
+        async function deletePost(id) {
+            if (!confirm('Delete this post?')) return;
+            try {
+                await apiFetch(`/api/posts/${id}`, { method: 'DELETE' });
+                showToast('Post deleted', 'success');
+                loadPosts();
+            } catch(e) {}
+        }
+
+        // --- GROUPS TAB ---
+        let groupsData = [];
+
+        async function loadGroups() {
+            groupsData = await apiFetch('/api/groups');
+            renderGroups();
+        }
+
+        function renderGroups() {
+            const tbody = document.getElementById('groups-tbody');
+            if (groupsData.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="4" class="text-center text-muted py-8">No groups added</td></tr>`;
+                return;
+            }
+            tbody.innerHTML = groupsData.map(g => `
+                <tr>
+                    <td>
+                        <label class="toggle-switch">
+                            <input type="checkbox" ${g.active ? 'checked' : ''} onchange="toggleGroup('${g.id}')">
+                            <span class="slider"></span>
+                        </label>
+                    </td>
+                    <td class="font-medium">${g.name}</td>
+                    <td class="text-muted text-sm"><a href="${g.url}" target="_blank" style="color:var(--info)">${g.url.substring(0,40)}${g.url.length>40?'...':''}</a></td>
+                    <td style="text-align:right">
+                        <button class="btn-icon" onclick="editGroup('${g.id}')" title="Edit">✏️</button>
+                        <button class="btn-icon" onclick="deleteGroup('${g.id}')" title="Delete">🗑️</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function openGroupModal(g = null) {
+            document.getElementById('group-form').reset();
+            if (g) {
+                document.getElementById('group-id').value = g.id;
+                document.getElementById('group-name').value = g.name;
+                document.getElementById('group-url').value = g.url;
+                document.getElementById('group-active').checked = g.active;
+                document.getElementById('group-modal-title').textContent = 'Edit Group';
+            } else {
+                document.getElementById('group-id').value = '';
+                document.getElementById('group-active').checked = true;
+                document.getElementById('group-modal-title').textContent = 'Add Group';
+            }
+            openModal('group-modal');
+        }
+
+        function editGroup(id) {
+            const g = groupsData.find(x => x.id === id);
+            if (g) openGroupModal(g);
+        }
+
+        async function saveGroup(e) {
+            e.preventDefault();
+            const id = document.getElementById('group-id').value;
+            const body = {
+                name: document.getElementById('group-name').value,
+                url: document.getElementById('group-url').value,
+                active: document.getElementById('group-active').checked
+            };
+            try {
+                if (id) {
+                    await apiFetch(`/api/groups/${id}`, { method: 'PUT', body });
+                } else {
+                    await apiFetch('/api/groups', { method: 'POST', body });
+                }
+                showToast('Group saved', 'success');
+                closeModal('group-modal');
+                loadGroups();
+            } catch(e) {}
+        }
+
+        async function deleteGroup(id) {
+            if (!confirm('Delete group?')) return;
+            try {
+                await apiFetch(`/api/groups/${id}`, { method: 'DELETE' });
+                showToast('Group deleted', 'success');
+                loadGroups();
+            } catch(e) {}
+        }
+
+        async function toggleGroup(id) {
+            try {
+                await apiFetch(`/api/groups/${id}/toggle`, { method: 'PATCH' });
+            } catch(e) { loadGroups(); }
+        }
+
+        // --- RUN TAB ---
+        async function loadRun() {
+            try {
+                const status = await apiFetch('/api/run/status');
+                updateRunUI(status);
+            } catch(e) {}
+        }
+
+        function updateRunUI(st) {
+            const badge = document.getElementById('run-status-badge');
+            if (st.running) {
+                badge.className = 'badge badge-warning';
+                badge.textContent = st.stop_requested ? 'Stopping...' : 'Running';
+            } else {
+                badge.className = 'badge badge-info';
+                badge.textContent = 'Idle';
+            }
+            
+            document.getElementById('btn-run-start').disabled = st.running;
+            document.getElementById('btn-run-stop').disabled = !st.running || st.stop_requested;
+            
+            document.getElementById('run-progress-text').textContent = st.progress || '-';
+            document.getElementById('run-stat-groups').textContent = st.groups_done;
+            document.getElementById('run-stat-total').textContent = st.groups_total;
+            document.getElementById('run-stat-rewritten').textContent = st.posts_rewritten;
+            document.getElementById('run-stat-posted').textContent = st.posts_posted;
+            document.getElementById('run-stat-failed').textContent = st.posts_failed;
+        }
+
+        async function startRun() {
+            try {
+                await apiFetch('/api/run/start', { method: 'POST' });
+                showToast('Pipeline started', 'success');
+                document.getElementById('run-logs').innerHTML = '';
+                loadRun();
+            } catch(e) {}
+        }
+
+        async function stopRun() {
+            try {
+                await apiFetch('/api/run/stop', { method: 'POST' });
+                showToast('Stop requested', 'info');
+                loadRun();
+            } catch(e) {}
+        }
+
+        function appendLogLine(entry) {
+            const container = document.getElementById('run-logs');
+            const div = document.createElement('div');
+            div.className = 'log-line';
+            
+            const timeStr = entry.ts.split('T')[1].substring(0, 8);
+            const colorCls = `log-${entry.level || 'info'}`;
+            
+            div.innerHTML = `<span class="log-time">[${timeStr}]</span> <span class="${colorCls}">${entry.msg}</span>`;
+            container.appendChild(div);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function startSSE() {
+            if (sseSource) sseSource.close();
+            sseSource = new EventSource('/api/run/stream');
+            sseSource.onmessage = (e) => {
+                if (e.data.trim() === ': heartbeat') return;
+                try {
+                    const entry = JSON.parse(e.data);
+                    appendLogLine(entry);
+                } catch(e) {}
+            };
+        }
+
+        // Polling loop
+        setInterval(async () => {
+            if (currentTab === 'run') {
+                const st = await apiFetch('/api/run/status');
+                updateRunUI(st);
+            }
+        }, 2000);
+
+        // --- HISTORY TAB ---
+        async function loadHistory() {
+            try {
+                const data = await apiFetch('/api/run/history');
+                const container = document.getElementById('history-container');
+                if (data.length === 0) {
+                    container.innerHTML = `<div class="text-center text-muted py-8">No runs yet</div>`;
+                    return;
+                }
+                
+                container.innerHTML = data.map(h => {
+                    const d = new Date(h.started_at);
+                    const dateStr = d.toLocaleDateString() + ' ' + d.toLocaleTimeString();
+                    const success = h.posts_failed === 0 && h.posts_posted > 0;
+                    const badgeStr = success ? `<span class="badge badge-success">Success</span>` 
+                                  : h.posts_posted > 0 ? `<span class="badge badge-warning">Partial</span>` 
+                                  : `<span class="badge badge-error">Failed</span>`;
+                                  
+                    return `
+                    <div class="history-card" onclick="this.classList.toggle('expanded')">
+                        <div class="history-header">
+                            <div>
+                                <div class="font-medium">${dateStr}</div>
+                                <div class="text-sm text-muted">ID: ${h.id || 'N/A'}</div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="text-right">
+                                    <div class="text-sm"><span class="text-success">${h.posts_posted}</span> / <span class="text-error">${h.posts_failed}</span></div>
+                                    <div class="text-xs text-muted">Posted / Failed</div>
+                                </div>
+                                ${badgeStr}
+                                <span class="text-muted">▼</span>
+                            </div>
+                        </div>
+                        <div class="history-body mt-4">
+                            <div class="grid-4 mb-4">
+                                <div><div class="text-xs text-muted uppercase">Groups</div><div class="font-medium">${h.groups_processed}</div></div>
+                                <div><div class="text-xs text-muted uppercase">Rewritten</div><div class="font-medium">${h.posts_rewritten}</div></div>
+                            </div>
+                            ${h.errors && h.errors.length > 0 ? `
+                                <div class="text-error font-medium mb-2">Errors:</div>
+                                <ul class="text-sm text-muted pl-4" style="list-style-type:disc">
+                                    ${h.errors.map(err => `<li>${err}</li>`).join('')}
+                                </ul>
+                            ` : '<div class="text-success text-sm">No errors recorded.</div>'}
+                        </div>
+                    </div>
+                    `;
+                }).join('');
+            } catch(e) {}
+        }
+
+        // --- SETTINGS TAB ---
+        async function loadSettings() {
+            try {
+                const s = await apiFetch('/api/settings');
+                const form = document.getElementById('settings-form');
+
+                for (const key in s) {
+                    const el = form.elements[key];
+                    if (el) {
+                        if (el.type === 'checkbox') el.checked = s[key];
+                        else el.value = s[key];
+                    }
+                }
+
+                // Auto-detect schedule mode
+                const times = (s.schedule_times || '').trim();
+                setScheduleMode(times ? 'times' : 'interval');
+
+            } catch(e) {}
+        }
+
+        // ── Schedule mode helpers ────────────────────────────────
+        function setScheduleMode(mode) {
+            const timesPanel    = document.getElementById('mode-times-panel');
+            const intervalPanel = document.getElementById('mode-interval-panel');
+            const timesBtn      = document.getElementById('mode-times-btn');
+            const intervalBtn   = document.getElementById('mode-interval-btn');
+            if (!timesPanel) return;
+
+            const activeStyle   = 'border:1px solid rgba(99,102,241,0.4);background:rgba(99,102,241,0.2);color:#a5b4fc;';
+            const inactiveStyle = 'border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);color:#9ca3af;';
+
+            if (mode === 'times') {
+                timesPanel.style.display    = 'block';
+                intervalPanel.style.display = 'none';
+                timesBtn.style.cssText      += activeStyle;
+                intervalBtn.style.cssText   += inactiveStyle;
+                // Clear interval so backend uses times
+                const intervalEl = document.querySelector('[name="auto_schedule_interval_hours"]');
+                if (intervalEl) intervalEl.value = '';
+            } else {
+                timesPanel.style.display    = 'none';
+                intervalPanel.style.display = 'block';
+                timesBtn.style.cssText      += inactiveStyle;
+                intervalBtn.style.cssText   += activeStyle;
+                // Clear times so backend uses interval
+                const timesEl = document.getElementById('schedule-times-input');
+                if (timesEl) timesEl.value = '';
+            }
+        }
+
+        function setTimes(preset) {
+            const el = document.getElementById('schedule-times-input');
+            if (el) { el.value = preset; el.focus(); }
+        }
+
+
+        async function saveSettings(e) {
+            e.preventDefault();
+            const form = document.getElementById('settings-form');
+            const data = {};
+            
+            for (const el of form.elements) {
+                if (el.name) {
+                    if (el.type === 'checkbox') data[el.name] = el.checked;
+                    else if (el.type === 'number') data[el.name] = Number(el.value);
+                    else data[el.name] = el.value;
+                }
+            }
+            
+            try {
+                await apiFetch('/api/settings', { method: 'PUT', body: data });
+                showToast('Settings saved successfully', 'success');
+            } catch(e) {}
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            switchTab('dashboard');
+        });
+
+        // ── OpenAI Key Utilities ──────────────────────────────
+        function toggleKeyVisibility() {
+            const inp = document.getElementById('openai-key-input');
+            const btn = document.getElementById('toggle-key-btn');
+            if (inp.type === 'password') {
+                inp.type = 'text';
+                btn.textContent = '🙈 Hide';
+            } else {
+                inp.type = 'password';
+                btn.textContent = '👁 Show';
+            }
+        }
+
+        async function testOpenAIKey() {
+            const key = document.getElementById('openai-key-input').value.trim();
+            const statusEl = document.getElementById('openai-key-status');
+            const btn = document.getElementById('test-key-btn');
+
+            if (!key) {
+                statusEl.style.display = 'block';
+                statusEl.style.color = '#fca5a5';
+                statusEl.textContent = '⚠ Please enter your API key first.';
+                return;
+            }
+
+            btn.textContent = '⏳ Testing…';
+            btn.disabled = true;
+            statusEl.style.display = 'block';
+            statusEl.style.color = '#9ca3af';
+            statusEl.textContent = 'Contacting OpenAI…';
+
+            try {
+                const resp = await fetch('/api/openai/test', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ api_key: key }),
+                });
+                const d = await resp.json();
+                if (d.valid) {
+                    statusEl.style.color = '#6ee7b7';
+                    statusEl.textContent = '✓ Key is valid! Models available: ' + (d.model || '');
+                } else {
+                    statusEl.style.color = '#fca5a5';
+                    statusEl.textContent = '✕ ' + (d.error || 'Invalid key');
+                }
+            } catch(e) {
+                statusEl.style.color = '#fca5a5';
+                statusEl.textContent = '✕ Could not reach test endpoint.';
+            } finally {
+                btn.textContent = '⚡ Test';
+                btn.disabled = false;
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1940 @@
+2026-06-26 14:46:32,427 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-26 14:46:33,709 INFO     scraper.browser:   ✅ Browser ready | headless=False | viewport=1536x864
+2026-06-26 14:46:38,505 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-06-26 14:46:38,531 INFO     scraper.browser:   💾 Session saved → config/session.json
+2026-06-26 14:46:38,776 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-26 14:59:07,400 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-26 14:59:08,570 INFO     scraper.browser:   📂 Loaded session: config/session.json
+2026-06-26 14:59:08,592 INFO     scraper.browser:   📅 Session age: 12 minutes
+2026-06-26 14:59:09,046 INFO     scraper.browser:   ✅ Browser ready | headless=False | viewport=1366x768
+2026-06-26 14:59:14,645 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-06-26 14:59:14,734 INFO     scraper.browser:   💾 Session saved → config/session.json
+2026-06-26 14:59:15,093 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-26 14:59:22,860 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-26 14:59:23,744 INFO     scraper.browser:   📂 Loaded session: config/session.json
+2026-06-26 14:59:23,771 INFO     scraper.browser:   📅 Session age: 0 minutes
+2026-06-26 14:59:24,479 INFO     scraper.browser:   ✅ Browser ready | headless=False | viewport=1440x900
+2026-06-26 14:59:29,650 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-06-26 14:59:29,744 INFO     scraper.browser:   💾 Session saved → config/session.json
+2026-06-26 14:59:30,036 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-26 15:00:52,075 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-26 15:00:52,781 INFO     scraper.browser:   📂 Loaded session: config/session.json
+2026-06-26 15:00:52,797 INFO     scraper.browser:   📅 Session age: 1 minutes
+2026-06-26 15:00:53,268 INFO     scraper.browser:   ✅ Browser ready | headless=False | viewport=1536x864
+2026-06-26 15:00:57,986 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-06-26 15:00:58,104 INFO     scraper.browser:   💾 Session saved → config/session.json
+2026-06-26 15:00:58,441 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-26 15:12:14,666 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-06-26 15:12:14,667 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-26 15:12:15,581 INFO     scraper.browser:   📂 Loaded session: config/session.json
+2026-06-26 15:12:15,604 INFO     scraper.browser:   📅 Session age: 1 minutes
+2026-06-26 15:12:15,844 INFO     scraper.browser:   ✅ Browser ready | headless=False | viewport=1600x900
+2026-06-26 15:12:22,497 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-06-26 15:12:22,681 INFO     scraper.browser:   💾 Session saved → config/session.json
+2026-06-26 15:12:22,682 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-06-26 15:12:46,648 INFO     scraper.human: ✅ Warmup complete
+2026-06-26 15:12:46,648 INFO     __main__: 
+═══════════════════════════════════════════════════════
+2026-06-26 15:12:46,648 INFO     __main__:   Group 1/1
+2026-06-26 15:12:46,649 INFO     __main__: ═══════════════════════════════════════════════════════
+2026-06-26 15:12:46,649 INFO     scraper.group_scraper: ────────────────────────────────────────────────────────────
+2026-06-26 15:12:46,649 INFO     scraper.group_scraper: 📂 Custom
+2026-06-26 15:12:46,649 INFO     scraper.group_scraper:    Region: custom | URL: https://web.facebook.com/groups/mrsre
+2026-06-26 15:12:51,450 WARNING  scraper.group_scraper: ⚠️ Group requires membership — skipping.
+2026-06-26 15:12:52,172 INFO     database.db:   📊 Exported 0 leads → exports\leads_20260626_1512.xlsx
+2026-06-26 15:12:52,633 INFO     scraper.browser:   💾 Session saved → config/session.json
+2026-06-26 15:12:53,411 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-26 15:18:51,566 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-06-26 15:18:51,566 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-26 15:18:52,251 INFO     scraper.browser:   📂 Loaded session: config/session.json
+2026-06-26 15:18:52,270 INFO     scraper.browser:   📅 Session age: 5 minutes
+2026-06-26 15:18:52,635 INFO     scraper.browser:   ✅ Browser ready | headless=False | viewport=1600x900
+2026-06-26 15:18:59,290 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-06-26 15:18:59,426 INFO     scraper.browser:   💾 Session saved → config/session.json
+2026-06-26 15:18:59,426 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-06-26 15:19:17,556 INFO     scraper.human: ✅ Warmup complete
+2026-06-26 15:19:17,556 INFO     __main__: 
+═══════════════════════════════════════════════════════
+2026-06-26 15:19:17,557 INFO     __main__:   Group 1/1
+2026-06-26 15:19:17,557 INFO     __main__: ═══════════════════════════════════════════════════════
+2026-06-26 15:19:17,557 INFO     scraper.group_scraper: ────────────────────────────────────────────────────────────
+2026-06-26 15:19:17,558 INFO     scraper.group_scraper: 📂 Custom
+2026-06-26 15:19:17,558 INFO     scraper.group_scraper:    Region: custom | URL: https://web.facebook.com/groups/mrsre
+2026-06-26 15:19:37,205 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     
+     Score:    15/100
+     Intent:   buy
+     Type:     unknown
+     Location: العبور
+     Budget:   971,568,438,427 EGP
+     Phones:   []
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     None m²
+2026-06-26 15:19:46,115 INFO     scraper.group_scraper:   ↓ Scroll 1/40 | Leads: 1 | Empty: 0/4
+2026-06-26 15:19:47,915 INFO     scraper.group_scraper:   ↓ Scroll 2/40 | Leads: 1 | Empty: 1/4
+2026-06-26 15:19:54,623 INFO     scraper.group_scraper:   ↓ Scroll 3/40 | Leads: 1 | Empty: 2/4
+2026-06-26 15:20:04,675 INFO     scraper.group_scraper:   ↓ Scroll 4/40 | Leads: 1 | Empty: 3/4
+2026-06-26 15:20:11,118 INFO     scraper.group_scraper:   ↓ Scroll 5/40 | Leads: 1 | Empty: 4/4
+2026-06-26 15:20:11,118 INFO     scraper.group_scraper:   👥 1 buyer leads | 🔥 0 hot | 📱 0 phone numbers
+2026-06-26 15:20:11,132 INFO     database.db:   💾 DB: {'saved': 1, 'skipped': 0, 'updated': 0}
+2026-06-26 15:20:11,133 INFO     __main__:   📊 Batch saved: {'saved': 1, 'skipped': 0, 'updated': 0}
+2026-06-26 15:20:11,404 INFO     database.db:   📊 Exported 1 leads → exports\leads_20260626_1520.xlsx
+2026-06-26 15:20:11,495 INFO     scraper.browser:   💾 Session saved → config/session.json
+2026-06-26 15:20:11,793 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-26 15:29:26,705 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-06-26 15:29:26,705 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-26 15:29:27,400 INFO     scraper.browser:   📂 Loaded session: config/session.json
+2026-06-26 15:29:27,415 INFO     scraper.browser:   📅 Session age: 9 minutes
+2026-06-26 15:29:27,781 INFO     scraper.browser:   ✅ Browser ready | headless=False | viewport=1920x1080
+2026-06-26 15:29:33,478 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-06-26 15:29:33,607 INFO     scraper.browser:   💾 Session saved → config/session.json
+2026-06-26 15:29:33,607 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-06-26 15:30:00,621 INFO     scraper.human: ✅ Warmup complete
+2026-06-26 15:30:00,621 INFO     __main__: 
+═══════════════════════════════════════════════════════
+2026-06-26 15:30:00,621 INFO     __main__:   Group 1/1
+2026-06-26 15:30:00,622 INFO     __main__: ═══════════════════════════════════════════════════════
+2026-06-26 15:30:00,622 INFO     scraper.group_scraper: ────────────────────────────────────────────────────────────
+2026-06-26 15:30:00,622 INFO     scraper.group_scraper: 📂 Custom
+2026-06-26 15:30:00,622 INFO     scraper.group_scraper:    Region: custom | URL: https://web.facebook.com/groups/mrsre
+2026-06-26 15:30:12,896 INFO     scraper.group_scraper:   ↓ Scroll 1/40 | Leads: 0 | Empty: 1/4
+2026-06-26 15:30:15,334 INFO     scraper.group_scraper:   ↓ Scroll 2/40 | Leads: 0 | Empty: 2/4
+2026-06-26 15:30:15,749 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     
+     Score:    22/100
+     Intent:   buy
+     Type:     unknown
+     Location: ?
+     Budget:   60,000 EGP
+     Phones:   ['01040304770']
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     None m²
+2026-06-26 15:30:24,639 INFO     scraper.group_scraper:   ↓ Scroll 3/40 | Leads: 1 | Empty: 0/4
+2026-06-26 15:30:29,916 INFO     scraper.group_scraper:   ↓ Scroll 4/40 | Leads: 1 | Empty: 1/4
+2026-06-26 15:30:30,255 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     
+     Score:    15/100
+     Intent:   buy
+     Type:     unknown
+     Location: العبور
+     Budget:   971,568,438,427 EGP
+     Phones:   []
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     None m²
+2026-06-26 15:30:30,646 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     
+     Score:    22/100
+     Intent:   buy
+     Type:     unknown
+     Location: ?
+     Budget:   1,272,782,780 EGP
+     Phones:   ['01272782780']
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     None m²
+2026-06-26 15:30:39,393 INFO     scraper.group_scraper:   ↓ Scroll 5/40 | Leads: 3 | Empty: 0/4
+2026-06-26 15:30:43,004 INFO     scraper.group_scraper:   ↓ Scroll 6/40 | Leads: 3 | Empty: 1/4
+2026-06-26 15:30:46,143 INFO     scraper.group_scraper:   ↓ Scroll 7/40 | Leads: 3 | Empty: 2/4
+2026-06-26 15:30:48,163 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     
+     Score:    27/100
+     Intent:   buy
+     Type:     unknown
+     Location: ?
+     Budget:   1,124,090,590 EGP
+     Phones:   ['01124090590']
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  soon
+     Rooms:    None bed / None bath
+     Area:     None m²
+2026-06-26 15:30:54,283 INFO     scraper.group_scraper:   ↓ Scroll 8/40 | Leads: 4 | Empty: 0/4
+2026-06-26 15:30:54,655 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     
+     Score:    27/100
+     Intent:   buy
+     Type:     unknown
+     Location: ?
+     Budget:   1,124,090,590 EGP
+     Phones:   ['01124090590']
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  soon
+     Rooms:    None bed / None bath
+     Area:     None m²
+2026-06-26 15:30:54,930 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     
+     Score:    22/100
+     Intent:   buy
+     Type:     unknown
+     Location: ?
+     Budget:   1,037,993,039 EGP
+     Phones:   ['01037993039']
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     None m²
+2026-06-26 15:31:00,949 INFO     scraper.group_scraper:   ↓ Scroll 9/40 | Leads: 6 | Empty: 0/4
+2026-06-26 15:31:07,356 INFO     scraper.group_scraper:   ↓ Scroll 10/40 | Leads: 6 | Empty: 1/4
+2026-06-26 15:31:07,356 INFO     scraper.group_scraper:   😴 Extended pause: 22s
+2026-06-26 15:31:29,731 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     
+     Score:    15/100
+     Intent:   buy
+     Type:     unknown
+     Location: العبور
+     Budget:   971,568,438,427 EGP
+     Phones:   []
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     None m²
+2026-06-26 15:31:34,783 INFO     scraper.group_scraper:   ↓ Scroll 11/40 | Leads: 7 | Empty: 0/4
+2026-06-26 15:31:41,870 INFO     scraper.group_scraper:   ↓ Scroll 12/40 | Leads: 7 | Empty: 1/4
+2026-06-26 15:31:48,832 INFO     scraper.group_scraper:   ↓ Scroll 13/40 | Leads: 7 | Empty: 2/4
+2026-06-26 15:31:49,350 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     46m
+     Score:    28/100
+     Intent:   buy
+     Type:     unknown
+     Location: ?
+     Budget:   1,055,717,402 EGP
+     Phones:   ['01055717402']
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     None m²
+2026-06-26 15:31:52,054 INFO     scraper.group_scraper:   ↓ Scroll 14/40 | Leads: 8 | Empty: 0/4
+2026-06-26 15:31:56,529 INFO     scraper.group_scraper:   ↓ Scroll 15/40 | Leads: 8 | Empty: 1/4
+2026-06-26 15:31:58,202 INFO     scraper.group_scraper:   ↓ Scroll 16/40 | Leads: 8 | Empty: 2/4
+2026-06-26 15:32:00,266 INFO     scraper.group_scraper:   ↓ Scroll 17/40 | Leads: 8 | Empty: 3/4
+2026-06-26 15:32:03,928 INFO     scraper.group_scraper:   ↓ Scroll 18/40 | Leads: 8 | Empty: 4/4
+2026-06-26 15:32:03,929 INFO     scraper.group_scraper:   👥 8 buyer leads | 🔥 0 hot | 📱 6 phone numbers
+2026-06-26 15:32:03,963 INFO     database.db:   💾 DB: {'saved': 5, 'skipped': 3, 'updated': 0}
+2026-06-26 15:32:03,963 INFO     __main__:   📊 Batch saved: {'saved': 5, 'skipped': 3, 'updated': 0}
+2026-06-26 15:32:04,216 INFO     database.db:   📊 Exported 6 leads → exports\leads_20260626_1532.xlsx
+2026-06-26 15:32:04,311 INFO     scraper.browser:   💾 Session saved → config/session.json
+2026-06-26 15:32:04,715 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-26 15:53:02,765 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-06-26 15:53:02,766 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-26 15:53:03,915 INFO     scraper.browser:   📂 Loaded session: config/session.json
+2026-06-26 15:53:03,940 INFO     scraper.browser:   📅 Session age: 20 minutes
+2026-06-26 15:53:04,491 INFO     scraper.browser:   ✅ Browser ready | headless=False | viewport=1536x864
+2026-06-26 15:53:12,471 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-06-26 15:53:12,686 INFO     scraper.browser:   💾 Session saved → config/session.json
+2026-06-26 15:53:12,687 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-06-26 15:53:35,561 INFO     scraper.human: ✅ Warmup complete
+2026-06-26 15:53:35,561 INFO     __main__: 
+═══════════════════════════════════════════════════════
+2026-06-26 15:53:35,561 INFO     __main__:   Group 1/1
+2026-06-26 15:53:35,562 INFO     __main__: ═══════════════════════════════════════════════════════
+2026-06-26 15:53:35,562 INFO     scraper.group_scraper: ────────────────────────────────────────────────────────────
+2026-06-26 15:53:35,562 INFO     scraper.group_scraper: 📂 Custom
+2026-06-26 15:53:35,562 INFO     scraper.group_scraper:    Region: custom | URL: https://web.facebook.com/groups/mrsre
+2026-06-26 15:53:53,237 INFO     scraper.group_scraper:   ↓ Scroll 1/40 | Leads: 0 | Empty: 1/4
+2026-06-26 15:54:00,732 INFO     scraper.group_scraper:   ↓ Scroll 2/40 | Leads: 0 | Empty: 2/4
+2026-06-26 15:54:03,606 INFO     scraper.group_scraper:   ↓ Scroll 3/40 | Leads: 0 | Empty: 3/4
+2026-06-26 15:54:05,067 INFO     scraper.group_scraper:   ↓ Scroll 4/40 | Leads: 0 | Empty: 4/4
+2026-06-26 15:54:05,067 INFO     scraper.group_scraper:   👥 0 buyer leads | 🔥 0 hot | 📱 0 phone numbers
+2026-06-26 15:54:06,087 INFO     database.db:   📊 Exported 6 leads → exports\leads_20260626_1554.xlsx
+2026-06-26 15:54:06,370 INFO     scraper.browser:   💾 Session saved → config/session.json
+2026-06-26 15:54:08,689 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-26 15:58:38,343 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-06-26 15:58:38,344 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-26 15:58:39,241 INFO     scraper.browser:   📂 Loaded session: config/session.json
+2026-06-26 15:58:39,258 INFO     scraper.browser:   📅 Session age: 4 minutes
+2026-06-26 15:58:39,748 INFO     scraper.browser:   ✅ Browser ready | headless=False | viewport=1536x864
+2026-06-26 15:58:48,164 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-06-26 15:58:48,377 INFO     scraper.browser:   💾 Session saved → config/session.json
+2026-06-26 15:58:48,382 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-06-26 15:59:11,185 INFO     scraper.human: ✅ Warmup complete
+2026-06-26 15:59:11,185 INFO     __main__: 
+═══════════════════════════════════════════════════════
+2026-06-26 15:59:11,185 INFO     __main__:   Group 1/1
+2026-06-26 15:59:11,185 INFO     __main__: ═══════════════════════════════════════════════════════
+2026-06-26 15:59:11,186 INFO     scraper.group_scraper: ────────────────────────────────────────────────────────────
+2026-06-26 15:59:11,186 INFO     scraper.group_scraper: 📂 Custom
+2026-06-26 15:59:11,186 INFO     scraper.group_scraper:    Region: custom | URL: https://web.facebook.com/groups/mrsre
+2026-06-26 15:59:26,936 INFO     scraper.group_scraper:   ↓ Scroll 1/40 | Leads: 0 | Empty: 1/4
+2026-06-26 15:59:30,561 INFO     scraper.group_scraper:   ↓ Scroll 2/40 | Leads: 0 | Empty: 2/4
+2026-06-26 15:59:32,474 INFO     scraper.group_scraper:   ↓ Scroll 3/40 | Leads: 0 | Empty: 3/4
+2026-06-26 15:59:35,543 INFO     scraper.group_scraper:   ↓ Scroll 4/40 | Leads: 0 | Empty: 4/4
+2026-06-26 15:59:35,543 INFO     scraper.group_scraper:   👥 0 buyer leads | 🔥 0 hot | 📱 0 phone numbers
+2026-06-26 15:59:35,996 INFO     database.db:   📊 Exported 6 leads → exports\leads_20260626_1559.xlsx
+2026-06-26 15:59:36,169 INFO     scraper.browser:   💾 Session saved → config/session.json
+2026-06-26 15:59:37,144 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-26 16:04:50,423 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-06-26 16:04:50,423 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-26 16:04:51,206 INFO     scraper.browser:   📂 Loaded session: config/session.json
+2026-06-26 16:04:51,224 INFO     scraper.browser:   📅 Session age: 5 minutes
+2026-06-26 16:04:51,721 INFO     scraper.browser:   ✅ Browser ready | headless=False | viewport=1920x1080
+2026-06-26 16:04:58,378 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-06-26 16:04:58,404 INFO     scraper.browser:   💾 Session saved → config/session.json
+2026-06-26 16:04:58,404 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-06-26 16:05:26,482 INFO     scraper.human: ✅ Warmup complete
+2026-06-26 16:05:26,482 INFO     __main__: 
+═══════════════════════════════════════════════════════
+2026-06-26 16:05:26,482 INFO     __main__:   Group 1/1
+2026-06-26 16:05:26,483 INFO     __main__: ═══════════════════════════════════════════════════════
+2026-06-26 16:05:26,483 INFO     scraper.group_scraper: ────────────────────────────────────────────────────────────
+2026-06-26 16:05:26,483 INFO     scraper.group_scraper: 📂 Custom
+2026-06-26 16:05:26,483 INFO     scraper.group_scraper:    Region: custom | URL: https://web.facebook.com/groups/mrsre
+2026-06-26 16:05:44,466 INFO     scraper.group_scraper:   ↓ Scroll 1/40 | Leads: 0 | Empty: 0/4
+2026-06-26 16:05:47,808 INFO     scraper.group_scraper:   ↓ Scroll 2/40 | Leads: 0 | Empty: 1/4
+2026-06-26 16:05:50,979 INFO     scraper.group_scraper:   ↓ Scroll 3/40 | Leads: 0 | Empty: 0/4
+2026-06-26 16:06:01,979 INFO     scraper.group_scraper:   ↓ Scroll 4/40 | Leads: 0 | Empty: 1/4
+2026-06-26 16:06:05,224 INFO     scraper.group_scraper:   ↓ Scroll 5/40 | Leads: 0 | Empty: 2/4
+2026-06-26 16:06:05,861 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     
+     Score:    28/100
+     Intent:   buy
+     Type:     unknown
+     Location: ?
+     Budget:   1,121,897,465 EGP
+     Phones:   ['01121897465']
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     None m²
+2026-06-26 16:06:08,459 INFO     scraper.group_scraper:   ↓ Scroll 6/40 | Leads: 1 | Empty: 0/4
+2026-06-26 16:06:09,119 INFO     scraper.profile_scraper:     🔍 Checking profile for contacts...
+2026-06-26 16:06:15,487 INFO     scraper.profile_scraper:       ❌ No phone numbers found on profile.
+2026-06-26 16:06:15,536 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     
+     Score:    15/100
+     Intent:   buy
+     Type:     unknown
+     Location: العبور
+     Budget:   971,568,438,427 EGP
+     Phones:   []
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     None m²
+2026-06-26 16:06:17,951 INFO     scraper.group_scraper:   ↓ Scroll 7/40 | Leads: 2 | Empty: 0/4
+2026-06-26 16:06:19,636 INFO     scraper.group_scraper:   ↓ Scroll 8/40 | Leads: 2 | Empty: 1/4
+2026-06-26 16:06:28,142 INFO     scraper.group_scraper:   ↓ Scroll 9/40 | Leads: 2 | Empty: 2/4
+2026-06-26 16:06:30,000 INFO     scraper.group_scraper:   ↓ Scroll 10/40 | Leads: 2 | Empty: 3/4
+2026-06-26 16:06:30,000 INFO     scraper.group_scraper:   😴 Extended pause: 17s
+2026-06-26 16:06:50,132 INFO     scraper.group_scraper:   ↓ Scroll 11/40 | Leads: 2 | Empty: 4/4
+2026-06-26 16:06:50,132 INFO     scraper.group_scraper:   👥 2 buyer leads | 🔥 0 hot | 📱 1 phone numbers
+2026-06-26 16:06:50,158 ERROR    database.db: DB save error: (sqlite3.IntegrityError) UNIQUE constraint failed: buyer_leads.post_url
+[SQL: INSERT INTO buyer_leads (id, post_url, profile_url, profile_pic, buyer_name, author, phone_numbers, whatsapp_numbers, comment_phones, intent, confidence, lead_score, lead_grade, property_type, locations, governorates, floor_pref, budget_min, budget_max, area_min, area_max, bedrooms, bathrooms, furnished, payment_method, urgency, delivery_pref, finishing_level, preferred_compounds, reactions, comment_count, shares, group_name, group_region, group_url, raw_text, notes, matched_signals, images, comment_snippets, timestamp, scraped_at, updated_at, is_contacted, contact_notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('6c99d9d4-1656-4ba9-b766-1130195b29b4', 'https://web.facebook.com/groups/mrsre/posts/2579847302750230/', 'https://www.facebook.com/groups/567934243941556/user/2270824870324273/', 'https://scontent.faly1-2.fna.fbcdn.net/v/t39.35477-6/552996004_25351952344405942_8465657559725690624_n.jpg?stp=cp0_dst-jpg_tt6&cstp=mx688x688&ctp=s34 ... (239 characters truncated) ... QM&_nc_zt=14&_nc_ht=scontent.faly1-2.fna&_nc_gid=NFT2Z-1REysNqu2DE4TsHw&_nc_ss=7b2a8&oh=00_Af-2trxPmMPYe9MI9LywFAO2SkySU_O2PPhWvlihgEsX6w&oe=6A444A6F', '', '', '[]', '[]', '[]', 'buy', 30, 15, '⚪ COLD', 'unknown', '["\\u0627\\u0644\\u0639\\u0628\\u0648\\u0631"]', '["\\u0627\\u0644\\u0642\\u0627\\u0647\\u0631\\u0629"]', None, None, 971568438427.0, None, None, None, None, None, None, None, None, None, '[]', 0, 47, 0, 'Custom', 'custom', 'https://web.facebook.com/groups/mrsre', 'SupportiveKoala4824\nمعايا اوڨر لقطه في العبور\nhttps://wa.me/971568438427\n47m\nLike\nReply\nShare', '', '[]', '[]', '[]', '47m', '2026-06-26 13:06:50.156599', '2026-06-26 13:06:50.156599', 0, '')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2026-06-26 16:06:50,159 ERROR    __main__: Scrape error: (sqlite3.IntegrityError) UNIQUE constraint failed: buyer_leads.post_url
+[SQL: INSERT INTO buyer_leads (id, post_url, profile_url, profile_pic, buyer_name, author, phone_numbers, whatsapp_numbers, comment_phones, intent, confidence, lead_score, lead_grade, property_type, locations, governorates, floor_pref, budget_min, budget_max, area_min, area_max, bedrooms, bathrooms, furnished, payment_method, urgency, delivery_pref, finishing_level, preferred_compounds, reactions, comment_count, shares, group_name, group_region, group_url, raw_text, notes, matched_signals, images, comment_snippets, timestamp, scraped_at, updated_at, is_contacted, contact_notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('6c99d9d4-1656-4ba9-b766-1130195b29b4', 'https://web.facebook.com/groups/mrsre/posts/2579847302750230/', 'https://www.facebook.com/groups/567934243941556/user/2270824870324273/', 'https://scontent.faly1-2.fna.fbcdn.net/v/t39.35477-6/552996004_25351952344405942_8465657559725690624_n.jpg?stp=cp0_dst-jpg_tt6&cstp=mx688x688&ctp=s34 ... (239 characters truncated) ... QM&_nc_zt=14&_nc_ht=scontent.faly1-2.fna&_nc_gid=NFT2Z-1REysNqu2DE4TsHw&_nc_ss=7b2a8&oh=00_Af-2trxPmMPYe9MI9LywFAO2SkySU_O2PPhWvlihgEsX6w&oe=6A444A6F', '', '', '[]', '[]', '[]', 'buy', 30, 15, '⚪ COLD', 'unknown', '["\\u0627\\u0644\\u0639\\u0628\\u0648\\u0631"]', '["\\u0627\\u0644\\u0642\\u0627\\u0647\\u0631\\u0629"]', None, None, 971568438427.0, None, None, None, None, None, None, None, None, None, '[]', 0, 47, 0, 'Custom', 'custom', 'https://web.facebook.com/groups/mrsre', 'SupportiveKoala4824\nمعايا اوڨر لقطه في العبور\nhttps://wa.me/971568438427\n47m\nLike\nReply\nShare', '', '[]', '[]', '[]', '47m', '2026-06-26 13:06:50.156599', '2026-06-26 13:06:50.156599', 0, '')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "C:\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Python312\Lib\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: buyer_leads.post_url
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\main.py", line 250, in cmd_scrape
+    stats = db.save_leads(leads)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\database\db.py", line 126, in save_leads
+    session.commit()
+  File "C:\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 2028, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Python312\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Python312\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "C:\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 4352, in flush
+    self._flush(objects)
+  File "C:\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 4487, in _flush
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 4448, in _flush
+    flush_context.execute()
+  File "C:\Python312\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Python312\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Python312\Lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Python312\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Python312\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Python312\Lib\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: buyer_leads.post_url
+[SQL: INSERT INTO buyer_leads (id, post_url, profile_url, profile_pic, buyer_name, author, phone_numbers, whatsapp_numbers, comment_phones, intent, confidence, lead_score, lead_grade, property_type, locations, governorates, floor_pref, budget_min, budget_max, area_min, area_max, bedrooms, bathrooms, furnished, payment_method, urgency, delivery_pref, finishing_level, preferred_compounds, reactions, comment_count, shares, group_name, group_region, group_url, raw_text, notes, matched_signals, images, comment_snippets, timestamp, scraped_at, updated_at, is_contacted, contact_notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('6c99d9d4-1656-4ba9-b766-1130195b29b4', 'https://web.facebook.com/groups/mrsre/posts/2579847302750230/', 'https://www.facebook.com/groups/567934243941556/user/2270824870324273/', 'https://scontent.faly1-2.fna.fbcdn.net/v/t39.35477-6/552996004_25351952344405942_8465657559725690624_n.jpg?stp=cp0_dst-jpg_tt6&cstp=mx688x688&ctp=s34 ... (239 characters truncated) ... QM&_nc_zt=14&_nc_ht=scontent.faly1-2.fna&_nc_gid=NFT2Z-1REysNqu2DE4TsHw&_nc_ss=7b2a8&oh=00_Af-2trxPmMPYe9MI9LywFAO2SkySU_O2PPhWvlihgEsX6w&oe=6A444A6F', '', '', '[]', '[]', '[]', 'buy', 30, 15, '⚪ COLD', 'unknown', '["\\u0627\\u0644\\u0639\\u0628\\u0648\\u0631"]', '["\\u0627\\u0644\\u0642\\u0627\\u0647\\u0631\\u0629"]', None, None, 971568438427.0, None, None, None, None, None, None, None, None, None, '[]', 0, 47, 0, 'Custom', 'custom', 'https://web.facebook.com/groups/mrsre', 'SupportiveKoala4824\nمعايا اوڨر لقطه في العبور\nhttps://wa.me/971568438427\n47m\nLike\nReply\nShare', '', '[]', '[]', '[]', '47m', '2026-06-26 13:06:50.156599', '2026-06-26 13:06:50.156599', 0, '')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2026-06-26 16:06:51,043 INFO     scraper.browser:   💾 Session saved → config/session.json
+2026-06-26 16:06:51,539 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-26 16:34:30,516 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-06-26 16:34:30,518 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-26 16:34:43,865 INFO     scraper.browser:   📂 Loaded session: config/session.json
+2026-06-26 16:34:43,908 INFO     scraper.browser:   📅 Session age: 27 minutes
+2026-06-26 16:34:45,225 INFO     scraper.browser:   ✅ Browser ready | headless=False | viewport=1920x1080
+2026-06-26 16:34:50,716 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-06-26 16:34:51,039 INFO     scraper.browser:   💾 Session saved → config/session.json
+2026-06-26 16:34:51,053 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-06-26 16:35:14,236 INFO     scraper.human: ✅ Warmup complete
+2026-06-26 16:35:14,236 INFO     __main__: 
+═══════════════════════════════════════════════════════
+2026-06-26 16:35:14,237 INFO     __main__:   Group 1/13
+2026-06-26 16:35:14,237 INFO     __main__: ═══════════════════════════════════════════════════════
+2026-06-26 16:35:14,237 INFO     scraper.group_scraper: ────────────────────────────────────────────────────────────
+2026-06-26 16:35:14,239 INFO     scraper.group_scraper: 📂 عقارات مصر للبيع والإيجار
+2026-06-26 16:35:14,239 INFO     scraper.group_scraper:    Region: general | URL: https://www.facebook.com/groups/egyrealestate
+2026-06-26 16:35:20,302 WARNING  scraper.group_scraper: ⚠️ Group requires membership — skipping.
+2026-06-26 16:35:20,303 INFO     scraper.human:   ⏳ Between-groups pause: 11s
+2026-06-26 16:35:30,911 INFO     __main__: 
+═══════════════════════════════════════════════════════
+2026-06-26 16:35:30,911 INFO     __main__:   Group 2/13
+2026-06-26 16:35:30,911 INFO     __main__: ═══════════════════════════════════════════════════════
+2026-06-26 16:35:30,912 INFO     scraper.group_scraper: ────────────────────────────────────────────────────────────
+2026-06-26 16:35:30,912 INFO     scraper.group_scraper: 📂 Egypt Real Estate – عقارات مصر
+2026-06-26 16:35:30,912 INFO     scraper.group_scraper:    Region: general | URL: https://www.facebook.com/groups/egyptproperties2023
+2026-06-26 16:35:41,097 INFO     scraper.group_scraper:   ↓ Scroll 1/40 | Leads: 0 | Empty: 1/4
+2026-06-26 16:35:51,564 INFO     scraper.group_scraper:   ↓ Scroll 2/40 | Leads: 0 | Empty: 2/4
+2026-06-26 16:35:53,486 INFO     scraper.group_scraper:   ↓ Scroll 3/40 | Leads: 0 | Empty: 3/4
+2026-06-26 16:35:55,393 INFO     scraper.group_scraper:   ↓ Scroll 4/40 | Leads: 0 | Empty: 4/4
+2026-06-26 16:35:55,394 INFO     scraper.group_scraper:   👥 0 buyer leads | 🔥 0 hot | 📱 0 phone numbers
+2026-06-26 16:35:55,394 INFO     scraper.human:   ⏳ Between-groups pause: 18s
+2026-06-26 16:36:13,048 INFO     __main__: 
+═══════════════════════════════════════════════════════
+2026-06-26 16:36:13,048 INFO     __main__:   Group 3/13
+2026-06-26 16:36:13,048 INFO     __main__: ═══════════════════════════════════════════════════════
+2026-06-26 16:36:13,048 INFO     scraper.group_scraper: ────────────────────────────────────────────────────────────
+2026-06-26 16:36:13,048 INFO     scraper.group_scraper: 📂 عقارات مصر – طلبات شراء وإيجار
+2026-06-26 16:36:13,048 INFO     scraper.group_scraper:    Region: general | URL: https://www.facebook.com/groups/egypt.property.requests
+2026-06-26 16:36:17,791 INFO     __main__: 
+⚠️  Interrupted by user
+2026-06-28 09:27:23,453 INFO     database.db:   ➕ Added column: buyer_leads.emails
+2026-06-28 09:27:23,459 INFO     database.db:   ➕ Added column: buyer_leads.websites
+2026-06-28 09:27:23,463 INFO     database.db:   ➕ Added column: buyer_leads.whatsapp_links
+2026-06-28 09:27:23,466 INFO     database.db:   ➕ Added column: buyer_leads.lives_in
+2026-06-28 09:27:23,471 INFO     database.db:   ➕ Added column: buyer_leads.hometown
+2026-06-28 09:27:23,475 INFO     database.db:   ➕ Added column: buyer_leads.work_title
+2026-06-28 09:27:23,479 INFO     database.db:   ➕ Added column: buyer_leads.work_company
+2026-06-28 09:27:23,484 INFO     database.db:   ➕ Added column: buyer_leads.bio
+2026-06-28 09:27:23,488 INFO     database.db:   ➕ Added column: buyer_leads.profile_scraped
+2026-06-28 09:27:23,490 INFO     database.db:   ➕ Added column: buyer_leads.is_broker
+2026-06-28 09:27:23,490 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-06-28 09:27:23,491 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-28 09:27:30,565 INFO     scraper.browser:   📂 Loaded session: config/session.json
+2026-06-28 09:27:30,582 INFO     scraper.browser:   📅 Session age: 1.7 days
+2026-06-28 09:27:31,265 INFO     scraper.browser:   ✅ Browser ready | headless=False | viewport=1600x900
+2026-06-28 09:27:37,919 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-06-28 09:27:38,994 INFO     scraper.browser:   💾 Session saved → config/session.json
+2026-06-28 09:27:38,998 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-06-28 09:27:58,730 INFO     scraper.human: ✅ Warmup complete
+2026-06-28 09:27:58,730 INFO     __main__: 
+═══════════════════════════════════════════════════════
+2026-06-28 09:27:58,731 INFO     __main__:   Group 1/1
+2026-06-28 09:27:58,731 INFO     __main__: ═══════════════════════════════════════════════════════
+2026-06-28 09:27:58,731 INFO     scraper.group_scraper: ────────────────────────────────────────────────────────────
+2026-06-28 09:27:58,731 INFO     scraper.group_scraper: 📂 Custom
+2026-06-28 09:27:58,731 INFO     scraper.group_scraper:    Region: custom | URL: https://web.facebook.com/groups/mrsre
+2026-06-28 09:28:11,040 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     wa.me//01044010473
+     Score:    22/100
+     Intent:   buy
+     Type:     unknown
+     Location: ?
+     Budget:   1,044,010,473 EGP
+     Phones:   ['01044010473']
+     Emails:   []
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     None m²
+     Lives in: N/A
+     Work:     N/A
+2026-06-28 09:28:11,339 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     
+     Score:    25/100
+     Intent:   buy
+     Type:     unknown
+     Location: ?
+     Budget:   1,009,079,634 EGP
+     Phones:   ['01009079634']
+     Emails:   []
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     210.0 m²
+     Lives in: N/A
+     Work:     N/A
+2026-06-28 09:28:13,179 INFO     scraper.group_scraper:   ↓ Scroll 1/40 | Leads: 2 | Empty: 0/4
+2026-06-28 09:28:19,182 INFO     scraper.group_scraper:   ↓ Scroll 2/40 | Leads: 2 | Empty: 0/4
+2026-06-28 09:28:56,558 INFO     scraper.group_scraper:   ↓ Scroll 3/40 | Leads: 2 | Empty: 0/4
+2026-06-28 09:29:01,601 INFO     scraper.group_scraper:   ↓ Scroll 4/40 | Leads: 2 | Empty: 1/4
+2026-06-28 09:29:01,886 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-06-28 09:29:21,319 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-06-28 09:29:21,335 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     
+     Score:    14/100
+     Intent:   buy
+     Type:     unknown
+     Location: الشروق, السويس
+     Budget:   N/A EGP
+     Phones:   []
+     Emails:   []
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     None m²
+     Lives in: N/A
+     Work:     N/A
+2026-06-28 09:29:23,813 INFO     scraper.group_scraper:   ↓ Scroll 5/40 | Leads: 3 | Empty: 0/4
+2026-06-28 09:29:26,656 INFO     scraper.group_scraper:   ↓ Scroll 6/40 | Leads: 3 | Empty: 0/4
+2026-06-28 09:29:36,612 INFO     scraper.group_scraper:   ↓ Scroll 7/40 | Leads: 3 | Empty: 0/4
+2026-06-28 09:29:43,941 INFO     scraper.group_scraper:   ↓ Scroll 8/40 | Leads: 3 | Empty: 0/4
+2026-06-28 09:29:44,398 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     
+     Score:    22/100
+     Intent:   buy
+     Type:     unknown
+     Location: ?
+     Budget:   1,109,901,513 EGP
+     Phones:   ['01109901513']
+     Emails:   []
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     None m²
+     Lives in: N/A
+     Work:     N/A
+2026-06-28 09:29:46,490 INFO     scraper.group_scraper:   ↓ Scroll 9/40 | Leads: 4 | Empty: 0/4
+2026-06-28 09:29:50,478 INFO     scraper.group_scraper:   ↓ Scroll 10/40 | Leads: 4 | Empty: 1/4
+2026-06-28 09:29:50,478 INFO     scraper.group_scraper:   😴 Extended pause: 30s
+2026-06-28 09:30:25,173 INFO     scraper.group_scraper:   ↓ Scroll 11/40 | Leads: 4 | Empty: 0/4
+2026-06-28 09:30:28,185 INFO     scraper.group_scraper:   ↓ Scroll 12/40 | Leads: 4 | Empty: 1/4
+2026-06-28 09:30:36,276 INFO     scraper.group_scraper:   ↓ Scroll 13/40 | Leads: 4 | Empty: 0/4
+2026-06-28 09:30:37,918 INFO     scraper.group_scraper:   ↓ Scroll 14/40 | Leads: 4 | Empty: 0/4
+2026-06-28 09:30:39,100 INFO     scraper.group_scraper:   ↓ Scroll 15/40 | Leads: 4 | Empty: 1/4
+2026-06-28 09:30:41,281 INFO     scraper.group_scraper:   ↓ Scroll 16/40 | Leads: 4 | Empty: 2/4
+2026-06-28 09:30:46,840 INFO     scraper.group_scraper:   ↓ Scroll 17/40 | Leads: 4 | Empty: 3/4
+2026-06-28 09:30:56,730 INFO     scraper.group_scraper:   ↓ Scroll 18/40 | Leads: 4 | Empty: 4/4
+2026-06-28 09:30:56,731 INFO     scraper.group_scraper:   👥 4 buyer leads | 🔥 0 hot | 📱 3 phone numbers
+2026-06-28 09:30:56,765 INFO     database.db:   💾 DB: {'saved': 4, 'skipped': 0, 'updated': 0}
+2026-06-28 09:30:56,765 INFO     __main__:   📊 Batch saved: {'saved': 4, 'skipped': 0, 'updated': 0}
+2026-06-28 09:30:57,303 INFO     database.db:   📊 Exported 4 leads → exports\leads_20260628_0930.xlsx
+2026-06-28 09:30:58,540 INFO     scraper.browser:   💾 Session saved → config/session.json
+2026-06-28 09:30:58,935 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-28 09:35:25,739 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-28 09:35:27,080 INFO     scraper.browser:   ✅ Browser ready | headless=False | viewport=1440x900
+2026-06-28 09:35:27,081 INFO     scraper.auth: 🔄 Force-refreshing session ...
+2026-06-28 09:35:27,081 ERROR    scraper.auth: ❌ Session is invalid. Please run 'python main.py --login' to log in manually.
+2026-06-28 09:35:27,411 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-28 09:53:00,815 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-28 09:53:01,919 INFO     scraper.browser:   ✅ Browser ready | headless=False | viewport=1440x900
+2026-06-28 09:53:01,931 INFO     scraper.auth: 🔄 Force-refreshing session ...
+2026-06-28 09:53:01,934 ERROR    scraper.auth: ❌ Session is invalid. Please run 'python main.py --login' to log in manually.
+2026-06-28 09:53:02,258 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-28 09:54:47,031 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-06-28 09:54:47,031 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-28 09:54:48,094 INFO     scraper.browser:   ✅ Browser ready | headless=False | viewport=1600x900
+2026-06-28 09:54:51,447 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-06-28 09:54:51,460 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 09:54:51,460 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-06-28 09:54:52,120 WARNING  scraper.human: Warmup issue (non-fatal): Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://www.facebook.com/", waiting until "domcontentloaded"
+
+2026-06-28 09:54:52,120 INFO     __main__: 
+═══════════════════════════════════════════════════════
+2026-06-28 09:54:52,121 INFO     __main__:   Group 1/1
+2026-06-28 09:54:52,121 INFO     __main__: ═══════════════════════════════════════════════════════
+2026-06-28 09:54:52,122 INFO     scraper.group_scraper: ────────────────────────────────────────────────────────────
+2026-06-28 09:54:52,122 INFO     scraper.group_scraper: 📂 ⚡️X Estate Developments⚡️The Society of Real Estate in Egypt
+2026-06-28 09:54:52,122 INFO     scraper.group_scraper:    Region: general | URL: https://web.facebook.com/groups/mrsre
+2026-06-28 09:54:52,127 ERROR    scraper.group_scraper: Navigate error: Page.goto: Target page, context or browser has been closed
+2026-06-28 09:54:52,739 INFO     database.db:   📊 Exported 4 leads → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\exports\leads_20260628_0954.xlsx
+2026-06-28 09:54:53,055 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 09:54:53,567 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-28 09:54:58,590 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-06-28 09:54:58,591 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-28 09:54:59,531 INFO     scraper.browser:   📂 Loaded session: C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 09:54:59,536 INFO     scraper.browser:   📅 Session age: 0 minutes
+2026-06-28 09:55:00,119 INFO     scraper.browser:   ✅ Browser ready | headless=False | viewport=1920x1080
+2026-06-28 09:55:05,103 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-06-28 09:55:05,112 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 09:55:05,113 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-06-28 09:55:09,036 WARNING  scraper.human: Warmup issue (non-fatal): Page.evaluate: Target page, context or browser has been closed
+2026-06-28 09:55:09,036 INFO     __main__: 
+═══════════════════════════════════════════════════════
+2026-06-28 09:55:09,037 INFO     __main__:   Group 1/1
+2026-06-28 09:55:09,037 INFO     __main__: ═══════════════════════════════════════════════════════
+2026-06-28 09:55:09,037 INFO     scraper.group_scraper: ────────────────────────────────────────────────────────────
+2026-06-28 09:55:09,037 INFO     scraper.group_scraper: 📂 ⚡️X Estate Developments⚡️The Society of Real Estate in Egypt
+2026-06-28 09:55:09,037 INFO     scraper.group_scraper:    Region: general | URL: https://web.facebook.com/groups/mrsre
+2026-06-28 09:55:09,040 ERROR    scraper.group_scraper: Navigate error: Page.goto: Target page, context or browser has been closed
+2026-06-28 09:55:09,471 INFO     database.db:   📊 Exported 4 leads → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\exports\leads_20260628_0955.xlsx
+2026-06-28 09:55:09,642 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 09:55:09,940 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-28 09:55:23,082 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-06-28 09:55:23,083 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-28 09:55:23,826 INFO     scraper.browser:   📂 Loaded session: C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 09:55:23,839 INFO     scraper.browser:   📅 Session age: 0 minutes
+2026-06-28 09:55:24,301 INFO     scraper.browser:   ✅ Browser ready | headless=False | viewport=1920x1080
+2026-06-28 09:55:28,356 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-06-28 09:55:28,365 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 09:55:28,365 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-06-28 09:55:37,010 WARNING  scraper.human: Warmup issue (non-fatal): Page.evaluate: Target page, context or browser has been closed
+2026-06-28 09:55:37,011 INFO     __main__: 
+═══════════════════════════════════════════════════════
+2026-06-28 09:55:37,011 INFO     __main__:   Group 1/1
+2026-06-28 09:55:37,011 INFO     __main__: ═══════════════════════════════════════════════════════
+2026-06-28 09:55:37,011 INFO     scraper.group_scraper: ────────────────────────────────────────────────────────────
+2026-06-28 09:55:37,011 INFO     scraper.group_scraper: 📂 Custom
+2026-06-28 09:55:37,012 INFO     scraper.group_scraper:    Region: custom | URL: https://web.facebook.com/groups/mrsre
+2026-06-28 09:55:37,015 ERROR    scraper.group_scraper: Navigate error: Page.goto: Target page, context or browser has been closed
+2026-06-28 09:55:37,305 INFO     database.db:   📊 Exported 4 leads → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\exports\leads_20260628_0955.xlsx
+2026-06-28 09:55:37,461 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 09:55:37,691 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-28 10:07:42,943 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-28 10:07:43,982 INFO     scraper.browser:   ✅ Browser ready | headless=False | viewport=1366x768
+2026-06-28 10:07:43,989 INFO     scraper.auth: 🔄 Force-refreshing session ...
+2026-06-28 10:07:43,990 ERROR    scraper.auth: ❌ Session is invalid. Please run 'python main.py --login' to log in manually.
+2026-06-28 10:07:44,323 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-28 10:16:28,232 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-28 10:16:29,302 INFO     scraper.browser:   ✅ Browser ready | headless=False | viewport=1536x864
+2026-06-28 10:16:29,303 INFO     scraper.auth: 🔄 Force-refreshing session ...
+2026-06-28 10:16:29,303 ERROR    scraper.auth: ❌ Session is invalid. Please run 'python main.py --login' to log in manually.
+2026-06-28 10:16:29,639 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-28 10:27:21,840 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-28 10:27:23,171 INFO     scraper.browser:   ✅ Browser ready | headless=False | viewport=1536x864
+2026-06-28 10:27:23,173 INFO     scraper.auth: 🔄 Force-refreshing session ...
+2026-06-28 10:27:23,174 ERROR    scraper.auth: ❌ Session is invalid. Please run 'python main.py --login' to log in manually.
+2026-06-28 10:27:23,512 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-28 10:28:08,781 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-06-28 10:28:08,782 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-28 10:28:09,622 INFO     scraper.browser:   📂 Loaded session: C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 10:28:09,625 INFO     scraper.browser:   📅 Session age: 0 minutes
+2026-06-28 10:28:09,878 INFO     scraper.browser:   ✅ Browser ready | headless=False | viewport=1536x864
+2026-06-28 10:28:16,425 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-06-28 10:28:16,802 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 10:28:16,817 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-06-28 10:28:39,104 INFO     scraper.human: ✅ Warmup complete
+2026-06-28 10:28:39,104 INFO     __main__: 
+═══════════════════════════════════════════════════════
+2026-06-28 10:28:39,104 INFO     __main__:   Group 1/1
+2026-06-28 10:28:39,105 INFO     __main__: ═══════════════════════════════════════════════════════
+2026-06-28 10:28:39,105 INFO     scraper.group_scraper: ────────────────────────────────────────────────────────────
+2026-06-28 10:28:39,105 INFO     scraper.group_scraper: 📂 ⚡️X Estate Developments⚡️The Society of Real Estate in Egypt
+2026-06-28 10:28:39,105 INFO     scraper.group_scraper:    Region: general | URL: https://web.facebook.com/groups/mrsre
+2026-06-28 10:28:59,756 INFO     scraper.group_scraper:   ↓ Scroll 1/40 | Leads: 0 | Empty: 0/4
+2026-06-28 10:29:07,409 INFO     scraper.group_scraper:   ↓ Scroll 2/40 | Leads: 0 | Empty: 1/4
+2026-06-28 10:29:09,078 INFO     scraper.group_scraper:   ↓ Scroll 3/40 | Leads: 0 | Empty: 2/4
+2026-06-28 10:29:29,082 INFO     scraper.group_scraper:   ↓ Scroll 4/40 | Leads: 0 | Empty: 0/4
+2026-06-28 10:29:37,809 INFO     scraper.group_scraper:   ↓ Scroll 5/40 | Leads: 0 | Empty: 1/4
+2026-06-28 10:29:45,737 INFO     scraper.group_scraper:   ↓ Scroll 6/40 | Leads: 0 | Empty: 0/4
+2026-06-28 10:29:49,368 INFO     scraper.group_scraper:   ↓ Scroll 7/40 | Leads: 0 | Empty: 1/4
+2026-06-28 10:29:53,964 INFO     scraper.group_scraper:   ↓ Scroll 8/40 | Leads: 0 | Empty: 2/4
+2026-06-28 10:29:57,470 INFO     scraper.group_scraper:   ↓ Scroll 9/40 | Leads: 0 | Empty: 3/4
+2026-06-28 10:29:59,588 INFO     scraper.group_scraper:   ↓ Scroll 10/40 | Leads: 0 | Empty: 0/4
+2026-06-28 10:29:59,588 INFO     scraper.group_scraper:   😴 Extended pause: 22s
+2026-06-28 10:30:23,635 INFO     scraper.group_scraper:   ↓ Scroll 11/40 | Leads: 0 | Empty: 1/4
+2026-06-28 10:30:31,714 INFO     scraper.group_scraper:   ↓ Scroll 12/40 | Leads: 0 | Empty: 0/4
+2026-06-28 10:30:38,745 INFO     scraper.group_scraper:   ↓ Scroll 13/40 | Leads: 0 | Empty: 0/4
+2026-06-28 10:31:35,665 INFO     scraper.group_scraper:   ↓ Scroll 14/40 | Leads: 0 | Empty: 0/4
+2026-06-28 10:31:39,616 INFO     scraper.group_scraper:   ↓ Scroll 15/40 | Leads: 0 | Empty: 0/4
+2026-06-28 10:31:47,711 INFO     scraper.group_scraper:   ↓ Scroll 16/40 | Leads: 0 | Empty: 0/4
+2026-06-28 10:31:53,976 INFO     scraper.group_scraper:   ↓ Scroll 17/40 | Leads: 0 | Empty: 0/4
+2026-06-28 10:31:54,820 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     
+     Score:    22/100
+     Intent:   buy
+     Type:     unknown
+     Location: ?
+     Budget:   2,000,000 EGP
+     Phones:   ['01150166069']
+     Emails:   []
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     None m²
+     Lives in: N/A
+     Work:     N/A
+2026-06-28 10:31:56,583 INFO     scraper.group_scraper:   ↓ Scroll 18/40 | Leads: 1 | Empty: 0/4
+2026-06-28 10:31:57,855 INFO     scraper.group_scraper:   ↓ Scroll 19/40 | Leads: 1 | Empty: 0/4
+2026-06-28 10:32:00,430 INFO     scraper.group_scraper:   ↓ Scroll 20/40 | Leads: 1 | Empty: 1/4
+2026-06-28 10:32:00,430 INFO     scraper.group_scraper:   😴 Extended pause: 19s
+2026-06-28 10:32:21,335 INFO     scraper.group_scraper:   ↓ Scroll 21/40 | Leads: 1 | Empty: 0/4
+2026-06-28 10:32:25,051 INFO     scraper.group_scraper:   ↓ Scroll 22/40 | Leads: 1 | Empty: 0/4
+2026-06-28 10:32:30,254 INFO     scraper.group_scraper:   ↓ Scroll 23/40 | Leads: 1 | Empty: 0/4
+2026-06-28 10:32:36,661 INFO     scraper.group_scraper:   ↓ Scroll 24/40 | Leads: 1 | Empty: 0/4
+2026-06-28 10:32:46,450 INFO     scraper.group_scraper:   ↓ Scroll 25/40 | Leads: 1 | Empty: 0/4
+2026-06-28 10:32:50,616 INFO     scraper.group_scraper:   ↓ Scroll 26/40 | Leads: 1 | Empty: 0/4
+2026-06-28 10:33:53,044 INFO     scraper.group_scraper:   ↓ Scroll 27/40 | Leads: 1 | Empty: 0/4
+2026-06-28 10:33:55,271 INFO     scraper.group_scraper:   ↓ Scroll 28/40 | Leads: 1 | Empty: 0/4
+2026-06-28 10:33:59,180 INFO     scraper.group_scraper:   ↓ Scroll 29/40 | Leads: 1 | Empty: 1/4
+2026-06-28 10:34:07,935 INFO     scraper.group_scraper:   ↓ Scroll 30/40 | Leads: 1 | Empty: 0/4
+2026-06-28 10:34:07,935 INFO     scraper.group_scraper:   😴 Extended pause: 22s
+2026-06-28 10:34:31,617 INFO     scraper.group_scraper:   ↓ Scroll 31/40 | Leads: 1 | Empty: 0/4
+2026-06-28 10:34:33,103 INFO     scraper.group_scraper:   ↓ Scroll 32/40 | Leads: 1 | Empty: 1/4
+2026-06-28 10:34:37,921 INFO     scraper.group_scraper:   ↓ Scroll 33/40 | Leads: 1 | Empty: 2/4
+2026-06-28 10:34:40,936 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-06-28 10:35:06,796 INFO     scraper.profile_scraper:       ✅ Profile: 📱 1 phones
+2026-06-28 10:35:06,943 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD 🟡 COOL
+     Name:     
+     Score:    48/100
+     Intent:   buy
+     Type:     unknown
+     Location: الشروق, العبور
+     Budget:   26,413,533 EGP
+     Phones:   ['01026413533']
+     Emails:   []
+     WhatsApp: []
+     Comment#: []
+     Payment:  installments
+     Urgency:  urgent
+     Rooms:    None bed / None bath
+     Area:     None m²
+     Lives in: N/A
+     Work:     N/A
+2026-06-28 10:35:09,329 INFO     scraper.group_scraper:   ↓ Scroll 34/40 | Leads: 2 | Empty: 0/4
+2026-06-28 10:36:15,918 INFO     scraper.group_scraper:   ↓ Scroll 35/40 | Leads: 2 | Empty: 0/4
+2026-06-28 10:36:20,063 INFO     scraper.group_scraper:   ↓ Scroll 36/40 | Leads: 2 | Empty: 0/4
+2026-06-28 10:36:23,359 INFO     scraper.group_scraper:   ↓ Scroll 37/40 | Leads: 2 | Empty: 1/4
+2026-06-28 10:36:27,581 INFO     scraper.group_scraper:   ↓ Scroll 38/40 | Leads: 2 | Empty: 2/4
+2026-06-28 10:36:31,177 INFO     scraper.group_scraper:   ↓ Scroll 39/40 | Leads: 2 | Empty: 3/4
+2026-06-28 10:36:35,300 INFO     scraper.group_scraper:   ↓ Scroll 40/40 | Leads: 2 | Empty: 4/4
+2026-06-28 10:36:35,300 INFO     scraper.group_scraper:   😴 Extended pause: 33s
+2026-06-28 10:37:08,224 INFO     scraper.group_scraper:   👥 2 buyer leads | 🔥 0 hot | 📱 2 phone numbers
+2026-06-28 10:37:08,249 INFO     database.db:   💾 DB: {'saved': 2, 'skipped': 0, 'updated': 0}
+2026-06-28 10:37:08,249 INFO     __main__:   📊 Batch saved: {'saved': 2, 'skipped': 0, 'updated': 0}
+2026-06-28 10:37:08,744 INFO     database.db:   📊 Exported 6 leads → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\exports\leads_20260628_1037.xlsx
+2026-06-28 10:37:10,308 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 10:37:10,826 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-28 10:41:31,082 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-06-28 10:41:31,083 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-28 10:41:32,005 INFO     scraper.browser:   📂 Loaded session: C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 10:41:32,010 INFO     scraper.browser:   📅 Session age: 4 minutes
+2026-06-28 10:41:32,501 INFO     scraper.browser:   ✅ Browser ready | headless=False | viewport=1920x1080
+2026-06-28 10:41:39,777 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-06-28 10:41:40,097 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 10:41:40,099 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-06-28 10:41:56,772 INFO     scraper.human: ✅ Warmup complete
+2026-06-28 10:41:56,772 INFO     __main__: 
+═══════════════════════════════════════════════════════
+2026-06-28 10:41:56,772 INFO     __main__:   Group 1/1
+2026-06-28 10:41:56,772 INFO     __main__: ═══════════════════════════════════════════════════════
+2026-06-28 10:41:56,774 INFO     scraper.group_scraper: ────────────────────────────────────────────────────────────
+2026-06-28 10:41:56,774 INFO     scraper.group_scraper: 📂 ⚡️X Estate Developments⚡️The Society of Real Estate in Egypt
+2026-06-28 10:41:56,774 INFO     scraper.group_scraper:    Region: general | URL: https://web.facebook.com/groups/mrsre
+2026-06-28 10:42:08,637 INFO     scraper.group_scraper:   ↓ Scroll 1/40 | Leads: 0 | Empty: 0/4
+2026-06-28 10:42:13,863 INFO     scraper.group_scraper:   ↓ Scroll 2/40 | Leads: 0 | Empty: 0/4
+2026-06-28 10:42:19,668 INFO     scraper.group_scraper:   ↓ Scroll 3/40 | Leads: 0 | Empty: 1/4
+2026-06-28 10:42:21,723 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-06-28 10:42:41,724 INFO     scraper.profile_scraper:       ✅ Profile: 📱 1 phones
+2026-06-28 10:42:41,784 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD 🟡 COOL
+     Name:     
+     Score:    41/100
+     Intent:   buy
+     Type:     villa
+     Location: ?
+     Budget:   100,000,000 EGP
+     Phones:   ['01033701524']
+     Emails:   []
+     WhatsApp: []
+     Comment#: []
+     Payment:  installments
+     Urgency:  urgent
+     Rooms:    None bed / None bath
+     Area:     65.0 m²
+     Lives in: N/A
+     Work:     N/A
+2026-06-28 10:42:46,976 INFO     scraper.group_scraper:   ↓ Scroll 4/40 | Leads: 1 | Empty: 0/4
+2026-06-28 10:42:51,289 INFO     scraper.group_scraper:   ↓ Scroll 5/40 | Leads: 1 | Empty: 0/4
+2026-06-28 10:42:53,212 INFO     scraper.group_scraper:   ↓ Scroll 6/40 | Leads: 1 | Empty: 0/4
+2026-06-28 10:42:57,637 INFO     scraper.group_scraper:   ↓ Scroll 7/40 | Leads: 1 | Empty: 0/4
+2026-06-28 10:43:05,877 INFO     scraper.group_scraper:   ↓ Scroll 8/40 | Leads: 1 | Empty: 0/4
+2026-06-28 10:43:07,505 INFO     scraper.group_scraper:   ↓ Scroll 9/40 | Leads: 1 | Empty: 1/4
+2026-06-28 10:43:12,334 INFO     scraper.group_scraper:   ↓ Scroll 10/40 | Leads: 1 | Empty: 2/4
+2026-06-28 10:43:12,334 INFO     scraper.group_scraper:   😴 Extended pause: 44s
+2026-06-28 10:44:00,330 INFO     scraper.group_scraper:   ↓ Scroll 11/40 | Leads: 1 | Empty: 3/4
+2026-06-28 10:44:03,388 INFO     scraper.group_scraper:   ↓ Scroll 12/40 | Leads: 1 | Empty: 0/4
+2026-06-28 10:44:06,854 INFO     scraper.group_scraper:   ↓ Scroll 13/40 | Leads: 1 | Empty: 1/4
+2026-06-28 10:44:14,303 INFO     scraper.group_scraper:   ↓ Scroll 14/40 | Leads: 1 | Empty: 2/4
+2026-06-28 10:44:23,823 INFO     scraper.group_scraper:   ↓ Scroll 15/40 | Leads: 1 | Empty: 3/4
+2026-06-28 10:44:34,411 INFO     scraper.group_scraper:   ↓ Scroll 16/40 | Leads: 1 | Empty: 0/4
+2026-06-28 10:44:42,321 INFO     scraper.group_scraper:   ↓ Scroll 17/40 | Leads: 1 | Empty: 0/4
+2026-06-28 10:44:51,551 INFO     scraper.group_scraper:   ↓ Scroll 18/40 | Leads: 1 | Empty: 1/4
+2026-06-28 10:46:08,405 INFO     scraper.group_scraper:   ↓ Scroll 19/40 | Leads: 1 | Empty: 0/4
+2026-06-28 10:46:16,647 INFO     scraper.group_scraper:   ↓ Scroll 20/40 | Leads: 1 | Empty: 0/4
+2026-06-28 10:46:16,647 INFO     scraper.group_scraper:   😴 Extended pause: 32s
+2026-06-28 10:46:49,197 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     
+     Score:    22/100
+     Intent:   buy
+     Type:     unknown
+     Location: ?
+     Budget:   2,000,000 EGP
+     Phones:   ['01150166069']
+     Emails:   []
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     None m²
+     Lives in: N/A
+     Work:     N/A
+2026-06-28 10:46:52,697 INFO     scraper.group_scraper:   ↓ Scroll 21/40 | Leads: 2 | Empty: 0/4
+2026-06-28 10:47:03,312 INFO     scraper.group_scraper:   ↓ Scroll 22/40 | Leads: 2 | Empty: 0/4
+2026-06-28 10:47:14,180 INFO     scraper.group_scraper:   ↓ Scroll 23/40 | Leads: 2 | Empty: 0/4
+2026-06-28 10:48:39,517 INFO     scraper.group_scraper:   ↓ Scroll 24/40 | Leads: 2 | Empty: 0/4
+2026-06-28 10:48:41,398 INFO     scraper.group_scraper:   ↓ Scroll 25/40 | Leads: 2 | Empty: 1/4
+2026-06-28 10:48:49,263 INFO     scraper.group_scraper:   ↓ Scroll 26/40 | Leads: 2 | Empty: 0/4
+2026-06-28 10:48:51,584 INFO     scraper.group_scraper:   ↓ Scroll 27/40 | Leads: 2 | Empty: 0/4
+2026-06-28 10:50:03,096 INFO     scraper.group_scraper:   ↓ Scroll 28/40 | Leads: 2 | Empty: 0/4
+2026-06-28 10:50:06,658 INFO     scraper.group_scraper:   ↓ Scroll 29/40 | Leads: 2 | Empty: 0/4
+2026-06-28 10:50:08,804 INFO     scraper.group_scraper:   ↓ Scroll 30/40 | Leads: 2 | Empty: 0/4
+2026-06-28 10:50:10,373 INFO     scraper.group_scraper:   😴 Extended pause: 45s
+2026-06-28 10:50:56,760 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-06-28 10:51:17,808 INFO     scraper.profile_scraper:       ✅ Profile: 📱 1 phones
+2026-06-28 10:51:17,830 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD 🟡 COOL
+     Name:     
+     Score:    48/100
+     Intent:   buy
+     Type:     unknown
+     Location: الشروق, العبور
+     Budget:   26,413,533 EGP
+     Phones:   ['01026413533']
+     Emails:   []
+     WhatsApp: []
+     Comment#: []
+     Payment:  installments
+     Urgency:  urgent
+     Rooms:    None bed / None bath
+     Area:     None m²
+     Lives in: N/A
+     Work:     N/A
+2026-06-28 10:51:24,751 INFO     scraper.group_scraper:   ↓ Scroll 31/40 | Leads: 3 | Empty: 0/4
+2026-06-28 10:51:27,215 INFO     scraper.group_scraper:   ↓ Scroll 32/40 | Leads: 3 | Empty: 0/4
+2026-06-28 10:51:34,150 INFO     scraper.group_scraper:   ↓ Scroll 33/40 | Leads: 3 | Empty: 0/4
+2026-06-28 10:51:36,078 INFO     scraper.group_scraper:   ↓ Scroll 34/40 | Leads: 3 | Empty: 1/4
+2026-06-28 10:51:38,813 INFO     scraper.group_scraper:   ↓ Scroll 35/40 | Leads: 3 | Empty: 2/4
+2026-06-28 10:51:43,209 INFO     scraper.group_scraper:   ↓ Scroll 36/40 | Leads: 3 | Empty: 3/4
+2026-06-28 10:51:46,379 INFO     scraper.group_scraper:   ↓ Scroll 37/40 | Leads: 3 | Empty: 0/4
+2026-06-28 10:51:48,407 INFO     scraper.group_scraper:   ↓ Scroll 38/40 | Leads: 3 | Empty: 1/4
+2026-06-28 10:51:50,130 INFO     scraper.group_scraper:   ↓ Scroll 39/40 | Leads: 3 | Empty: 2/4
+2026-06-28 10:51:55,944 INFO     scraper.group_scraper:   ↓ Scroll 40/40 | Leads: 3 | Empty: 0/4
+2026-06-28 10:51:55,944 INFO     scraper.group_scraper:   😴 Extended pause: 21s
+2026-06-28 10:52:17,418 INFO     scraper.group_scraper:   👥 3 buyer leads | 🔥 0 hot | 📱 3 phone numbers
+2026-06-28 10:52:17,449 INFO     database.db:   💾 DB: {'saved': 1, 'skipped': 2, 'updated': 0}
+2026-06-28 10:52:17,449 INFO     __main__:   📊 Batch saved: {'saved': 1, 'skipped': 2, 'updated': 0}
+2026-06-28 10:52:17,709 INFO     database.db:   📊 Exported 7 leads → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\exports\leads_20260628_1052.xlsx
+2026-06-28 10:52:18,681 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 10:52:19,169 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-28 11:33:14,988 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-06-28 11:33:14,989 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-28 11:33:15,733 INFO     scraper.browser:   📂 Loaded session: C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 11:33:15,736 INFO     scraper.browser:   📅 Session age: 40 minutes
+2026-06-28 11:33:16,198 INFO     scraper.browser:   ✅ Browser ready | headless=False | viewport=1536x864
+2026-06-28 11:33:22,796 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-06-28 11:33:23,263 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 11:33:23,263 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-06-28 11:33:47,067 INFO     scraper.human: ✅ Warmup complete
+2026-06-28 11:33:47,068 INFO     __main__: 
+═══════════════════════════════════════════════════════
+2026-06-28 11:33:47,068 INFO     __main__:   Group 1/1
+2026-06-28 11:33:47,069 INFO     __main__: ═══════════════════════════════════════════════════════
+2026-06-28 11:33:47,069 INFO     scraper.group_scraper: ────────────────────────────────────────────────────────────
+2026-06-28 11:33:47,070 INFO     scraper.group_scraper: 📂 ⚡️X Estate Developments⚡️The Society of Real Estate in Egypt
+2026-06-28 11:33:47,070 INFO     scraper.group_scraper:    Region: general | URL: https://web.facebook.com/groups/mrsre
+2026-06-28 11:34:00,986 INFO     scraper.group_scraper:   ↓ Scroll 1/40 | Leads: 0 | Empty: 0/4
+2026-06-28 11:34:05,034 INFO     scraper.group_scraper:   ↓ Scroll 2/40 | Leads: 0 | Empty: 1/4
+2026-06-28 11:34:06,082 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-06-28 11:34:27,007 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-06-28 11:34:27,042 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     InspiringDeer7805
+     Score:    16/100
+     Intent:   buy
+     Type:     office
+     Location: ?
+     Budget:   N/A EGP
+     Phones:   []
+     Emails:   []
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     None m²
+     Lives in: N/A
+     Work:     N/A
+2026-06-28 11:34:30,178 INFO     scraper.group_scraper:   ↓ Scroll 3/40 | Leads: 1 | Empty: 0/4
+2026-06-28 11:34:37,593 INFO     scraper.group_scraper:   ↓ Scroll 4/40 | Leads: 1 | Empty: 0/4
+2026-06-28 11:34:48,230 INFO     scraper.group_scraper:   ↓ Scroll 5/40 | Leads: 1 | Empty: 1/4
+2026-06-28 11:34:59,599 INFO     scraper.group_scraper:   ↓ Scroll 6/40 | Leads: 1 | Empty: 0/4
+2026-06-28 11:35:03,401 INFO     scraper.group_scraper:   ↓ Scroll 7/40 | Leads: 1 | Empty: 0/4
+2026-06-28 11:35:04,090 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     Abdelrhman Ahmed
+     Score:    18/100
+     Intent:   buy
+     Type:     unknown
+     Location: ?
+     Budget:   N/A EGP
+     Phones:   ['01027225122']
+     Emails:   []
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     None m²
+     Lives in: N/A
+     Work:     N/A
+2026-06-28 11:35:04,364 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     Mohamed Osama Elgamal
+     Score:    18/100
+     Intent:   buy
+     Type:     unknown
+     Location: ?
+     Budget:   N/A EGP
+     Phones:   ['01028892565']
+     Emails:   []
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     None m²
+     Lives in: N/A
+     Work:     N/A
+2026-06-28 11:35:10,949 INFO     scraper.group_scraper:   ↓ Scroll 8/40 | Leads: 3 | Empty: 0/4
+2026-06-28 11:35:12,191 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-06-28 11:35:38,216 INFO     scraper.profile_scraper:       ✅ Profile: 📱 3 phones
+2026-06-28 11:35:38,256 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     1d
+     Score:    12/100
+     Intent:   buy
+     Type:     unknown
+     Location: ?
+     Budget:   N/A EGP
+     Phones:   ['01100563056', '01029700061', '01100578191']
+     Emails:   []
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     None m²
+     Lives in: N/A
+     Work:     N/A
+2026-06-28 11:35:42,177 INFO     scraper.group_scraper:   ↓ Scroll 9/40 | Leads: 4 | Empty: 0/4
+2026-06-28 11:35:47,673 INFO     scraper.group_scraper:   ↓ Scroll 10/40 | Leads: 4 | Empty: 1/4
+2026-06-28 11:35:47,673 INFO     scraper.group_scraper:   😴 Extended pause: 41s
+2026-06-28 11:36:29,302 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-06-28 11:36:52,067 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-06-28 11:36:52,101 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     كنت انا و حد صديقي من الناس ال
+     Score:    12/100
+     Intent:   buy
+     Type:     unknown
+     Location: ?
+     Budget:   N/A EGP
+     Phones:   []
+     Emails:   []
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     None m²
+     Lives in: N/A
+     Work:     N/A
+2026-06-28 11:37:01,101 INFO     scraper.group_scraper:   ↓ Scroll 11/40 | Leads: 5 | Empty: 0/4
+2026-06-28 11:37:06,304 INFO     scraper.group_scraper:   ↓ Scroll 12/40 | Leads: 5 | Empty: 0/4
+2026-06-28 11:37:08,230 INFO     scraper.group_scraper:   ↓ Scroll 13/40 | Leads: 5 | Empty: 1/4
+2026-06-28 11:37:15,843 INFO     scraper.group_scraper:   ↓ Scroll 14/40 | Leads: 5 | Empty: 0/4
+2026-06-28 11:37:18,902 INFO     scraper.group_scraper:   ↓ Scroll 15/40 | Leads: 5 | Empty: 0/4
+2026-06-28 11:37:37,044 INFO     scraper.group_scraper:   ↓ Scroll 16/40 | Leads: 5 | Empty: 0/4
+2026-06-28 11:37:41,209 INFO     scraper.group_scraper:   ↓ Scroll 17/40 | Leads: 5 | Empty: 1/4
+2026-06-28 11:37:46,504 INFO     scraper.group_scraper:   ↓ Scroll 18/40 | Leads: 5 | Empty: 2/4
+2026-06-28 11:37:51,393 INFO     scraper.group_scraper:   ↓ Scroll 19/40 | Leads: 5 | Empty: 3/4
+2026-06-28 11:37:55,769 INFO     scraper.group_scraper:   ↓ Scroll 20/40 | Leads: 5 | Empty: 0/4
+2026-06-28 11:37:55,769 INFO     scraper.group_scraper:   😴 Extended pause: 26s
+2026-06-28 11:38:23,087 INFO     scraper.group_scraper:   ↓ Scroll 21/40 | Leads: 5 | Empty: 1/4
+2026-06-28 11:38:30,115 INFO     scraper.group_scraper:   ↓ Scroll 22/40 | Leads: 5 | Empty: 2/4
+2026-06-28 11:38:37,257 INFO     scraper.group_scraper:   ↓ Scroll 23/40 | Leads: 5 | Empty: 3/4
+2026-06-28 11:38:39,623 INFO     scraper.group_scraper:   ↓ Scroll 24/40 | Leads: 5 | Empty: 4/4
+2026-06-28 11:38:39,623 INFO     scraper.group_scraper:   👥 5 buyer leads | 🔥 0 hot | 📱 5 phone numbers
+2026-06-28 11:38:39,656 INFO     database.db:   💾 DB: {'saved': 5, 'skipped': 0, 'updated': 0}
+2026-06-28 11:38:39,657 INFO     __main__:   📊 Batch saved: {'saved': 5, 'skipped': 0, 'updated': 0}
+2026-06-28 11:38:40,059 INFO     database.db:   📊 Exported 12 leads → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\exports\leads_20260628_1138.xlsx
+2026-06-28 11:38:43,126 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 11:38:44,009 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-28 12:00:26,136 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-06-28 12:00:26,137 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-28 12:00:27,532 INFO     scraper.browser:   📂 Loaded session: C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 12:00:27,535 INFO     scraper.browser:   📅 Session age: 21 minutes
+2026-06-28 12:00:28,181 INFO     scraper.browser:   ✅ Browser ready | headless=False | viewport=1600x900
+2026-06-28 12:00:34,640 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-06-28 12:00:35,071 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 12:00:35,071 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-06-28 12:04:18,908 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-06-28 12:04:18,909 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-28 12:04:19,750 INFO     scraper.browser:   📂 Loaded session: C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 12:04:19,760 INFO     scraper.browser:   📅 Session age: 3 minutes
+2026-06-28 12:04:20,232 INFO     scraper.browser:   ✅ Browser ready | headless=False | viewport=1440x900
+2026-06-28 12:04:29,136 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-06-28 12:04:29,137 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-28 12:04:30,030 INFO     scraper.browser:   📂 Loaded session: C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 12:04:30,035 INFO     scraper.browser:   📅 Session age: 3 minutes
+2026-06-28 12:04:30,531 INFO     scraper.browser:   ✅ Browser ready | headless=False | viewport=1600x900
+2026-06-28 12:05:09,042 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-06-28 12:05:09,043 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-28 12:05:09,959 INFO     scraper.browser:   📂 Loaded session: C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 12:05:09,960 INFO     scraper.browser:   📅 Session age: 4 minutes
+2026-06-28 12:05:10,464 INFO     scraper.browser:   ✅ Browser ready | headless=True | viewport=1920x1080
+2026-06-28 16:41:39,871 INFO     __main__: 
+=======================================================
+2026-06-28 16:41:39,871 INFO     __main__:   🚀 Egypt RE Buyer Scraper (Post Scrape)
+2026-06-28 16:41:39,874 INFO     __main__: =======================================================
+2026-06-28 16:41:39,874 INFO     __main__:   Post URL: https://web.facebook.com/groups/mrsre/permalink/2581807322554228/
+2026-06-28 16:41:39,874 INFO     __main__: =======================================================
+
+2026-06-28 16:41:39,896 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-06-28 16:41:39,896 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-28 16:41:40,897 INFO     scraper.browser:   📂 Loaded session: C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 16:41:40,898 INFO     scraper.browser:   📅 Session age: 4.7 hours
+2026-06-28 16:41:41,540 INFO     scraper.browser:   ✅ Browser ready | headless=True | viewport=1920x1080
+2026-06-28 16:41:50,498 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-06-28 16:41:50,676 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 16:41:50,677 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-06-28 16:42:11,400 INFO     scraper.human: ✅ Warmup complete
+2026-06-28 16:42:11,400 INFO     scraper.post_scraper: ────────────────────────────────────────────────────────────
+2026-06-28 16:42:11,400 INFO     scraper.post_scraper: 📄 Scraping Post: https://web.facebook.com/groups/mrsre/permalink/2581807322554228/
+2026-06-28 16:42:18,364 INFO     scraper.post_scraper: Expanding comments...
+2026-06-28 16:42:27,167 INFO     scraper.post_scraper: Extracting post and comments...
+2026-06-28 16:42:27,289 INFO     scraper.post_scraper:   👥 0 buyer leads found | 🔥 0 hot | 📱 0 phone numbers
+2026-06-28 16:42:27,289 INFO     __main__: 
+=======================================================
+2026-06-28 16:42:27,289 INFO     __main__:   ✅ POST SCRAPE COMPLETE
+2026-06-28 16:42:27,289 INFO     __main__:   Total leads found: 0
+2026-06-28 16:42:27,303 INFO     __main__:   DB stats: {'total_leads': 12, 'hot_leads': 0, 'with_phone': 9, 'with_email': 0, 'with_whatsapp': 0, 'urgent_leads': 2, 'contacted': 0, 'brokers': 0, 'profiles_scraped': 6, 'avg_lead_score': 22.5}
+2026-06-28 16:42:27,303 INFO     __main__: =======================================================
+
+2026-06-28 16:42:27,674 INFO     database.db:   📊 Exported 12 leads → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\exports\leads_20260628_1642.xlsx
+2026-06-28 16:42:27,674 INFO     __main__:   📊 Auto-exported to: C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\exports\leads_20260628_1642.xlsx
+
+2026-06-28 16:42:27,813 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 16:42:28,005 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-28 16:45:54,676 INFO     __main__: 
+=======================================================
+2026-06-28 16:45:54,676 INFO     __main__:   🚀 Egypt RE Buyer Scraper (Post Scrape)
+2026-06-28 16:45:54,676 INFO     __main__: =======================================================
+2026-06-28 16:45:54,677 INFO     __main__:   Post URL: https://web.facebook.com/groups/mrsre/permalink/2581807322554228/
+2026-06-28 16:45:54,677 INFO     __main__: =======================================================
+
+2026-06-28 16:45:54,694 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-06-28 16:45:54,694 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-28 16:45:55,319 INFO     scraper.browser:   📂 Loaded session: C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 16:45:55,320 INFO     scraper.browser:   📅 Session age: 3 minutes
+2026-06-28 16:45:55,536 INFO     scraper.browser:   ✅ Browser ready | headless=True | viewport=1600x900
+2026-06-28 16:46:03,383 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-06-28 16:46:03,536 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 16:46:03,537 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-06-28 16:46:20,568 INFO     scraper.human: ✅ Warmup complete
+2026-06-28 16:46:20,568 INFO     scraper.post_scraper: ────────────────────────────────────────────────────────────
+2026-06-28 16:46:20,568 INFO     scraper.post_scraper: 📄 Scraping Post: https://web.facebook.com/groups/mrsre/permalink/2581807322554228/
+2026-06-28 16:46:26,049 INFO     scraper.post_scraper: Expanding comments...
+2026-06-28 16:46:36,372 INFO     scraper.post_scraper: Extracting post and comments...
+2026-06-28 16:46:36,500 INFO     scraper.post_scraper:   👥 0 buyer leads found | 🔥 0 hot | 📱 0 phone numbers
+2026-06-28 16:46:36,500 INFO     __main__: 
+=======================================================
+2026-06-28 16:46:36,501 INFO     __main__:   ✅ POST SCRAPE COMPLETE
+2026-06-28 16:46:36,501 INFO     __main__:   Total leads found: 0
+2026-06-28 16:46:36,513 INFO     __main__:   DB stats: {'total_leads': 12, 'hot_leads': 0, 'with_phone': 9, 'with_email': 0, 'with_whatsapp': 0, 'urgent_leads': 2, 'contacted': 0, 'brokers': 0, 'profiles_scraped': 6, 'avg_lead_score': 22.5}
+2026-06-28 16:46:36,513 INFO     __main__: =======================================================
+
+2026-06-28 16:46:36,748 INFO     database.db:   📊 Exported 12 leads → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\exports\leads_20260628_1646.xlsx
+2026-06-28 16:46:36,748 INFO     __main__:   📊 Auto-exported to: C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\exports\leads_20260628_1646.xlsx
+
+2026-06-28 16:46:36,887 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 16:46:37,107 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-28 17:13:47,974 INFO     __main__: 
+=======================================================
+2026-06-28 17:13:47,974 INFO     __main__:   🚀 Egypt RE Buyer Scraper (Post Scrape)
+2026-06-28 17:13:47,974 INFO     __main__: =======================================================
+2026-06-28 17:13:47,975 INFO     __main__:   Post URL: https://web.facebook.com/share/p/1YNrhDjtF2/
+2026-06-28 17:13:47,975 INFO     __main__: =======================================================
+
+2026-06-28 17:13:48,000 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-06-28 17:13:48,001 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-28 17:13:53,852 INFO     scraper.browser:   📂 Loaded session: C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 17:13:53,855 INFO     scraper.browser:   📅 Session age: 27 minutes
+2026-06-28 17:13:54,428 INFO     scraper.browser:   ✅ Browser ready | headless=True | viewport=1366x768
+2026-06-28 17:14:02,732 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-06-28 17:14:02,907 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 17:14:02,908 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-06-28 17:14:21,331 INFO     scraper.human: ✅ Warmup complete
+2026-06-28 17:14:21,332 INFO     scraper.post_scraper: ────────────────────────────────────────────────────────────
+2026-06-28 17:14:21,333 INFO     scraper.post_scraper: 📄 Scraping Post: https://web.facebook.com/share/p/1YNrhDjtF2/
+2026-06-28 17:14:28,115 INFO     scraper.post_scraper: Expanding comments...
+2026-06-28 17:14:37,675 INFO     scraper.post_scraper: Extracting post and comments...
+2026-06-28 17:14:37,796 INFO     scraper.post_scraper:   👥 0 buyer leads found | 🔥 0 hot | 📱 0 phone numbers
+2026-06-28 17:14:37,797 INFO     __main__: 
+=======================================================
+2026-06-28 17:14:37,797 INFO     __main__:   ✅ POST SCRAPE COMPLETE
+2026-06-28 17:14:37,797 INFO     __main__:   Total leads found: 0
+2026-06-28 17:14:37,812 INFO     __main__:   DB stats: {'total_leads': 12, 'hot_leads': 0, 'with_phone': 9, 'with_email': 0, 'with_whatsapp': 0, 'urgent_leads': 2, 'contacted': 0, 'brokers': 0, 'profiles_scraped': 6, 'avg_lead_score': 22.5}
+2026-06-28 17:14:37,812 INFO     __main__: =======================================================
+
+2026-06-28 17:14:38,215 INFO     database.db:   📊 Exported 12 leads → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\exports\leads_20260628_1714.xlsx
+2026-06-28 17:14:38,216 INFO     __main__:   📊 Auto-exported to: C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\exports\leads_20260628_1714.xlsx
+
+2026-06-28 17:14:38,346 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 17:14:38,469 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-28 17:15:56,613 INFO     __main__: 
+=======================================================
+2026-06-28 17:15:56,614 INFO     __main__:   🚀 Egypt RE Buyer Scraper (Post Scrape)
+2026-06-28 17:15:56,614 INFO     __main__: =======================================================
+2026-06-28 17:15:56,614 INFO     __main__:   Post URL: https://web.facebook.com/share/p/17dYcfo85h/
+2026-06-28 17:15:56,615 INFO     __main__: =======================================================
+
+2026-06-28 17:15:56,631 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-06-28 17:15:56,631 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-28 17:15:57,245 INFO     scraper.browser:   📂 Loaded session: C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 17:15:57,245 INFO     scraper.browser:   📅 Session age: 1 minutes
+2026-06-28 17:15:57,451 INFO     scraper.browser:   ✅ Browser ready | headless=True | viewport=1536x864
+2026-06-28 17:16:03,387 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-06-28 17:16:03,587 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 17:16:03,587 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-06-28 17:16:18,820 INFO     scraper.human: ✅ Warmup complete
+2026-06-28 17:16:18,820 INFO     scraper.post_scraper: ────────────────────────────────────────────────────────────
+2026-06-28 17:16:18,820 INFO     scraper.post_scraper: 📄 Scraping Post: https://web.facebook.com/share/p/17dYcfo85h/
+2026-06-28 17:16:25,416 INFO     scraper.post_scraper: Expanding comments...
+2026-06-28 17:16:33,601 INFO     scraper.post_scraper: Extracting post and comments...
+2026-06-28 17:16:33,711 INFO     scraper.post_scraper:   👥 0 buyer leads found | 🔥 0 hot | 📱 0 phone numbers
+2026-06-28 17:16:33,711 INFO     __main__: 
+=======================================================
+2026-06-28 17:16:33,711 INFO     __main__:   ✅ POST SCRAPE COMPLETE
+2026-06-28 17:16:33,711 INFO     __main__:   Total leads found: 0
+2026-06-28 17:16:33,725 INFO     __main__:   DB stats: {'total_leads': 12, 'hot_leads': 0, 'with_phone': 9, 'with_email': 0, 'with_whatsapp': 0, 'urgent_leads': 2, 'contacted': 0, 'brokers': 0, 'profiles_scraped': 6, 'avg_lead_score': 22.5}
+2026-06-28 17:16:33,725 INFO     __main__: =======================================================
+
+2026-06-28 17:16:34,010 INFO     database.db:   📊 Exported 12 leads → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\exports\leads_20260628_1716.xlsx
+2026-06-28 17:16:34,011 INFO     __main__:   📊 Auto-exported to: C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\exports\leads_20260628_1716.xlsx
+
+2026-06-28 17:16:34,135 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 17:16:34,225 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-28 17:27:39,852 INFO     __main__: 
+=======================================================
+2026-06-28 17:27:39,853 INFO     __main__:   🚀 Egypt RE Buyer Scraper (Post Scrape)
+2026-06-28 17:27:39,853 INFO     __main__: =======================================================
+2026-06-28 17:27:39,853 INFO     __main__:   Post URL: https://web.facebook.com/share/p/18gxnrQM84/
+2026-06-28 17:27:39,853 INFO     __main__: =======================================================
+
+2026-06-28 17:27:39,873 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-06-28 17:27:39,873 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-28 17:27:40,505 INFO     scraper.browser:   📂 Loaded session: C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 17:27:40,506 INFO     scraper.browser:   📅 Session age: 11 minutes
+2026-06-28 17:27:40,730 INFO     scraper.browser:   ✅ Browser ready | headless=True | viewport=1536x864
+2026-06-28 17:27:57,313 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-06-28 17:27:57,459 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 17:27:57,460 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-06-28 17:28:17,433 INFO     scraper.human: ✅ Warmup complete
+2026-06-28 17:28:17,433 INFO     scraper.post_scraper: ────────────────────────────────────────────────────────────
+2026-06-28 17:28:17,433 INFO     scraper.post_scraper: 📄 Scraping Post: https://web.facebook.com/share/p/18gxnrQM84/
+2026-06-28 17:28:24,418 INFO     scraper.post_scraper: Expanding comments...
+2026-06-28 17:28:35,943 INFO     scraper.post_scraper: Extracting post and comments...
+2026-06-28 17:28:36,060 INFO     scraper.post_scraper:   👥 0 buyer leads found | 🔥 0 hot | 📱 0 phone numbers
+2026-06-28 17:28:36,060 INFO     __main__: 
+=======================================================
+2026-06-28 17:28:36,060 INFO     __main__:   ✅ POST SCRAPE COMPLETE
+2026-06-28 17:28:36,060 INFO     __main__:   Total leads found: 0
+2026-06-28 17:28:36,073 INFO     __main__:   DB stats: {'total_leads': 12, 'hot_leads': 0, 'with_phone': 9, 'with_email': 0, 'with_whatsapp': 0, 'urgent_leads': 2, 'contacted': 0, 'brokers': 0, 'profiles_scraped': 6, 'avg_lead_score': 22.5}
+2026-06-28 17:28:36,073 INFO     __main__: =======================================================
+
+2026-06-28 17:28:36,375 INFO     database.db:   📊 Exported 12 leads → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\exports\leads_20260628_1728.xlsx
+2026-06-28 17:28:36,376 INFO     __main__:   📊 Auto-exported to: C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\exports\leads_20260628_1728.xlsx
+
+2026-06-28 17:28:36,523 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 17:28:36,695 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-28 17:31:02,026 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-06-28 17:31:02,027 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-28 17:31:02,653 INFO     scraper.browser:   📂 Loaded session: C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 17:31:02,654 INFO     scraper.browser:   📅 Session age: 2 minutes
+2026-06-28 17:31:02,891 INFO     scraper.browser:   ✅ Browser ready | headless=True | viewport=1440x900
+2026-06-28 17:31:08,816 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-06-28 17:31:08,973 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 17:31:08,973 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-06-28 17:31:26,479 INFO     scraper.human: ✅ Warmup complete
+2026-06-28 17:31:26,480 INFO     __main__: 
+═══════════════════════════════════════════════════════
+2026-06-28 17:31:26,480 INFO     __main__:   Group 1/1
+2026-06-28 17:31:26,481 INFO     __main__: ═══════════════════════════════════════════════════════
+2026-06-28 17:31:26,481 INFO     scraper.group_scraper: ────────────────────────────────────────────────────────────
+2026-06-28 17:31:26,482 INFO     scraper.group_scraper: 📂 ⚡️X Estate Developments⚡️The Society of Real Estate in Egypt
+2026-06-28 17:31:26,482 INFO     scraper.group_scraper:    Region: general | URL: https://web.facebook.com/groups/mrsre
+2026-06-28 17:31:41,589 INFO     scraper.group_scraper:   ↓ Scroll 1/40 | Leads: 0 | Empty: 0/4
+2026-06-28 17:31:45,734 INFO     scraper.group_scraper:   ↓ Scroll 2/40 | Leads: 0 | Empty: 0/4
+2026-06-28 17:31:47,817 INFO     scraper.group_scraper:   ↓ Scroll 3/40 | Leads: 0 | Empty: 0/4
+2026-06-28 17:31:58,726 INFO     scraper.group_scraper:   ↓ Scroll 4/40 | Leads: 0 | Empty: 0/4
+2026-06-28 17:32:08,899 INFO     scraper.group_scraper:   ↓ Scroll 5/40 | Leads: 0 | Empty: 0/4
+2026-06-28 17:32:10,555 INFO     scraper.group_scraper:   ↓ Scroll 6/40 | Leads: 0 | Empty: 1/4
+2026-06-28 17:32:19,489 INFO     scraper.group_scraper:   ↓ Scroll 7/40 | Leads: 0 | Empty: 2/4
+2026-06-28 17:32:25,874 INFO     scraper.group_scraper:   ↓ Scroll 8/40 | Leads: 0 | Empty: 3/4
+2026-06-28 17:32:28,110 INFO     scraper.group_scraper:   ↓ Scroll 9/40 | Leads: 0 | Empty: 0/4
+2026-06-28 17:32:34,237 INFO     scraper.group_scraper:   ↓ Scroll 10/40 | Leads: 0 | Empty: 1/4
+2026-06-28 17:32:34,237 INFO     scraper.group_scraper:   😴 Extended pause: 38s
+2026-06-28 17:33:17,031 INFO     scraper.group_scraper:   ↓ Scroll 11/40 | Leads: 0 | Empty: 0/4
+2026-06-28 17:33:19,471 INFO     scraper.group_scraper:   ↓ Scroll 12/40 | Leads: 0 | Empty: 1/4
+2026-06-28 17:33:22,276 INFO     scraper.group_scraper:   ↓ Scroll 13/40 | Leads: 0 | Empty: 0/4
+2026-06-28 17:33:30,071 INFO     scraper.group_scraper:   ↓ Scroll 14/40 | Leads: 0 | Empty: 0/4
+2026-06-28 17:33:39,028 INFO     scraper.group_scraper:   ↓ Scroll 15/40 | Leads: 0 | Empty: 0/4
+2026-06-28 17:33:40,799 INFO     scraper.group_scraper:   ↓ Scroll 16/40 | Leads: 0 | Empty: 1/4
+2026-06-28 17:33:43,445 INFO     scraper.group_scraper:   ↓ Scroll 17/40 | Leads: 0 | Empty: 0/4
+2026-06-28 17:33:44,727 INFO     scraper.group_scraper:   ↓ Scroll 18/40 | Leads: 0 | Empty: 1/4
+2026-06-28 17:33:48,310 INFO     scraper.group_scraper:   ↓ Scroll 19/40 | Leads: 0 | Empty: 2/4
+2026-06-28 17:33:51,933 INFO     scraper.group_scraper:   ↓ Scroll 20/40 | Leads: 0 | Empty: 0/4
+2026-06-28 17:33:51,933 INFO     scraper.group_scraper:   😴 Extended pause: 29s
+2026-06-28 17:34:23,931 INFO     scraper.group_scraper:   ↓ Scroll 21/40 | Leads: 0 | Empty: 0/4
+2026-06-28 17:34:28,846 INFO     scraper.group_scraper:   ↓ Scroll 22/40 | Leads: 0 | Empty: 0/4
+2026-06-28 17:34:34,743 INFO     scraper.group_scraper:   ↓ Scroll 23/40 | Leads: 0 | Empty: 1/4
+2026-06-28 17:34:44,962 INFO     scraper.group_scraper:   ↓ Scroll 24/40 | Leads: 0 | Empty: 0/4
+2026-06-28 17:34:47,008 INFO     scraper.group_scraper:   ↓ Scroll 25/40 | Leads: 0 | Empty: 0/4
+2026-06-28 17:34:50,146 INFO     scraper.group_scraper:   ↓ Scroll 26/40 | Leads: 0 | Empty: 1/4
+2026-06-28 17:34:55,668 INFO     scraper.group_scraper:   ↓ Scroll 27/40 | Leads: 0 | Empty: 2/4
+2026-06-28 17:34:59,007 INFO     scraper.group_scraper:   ↓ Scroll 28/40 | Leads: 0 | Empty: 3/4
+2026-06-28 17:35:04,275 INFO     scraper.group_scraper:   ↓ Scroll 29/40 | Leads: 0 | Empty: 4/4
+2026-06-28 17:35:04,275 INFO     scraper.group_scraper:   👥 0 buyer leads | 🔥 0 hot | 📱 0 phone numbers
+2026-06-28 17:35:04,626 INFO     database.db:   📊 Exported 12 leads → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\exports\leads_20260628_1735.xlsx
+2026-06-28 17:35:04,779 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 17:35:04,886 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-28 18:25:50,139 INFO     __main__: 
+=======================================================
+2026-06-28 18:25:50,139 INFO     __main__:   🚀 Egypt RE Buyer Scraper (Post Scrape)
+2026-06-28 18:25:50,140 INFO     __main__: =======================================================
+2026-06-28 18:25:50,140 INFO     __main__:   Post URL: https://web.facebook.com/share/p/18MVFEMYHq/
+2026-06-28 18:25:50,140 INFO     __main__: =======================================================
+
+2026-06-28 18:25:50,158 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-06-28 18:25:50,158 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-28 18:25:50,783 INFO     scraper.browser:   📂 Loaded session: C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 18:25:50,785 INFO     scraper.browser:   📅 Session age: 50 minutes
+2026-06-28 18:25:51,013 INFO     scraper.browser:   ✅ Browser ready | headless=True | viewport=1536x864
+2026-06-28 18:26:02,267 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-06-28 18:26:02,420 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 18:26:02,420 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-06-28 18:26:26,512 INFO     scraper.human: ✅ Warmup complete
+2026-06-28 18:26:26,512 INFO     scraper.post_scraper: ────────────────────────────────────────────────────────────
+2026-06-28 18:26:26,513 INFO     scraper.post_scraper: 📄 Scraping Post: https://web.facebook.com/share/p/18MVFEMYHq/
+2026-06-28 18:26:34,534 INFO     scraper.post_scraper: Expanding comments...
+2026-06-28 18:26:42,288 INFO     scraper.post_scraper: Extracting post and comments...
+2026-06-28 18:26:44,610 INFO     scraper.post_scraper: Scraping profile for: Hazem Essam
+2026-06-28 18:26:44,610 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-06-28 18:27:05,064 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-06-28 18:27:05,082 INFO     scraper.post_scraper: Scraping profile for: Hazem Essam
+2026-06-28 18:27:05,082 INFO     scraper.profile_scraper:     📋 Profile cached — skipping re-scrape
+2026-06-28 18:27:05,082 INFO     scraper.post_scraper: Scraping profile for: Merna Mostafa
+2026-06-28 18:27:05,083 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-06-28 18:27:27,041 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-06-28 18:27:27,059 INFO     scraper.post_scraper: Scraping profile for: Merna Mostafa
+2026-06-28 18:27:27,059 INFO     scraper.profile_scraper:     📋 Profile cached — skipping re-scrape
+2026-06-28 18:27:27,060 INFO     scraper.post_scraper: Scraping profile for: Merna Mostafa
+2026-06-28 18:27:27,060 INFO     scraper.profile_scraper:     📋 Profile cached — skipping re-scrape
+2026-06-28 18:27:27,060 INFO     scraper.post_scraper: Scraping profile for: المالك لسرعه البيع
+2026-06-28 18:27:27,060 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-06-28 18:27:47,858 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-06-28 18:27:47,876 INFO     scraper.post_scraper: Scraping profile for: Shymaa Aly
+2026-06-28 18:27:47,876 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-06-28 18:28:08,140 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-06-28 18:28:08,156 INFO     scraper.post_scraper: Scraping profile for: Hazem Essam
+2026-06-28 18:28:08,156 INFO     scraper.profile_scraper:     📋 Profile cached — skipping re-scrape
+2026-06-28 18:28:08,157 INFO     scraper.post_scraper: Scraping profile for: Hazem Essam
+2026-06-28 18:28:08,157 INFO     scraper.profile_scraper:     📋 Profile cached — skipping re-scrape
+2026-06-28 18:28:08,158 INFO     scraper.post_scraper: Scraping profile for: Hazem Essam
+2026-06-28 18:28:08,158 INFO     scraper.profile_scraper:     📋 Profile cached — skipping re-scrape
+2026-06-28 18:28:08,158 INFO     scraper.post_scraper: Scraping profile for: بس بعد الي الواحد بيقراه ده مس
+2026-06-28 18:28:08,159 INFO     scraper.profile_scraper:     📋 Profile cached — skipping re-scrape
+2026-06-28 18:28:08,159 INFO     scraper.post_scraper: Scraping profile for: GiftedLizard6478كذا سيلز كلمني من هناك بس دي علامه2dLikeReplyShare1
+2026-06-28 18:28:08,159 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-06-28 18:28:26,847 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-06-28 18:28:26,866 INFO     scraper.post_scraper: Scraping profile for: GiftedLizard6478حسبي الله ونعم الوكيل2dLikeReplyShare1
+2026-06-28 18:28:26,866 INFO     scraper.profile_scraper:     📋 Profile cached — skipping re-scrape
+2026-06-28 18:28:26,867 INFO     scraper.post_scraper: Scraping profile for: مش عارف طيب بيستحلوا الفلوس و
+2026-06-28 18:28:26,867 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-06-28 18:28:48,877 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-06-28 18:28:48,891 INFO     scraper.post_scraper: Scraping profile for: Mohab Ashrafحسبي الله ونعم الوكيل2dLikeReplyShare1
+2026-06-28 18:28:48,891 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-06-28 18:29:08,366 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-06-28 18:29:08,379 INFO     scraper.post_scraper: Scraping profile for: Mariam TharwatUp1dLikeReplyShare1
+2026-06-28 18:29:08,379 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-06-28 18:29:27,872 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-06-28 18:29:27,889 INFO     scraper.post_scraper: Scraping profile for: Mahmoud Mohranحسبى الله ونعم الوكيل2dLikeReplyShare1
+2026-06-28 18:29:27,889 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-06-28 18:29:45,904 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-06-28 18:29:45,917 INFO     scraper.post_scraper: Scraping profile for: Nermeen Redaأن شاء الله ربنا يردلك حقك2dLikeReplyShare1
+2026-06-28 18:29:45,918 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-06-28 18:30:05,232 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-06-28 18:30:05,245 INFO     scraper.post_scraper: Scraping profile for: Mohamed Osamaحسبي الله ونعم الوكيل1dLikeReplyShare1
+2026-06-28 18:30:05,246 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-06-28 18:30:24,529 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-06-28 18:30:24,545 INFO     scraper.post_scraper: Scraping profile for: Shymaa Alyحسبي الله ونعم الوكيل1dLikeReplyShare1
+2026-06-28 18:30:24,546 INFO     scraper.profile_scraper:     📋 Profile cached — skipping re-scrape
+2026-06-28 18:30:24,546 INFO     scraper.post_scraper:   👥 20 buyer leads found | 🔥 0 hot | 📱 0 phone numbers
+2026-06-28 18:30:24,590 INFO     database.db:   💾 DB: {'saved': 20, 'skipped': 0, 'updated': 0}
+2026-06-28 18:30:24,590 INFO     __main__:   📊 Batch saved: {'saved': 20, 'skipped': 0, 'updated': 0}
+2026-06-28 18:30:24,590 INFO     __main__: 
+=======================================================
+2026-06-28 18:30:24,590 INFO     __main__:   ✅ POST SCRAPE COMPLETE
+2026-06-28 18:30:24,590 INFO     __main__:   Total leads found: 20
+2026-06-28 18:30:24,602 INFO     __main__:   DB stats: {'total_leads': 32, 'hot_leads': 0, 'with_phone': 9, 'with_email': 0, 'with_whatsapp': 0, 'urgent_leads': 2, 'contacted': 0, 'brokers': 0, 'profiles_scraped': 26, 'avg_lead_score': 14.6}
+2026-06-28 18:30:24,603 INFO     __main__: =======================================================
+
+2026-06-28 18:30:24,903 INFO     database.db:   📊 Exported 32 leads → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\exports\leads_20260628_1830.xlsx
+2026-06-28 18:30:24,904 INFO     __main__:   📊 Auto-exported to: C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\exports\leads_20260628_1830.xlsx
+
+2026-06-28 18:30:25,048 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 18:30:25,212 INFO     scraper.browser:   🛑 Browser stopped
+2026-06-28 18:40:18,596 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-06-28 18:40:18,596 INFO     scraper.browser: 🌐 Starting browser ...
+2026-06-28 18:40:19,204 INFO     scraper.browser:   📂 Loaded session: C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 18:40:19,204 INFO     scraper.browser:   📅 Session age: 9 minutes
+2026-06-28 18:40:19,436 INFO     scraper.browser:   ✅ Browser ready | headless=True | viewport=1600x900
+2026-06-28 18:40:25,824 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-06-28 18:40:25,977 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 18:40:25,977 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-06-28 18:40:44,425 INFO     scraper.human: ✅ Warmup complete
+2026-06-28 18:40:44,425 INFO     __main__: 
+═══════════════════════════════════════════════════════
+2026-06-28 18:40:44,426 INFO     __main__:   Group 1/1
+2026-06-28 18:40:44,426 INFO     __main__: ═══════════════════════════════════════════════════════
+2026-06-28 18:40:44,427 INFO     scraper.group_scraper: ────────────────────────────────────────────────────────────
+2026-06-28 18:40:44,427 INFO     scraper.group_scraper: 📂 ⚡️X Estate Developments⚡️The Society of Real Estate in Egypt
+2026-06-28 18:40:44,427 INFO     scraper.group_scraper:    Region: general | URL: https://web.facebook.com/groups/mrsre
+2026-06-28 18:40:52,579 INFO     scraper.group_scraper:   ↓ Scroll 1/40 | Leads: 0
+2026-06-28 18:40:57,104 INFO     scraper.group_scraper:   ↓ Scroll 2/40 | Leads: 0
+2026-06-28 18:40:59,278 INFO     scraper.group_scraper:   ↓ Scroll 3/40 | Leads: 0
+2026-06-28 18:41:03,470 INFO     scraper.group_scraper:   ↓ Scroll 4/40 | Leads: 0
+2026-06-28 18:41:07,273 INFO     scraper.group_scraper:   ↓ Scroll 5/40 | Leads: 0
+2026-06-28 18:41:10,784 INFO     scraper.group_scraper:   ↓ Scroll 6/40 | Leads: 0
+2026-06-28 18:41:12,856 INFO     scraper.group_scraper:   ↓ Scroll 7/40 | Leads: 0
+2026-06-28 18:41:15,790 INFO     scraper.group_scraper:   ↓ Scroll 8/40 | Leads: 0
+2026-06-28 18:41:18,327 INFO     scraper.group_scraper:   ↓ Scroll 9/40 | Leads: 0
+2026-06-28 18:41:30,222 INFO     scraper.group_scraper:   ↓ Scroll 10/40 | Leads: 0
+2026-06-28 18:41:30,222 INFO     scraper.group_scraper:   😴 Extended pause: 29s
+2026-06-28 18:42:00,830 INFO     scraper.group_scraper:   ↓ Scroll 11/40 | Leads: 0
+2026-06-28 18:42:02,277 INFO     scraper.group_scraper:   ↓ Scroll 12/40 | Leads: 0
+2026-06-28 18:42:07,377 INFO     scraper.group_scraper:   ↓ Scroll 13/40 | Leads: 0
+2026-06-28 18:42:18,074 INFO     scraper.group_scraper:   ↓ Scroll 14/40 | Leads: 0
+2026-06-28 18:42:23,423 INFO     scraper.group_scraper:   ↓ Scroll 15/40 | Leads: 0
+2026-06-28 18:42:26,472 INFO     scraper.group_scraper:   ↓ Scroll 16/40 | Leads: 0
+2026-06-28 18:42:29,746 INFO     scraper.group_scraper:   ↓ Scroll 17/40 | Leads: 0
+2026-06-28 18:42:33,736 INFO     scraper.group_scraper:   ↓ Scroll 18/40 | Leads: 0
+2026-06-28 18:42:35,294 INFO     scraper.group_scraper:   ↓ Scroll 19/40 | Leads: 0
+2026-06-28 18:42:39,895 INFO     scraper.group_scraper:   ↓ Scroll 20/40 | Leads: 0
+2026-06-28 18:42:39,895 INFO     scraper.group_scraper:   😴 Extended pause: 40s
+2026-06-28 18:43:24,863 INFO     scraper.group_scraper:   ↓ Scroll 21/40 | Leads: 0
+2026-06-28 18:43:26,636 INFO     scraper.group_scraper:   ↓ Scroll 22/40 | Leads: 0
+2026-06-28 18:43:30,946 INFO     scraper.group_scraper:   ↓ Scroll 23/40 | Leads: 0
+2026-06-28 18:43:36,040 INFO     scraper.group_scraper:   ↓ Scroll 24/40 | Leads: 0
+2026-06-28 18:43:37,396 INFO     scraper.group_scraper:   ↓ Scroll 25/40 | Leads: 0
+2026-06-28 18:43:44,025 INFO     scraper.group_scraper:   ↓ Scroll 26/40 | Leads: 0
+2026-06-28 18:43:50,640 INFO     scraper.group_scraper:   ↓ Scroll 27/40 | Leads: 0
+2026-06-28 18:43:53,596 INFO     scraper.group_scraper:   ↓ Scroll 28/40 | Leads: 0
+2026-06-28 18:43:55,630 INFO     scraper.group_scraper:   ↓ Scroll 29/40 | Leads: 0
+2026-06-28 18:44:00,293 INFO     scraper.group_scraper:   ↓ Scroll 30/40 | Leads: 0
+2026-06-28 18:44:00,293 INFO     scraper.group_scraper:   😴 Extended pause: 31s
+2026-06-28 18:44:33,437 INFO     scraper.group_scraper:   ↓ Scroll 31/40 | Leads: 0
+2026-06-28 18:44:39,537 INFO     scraper.group_scraper:   ↓ Scroll 32/40 | Leads: 0
+2026-06-28 18:44:48,088 INFO     scraper.group_scraper:   ↓ Scroll 33/40 | Leads: 0
+2026-06-28 18:44:57,220 INFO     scraper.group_scraper:   ↓ Scroll 34/40 | Leads: 0
+2026-06-28 18:44:59,927 INFO     scraper.group_scraper:   ↓ Scroll 35/40 | Leads: 0
+2026-06-28 18:45:04,730 INFO     scraper.group_scraper:   ↓ Scroll 36/40 | Leads: 0
+2026-06-28 18:45:12,002 INFO     scraper.group_scraper:   ↓ Scroll 37/40 | Leads: 0
+2026-06-28 18:45:17,353 INFO     scraper.group_scraper:   ↓ Scroll 38/40 | Leads: 0
+2026-06-28 18:45:22,255 INFO     scraper.group_scraper:   ↓ Scroll 39/40 | Leads: 0
+2026-06-28 18:45:23,680 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     16h
+     Score:    18/100
+     Intent:   buy
+     Type:     unknown
+     Location: ?
+     Budget:   N/A EGP
+     Phones:   ['01156696822']
+     Emails:   []
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     None m²
+     Lives in: N/A
+     Work:     N/A
+2026-06-28 18:45:30,165 INFO     scraper.group_scraper:   ↓ Scroll 40/40 | Leads: 1
+2026-06-28 18:45:30,165 INFO     scraper.group_scraper:   😴 Extended pause: 31s
+2026-06-28 18:46:01,028 INFO     scraper.group_scraper:   👥 1 buyer leads | 🔥 0 hot | 📱 1 phone numbers
+2026-06-28 18:46:01,056 INFO     database.db:   💾 DB: {'saved': 1, 'skipped': 0, 'updated': 0}
+2026-06-28 18:46:01,057 INFO     __main__:   📊 Batch saved: {'saved': 1, 'skipped': 0, 'updated': 0}
+2026-06-28 18:46:01,321 INFO     database.db:   📊 Exported 33 leads → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\exports\leads_20260628_1846.xlsx
+2026-06-28 18:46:01,453 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\.gemini\antigravity\scratch\fb_buyers_egypt\config\session.json
+2026-06-28 18:46:01,588 INFO     scraper.browser:   🛑 Browser stopped
+2026-07-04 20:00:18,747 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-07-04 20:00:18,759 INFO     scraper.browser: 🌐 Starting browser ...
+2026-07-04 20:00:19,748 INFO     scraper.browser:   📂 Loaded session: C:\Users\Mostafa Atta\Downloads\New folder\fb_buyers_egypt\config\session.json
+2026-07-04 20:00:19,766 INFO     scraper.browser:   📅 Session age: 6.1 days
+2026-07-04 20:00:20,151 INFO     scraper.browser:   ✅ Browser ready | headless=True | viewport=1920x1080
+2026-07-04 20:00:30,759 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-07-04 20:00:31,121 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\Downloads\New folder\fb_buyers_egypt\config\session.json
+2026-07-04 20:00:31,121 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-07-04 20:00:51,519 INFO     scraper.human: ✅ Warmup complete
+2026-07-04 20:00:51,519 INFO     __main__: 
+═══════════════════════════════════════════════════════
+2026-07-04 20:00:51,519 INFO     __main__:   Group 1/1
+2026-07-04 20:00:51,520 INFO     __main__: ═══════════════════════════════════════════════════════
+2026-07-04 20:00:51,520 INFO     scraper.group_scraper: ────────────────────────────────────────────────────────────
+2026-07-04 20:00:51,520 INFO     scraper.group_scraper: 📂 ⚡️X Estate Developments⚡️The Society of Real Estate in Egypt
+2026-07-04 20:00:51,520 INFO     scraper.group_scraper:    Region: general | URL: https://web.facebook.com/groups/mrsre
+2026-07-04 20:01:03,752 INFO     scraper.group_scraper:   ↓ Scroll 1/40 | Leads: 0
+2026-07-04 20:01:06,611 INFO     scraper.group_scraper:   ↓ Scroll 2/40 | Leads: 0
+2026-07-04 20:01:09,511 INFO     scraper.group_scraper:   ↓ Scroll 3/40 | Leads: 0
+2026-07-04 20:01:11,837 INFO     scraper.group_scraper:   ↓ Scroll 4/40 | Leads: 0
+2026-07-04 20:01:22,431 INFO     scraper.group_scraper:   ↓ Scroll 5/40 | Leads: 0
+2026-07-04 20:01:26,296 INFO     scraper.group_scraper:   ↓ Scroll 6/40 | Leads: 0
+2026-07-04 20:01:31,787 INFO     scraper.group_scraper:   ↓ Scroll 7/40 | Leads: 0
+2026-07-04 20:01:34,967 INFO     scraper.group_scraper:   ↓ Scroll 8/40 | Leads: 0
+2026-07-04 20:01:44,025 INFO     scraper.group_scraper:   ↓ Scroll 9/40 | Leads: 0
+2026-07-04 20:01:50,961 INFO     scraper.group_scraper:   ↓ Scroll 10/40 | Leads: 0
+2026-07-04 20:01:50,962 INFO     scraper.group_scraper:   😴 Extended pause: 28s
+2026-07-04 20:02:21,183 INFO     scraper.group_scraper:   ↓ Scroll 11/40 | Leads: 0
+2026-07-04 20:02:25,491 INFO     scraper.group_scraper:   ↓ Scroll 12/40 | Leads: 0
+2026-07-04 20:02:26,690 INFO     scraper.group_scraper:   ↓ Scroll 13/40 | Leads: 0
+2026-07-04 20:02:30,119 INFO     scraper.group_scraper:   ↓ Scroll 14/40 | Leads: 0
+2026-07-04 20:02:30,998 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     Hazem Ahmed
+     Score:    25/100
+     Intent:   buy
+     Type:     land
+     Location: ?
+     Budget:   N/A EGP
+     Phones:   ['01103992227']
+     Emails:   []
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     890.0 m²
+     Lives in: N/A
+     Work:     N/A
+2026-07-04 20:02:40,235 INFO     scraper.group_scraper:   ↓ Scroll 15/40 | Leads: 1
+2026-07-04 20:02:43,651 INFO     scraper.group_scraper:   ↓ Scroll 16/40 | Leads: 1
+2026-07-04 20:02:46,860 INFO     scraper.group_scraper:   ↓ Scroll 17/40 | Leads: 1
+2026-07-04 20:02:48,583 INFO     scraper.group_scraper:   ↓ Scroll 18/40 | Leads: 1
+2026-07-04 20:02:54,671 INFO     scraper.group_scraper:   ↓ Scroll 19/40 | Leads: 1
+2026-07-04 21:38:28,376 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-07-04 21:38:28,386 INFO     scraper.browser: 🌐 Starting browser ...
+2026-07-04 21:38:28,999 INFO     scraper.browser:   📂 Loaded session: C:\Users\Mostafa Atta\Downloads\New folder\fb_buyers_egypt\config\session.json
+2026-07-04 21:38:29,013 INFO     scraper.browser:   📅 Session age: 1.6 hours
+2026-07-04 21:38:29,256 INFO     scraper.browser:   ✅ Browser ready | headless=True | viewport=1920x1080
+2026-07-04 21:38:34,438 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-07-04 21:38:34,514 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\Downloads\New folder\fb_buyers_egypt\config\session.json
+2026-07-04 21:38:34,514 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-07-04 21:39:00,283 INFO     scraper.human: ✅ Warmup complete
+2026-07-04 21:39:00,283 INFO     __main__: 
+═══════════════════════════════════════════════════════
+2026-07-04 21:39:00,283 INFO     __main__:   Group 1/1
+2026-07-04 21:39:00,283 INFO     __main__: ═══════════════════════════════════════════════════════
+2026-07-04 21:39:00,283 INFO     scraper.group_scraper: ────────────────────────────────────────────────────────────
+2026-07-04 21:39:00,283 INFO     scraper.group_scraper: 📂 ⚡️X Estate Developments⚡️The Society of Real Estate in Egypt
+2026-07-04 21:39:00,283 INFO     scraper.group_scraper:    Region: general | URL: https://web.facebook.com/groups/mrsre
+2026-07-04 21:39:04,961 WARNING  scraper.group_scraper: ⚠️ Group requires membership — skipping.
+2026-07-04 21:39:05,483 INFO     database.db:   📊 Exported 33 leads → C:\Users\Mostafa Atta\Downloads\New folder\fb_buyers_egypt\exports\leads_20260704_2139.xlsx
+2026-07-04 21:39:05,557 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\Downloads\New folder\fb_buyers_egypt\config\session.json
+2026-07-04 21:39:05,628 INFO     scraper.browser:   🛑 Browser stopped
+2026-07-04 21:41:43,242 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-07-04 21:41:43,242 INFO     scraper.browser: 🌐 Starting browser ...
+2026-07-04 21:41:43,906 INFO     scraper.browser:   📂 Loaded session: C:\Users\Mostafa Atta\Downloads\New folder\fb_buyers_egypt\config\session.json
+2026-07-04 21:41:43,920 INFO     scraper.browser:   📅 Session age: 2 minutes
+2026-07-04 21:41:44,066 INFO     scraper.browser:   ✅ Browser ready | headless=True | viewport=1920x1080
+2026-07-04 21:41:50,639 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-07-04 21:41:50,730 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\Downloads\New folder\fb_buyers_egypt\config\session.json
+2026-07-04 21:41:50,731 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-07-04 21:42:09,202 INFO     scraper.human: ✅ Warmup complete
+2026-07-04 21:42:09,202 INFO     __main__: 
+═══════════════════════════════════════════════════════
+2026-07-04 21:42:09,202 INFO     __main__:   Group 1/1
+2026-07-04 21:42:09,202 INFO     __main__: ═══════════════════════════════════════════════════════
+2026-07-04 21:42:09,202 INFO     scraper.group_scraper: ────────────────────────────────────────────────────────────
+2026-07-04 21:42:09,203 INFO     scraper.group_scraper: 📂 ⚡️X Estate Developments⚡️The Society of Real Estate in Egypt
+2026-07-04 21:42:09,203 INFO     scraper.group_scraper:    Region: general | URL: https://web.facebook.com/groups/mrsre
+2026-07-04 21:42:22,081 INFO     scraper.group_scraper:   ↓ Scroll 1/40 | Leads: 0
+2026-07-04 21:42:24,032 INFO     scraper.group_scraper:   ↓ Scroll 2/40 | Leads: 0
+2026-07-04 21:42:30,194 INFO     scraper.group_scraper:   ↓ Scroll 3/40 | Leads: 0
+2026-07-04 21:42:38,060 INFO     scraper.group_scraper:   ↓ Scroll 4/40 | Leads: 0
+2026-07-04 21:42:38,442 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-07-04 21:43:00,461 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-07-04 21:43:00,470 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     11m
+     Score:    6/100
+     Intent:   buy
+     Type:     unknown
+     Location: ?
+     Budget:   N/A EGP
+     Phones:   []
+     Emails:   []
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     None m²
+     Lives in: N/A
+     Work:     N/A
+2026-07-04 21:43:03,116 INFO     scraper.group_scraper:   ↓ Scroll 5/40 | Leads: 1
+2026-07-04 21:43:15,762 INFO     scraper.group_scraper:   ↓ Scroll 6/40 | Leads: 1
+2026-07-04 21:43:20,336 INFO     scraper.group_scraper:   ↓ Scroll 7/40 | Leads: 1
+2026-07-04 21:43:26,463 INFO     scraper.group_scraper:   ↓ Scroll 8/40 | Leads: 1
+2026-07-04 21:43:32,671 INFO     scraper.group_scraper:   ↓ Scroll 9/40 | Leads: 1
+2026-07-04 21:43:34,028 INFO     scraper.group_scraper:   ↓ Scroll 10/40 | Leads: 1
+2026-07-04 21:43:34,028 INFO     scraper.group_scraper:   😴 Extended pause: 41s
+2026-07-04 21:44:18,295 INFO     scraper.group_scraper:   ↓ Scroll 11/40 | Leads: 1
+2026-07-04 21:44:26,696 INFO     scraper.group_scraper:   ↓ Scroll 12/40 | Leads: 1
+2026-07-04 21:44:28,383 INFO     scraper.group_scraper:   ↓ Scroll 13/40 | Leads: 1
+2026-07-04 21:44:31,065 INFO     scraper.group_scraper:   ↓ Scroll 14/40 | Leads: 1
+2026-07-04 21:44:36,020 INFO     scraper.group_scraper:   ↓ Scroll 15/40 | Leads: 1
+2026-07-04 21:44:40,176 INFO     scraper.group_scraper:   ↓ Scroll 16/40 | Leads: 1
+2026-07-04 21:44:48,092 INFO     scraper.group_scraper:   ↓ Scroll 17/40 | Leads: 1
+2026-07-04 21:44:52,744 INFO     scraper.group_scraper:   ↓ Scroll 18/40 | Leads: 1
+2026-07-04 21:44:55,676 INFO     scraper.group_scraper:   ↓ Scroll 19/40 | Leads: 1
+2026-07-04 21:44:57,737 INFO     scraper.group_scraper:   ↓ Scroll 20/40 | Leads: 1
+2026-07-04 21:44:57,737 INFO     scraper.group_scraper:   😴 Extended pause: 21s
+2026-07-04 21:45:25,617 INFO     scraper.group_scraper:   ↓ Scroll 21/40 | Leads: 1
+2026-07-04 21:45:32,899 INFO     scraper.group_scraper:   ↓ Scroll 22/40 | Leads: 1
+2026-07-04 21:45:36,885 INFO     scraper.group_scraper:   ↓ Scroll 23/40 | Leads: 1
+2026-07-04 21:45:38,778 INFO     scraper.group_scraper:   ↓ Scroll 24/40 | Leads: 1
+2026-07-04 21:45:41,461 INFO     scraper.group_scraper:   ↓ Scroll 25/40 | Leads: 1
+2026-07-04 21:45:49,845 INFO     scraper.group_scraper:   ↓ Scroll 26/40 | Leads: 1
+2026-07-04 21:45:51,909 INFO     scraper.group_scraper:   ↓ Scroll 27/40 | Leads: 1
+2026-07-04 21:46:01,420 INFO     scraper.group_scraper:   ↓ Scroll 28/40 | Leads: 1
+2026-07-04 21:46:06,047 INFO     scraper.group_scraper:   ↓ Scroll 29/40 | Leads: 1
+2026-07-04 21:46:10,408 INFO     scraper.group_scraper:   ↓ Scroll 30/40 | Leads: 1
+2026-07-04 21:46:10,408 INFO     scraper.group_scraper:   😴 Extended pause: 15s
+2026-07-04 21:46:30,553 INFO     scraper.group_scraper:   ↓ Scroll 31/40 | Leads: 1
+2026-07-04 21:46:35,645 INFO     scraper.group_scraper:   ↓ Scroll 32/40 | Leads: 1
+2026-07-04 21:50:15,688 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-07-04 21:50:15,688 INFO     scraper.browser: 🌐 Starting browser ...
+2026-07-04 21:50:16,382 INFO     scraper.browser:   📂 Loaded session: C:\Users\Mostafa Atta\Downloads\New folder\fb_buyers_egypt\config\session.json
+2026-07-04 21:50:16,397 INFO     scraper.browser:   📅 Session age: 8 minutes
+2026-07-04 21:50:16,642 INFO     scraper.browser:   ✅ Browser ready | headless=True | viewport=1536x864
+2026-07-04 21:50:27,934 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-07-04 21:50:28,014 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\Downloads\New folder\fb_buyers_egypt\config\session.json
+2026-07-04 21:50:28,014 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-07-04 21:50:46,520 INFO     scraper.human: ✅ Warmup complete
+2026-07-04 21:50:46,520 INFO     __main__: 
+═══════════════════════════════════════════════════════
+2026-07-04 21:50:46,520 INFO     __main__:   Group 1/1
+2026-07-04 21:50:46,520 INFO     __main__: ═══════════════════════════════════════════════════════
+2026-07-04 21:50:46,520 INFO     scraper.group_scraper: ────────────────────────────────────────────────────────────
+2026-07-04 21:50:46,520 INFO     scraper.group_scraper: 📂 ⚡️X Estate Developments⚡️The Society of Real Estate in Egypt
+2026-07-04 21:50:46,520 INFO     scraper.group_scraper:    Region: general | URL: https://web.facebook.com/groups/mrsre
+2026-07-04 21:50:54,368 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-07-04 21:51:13,987 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-07-04 21:51:14,095 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     19m
+     Score:    6/100
+     Intent:   buy
+     Type:     unknown
+     Location: ?
+     Budget:   N/A EGP
+     Phones:   []
+     Emails:   []
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     None m²
+     Lives in: N/A
+     Work:     N/A
+2026-07-04 21:51:20,252 INFO     scraper.group_scraper:   ↓ Scroll 1/40 | Leads: 1
+2026-07-04 21:51:23,140 INFO     scraper.group_scraper:   ↓ Scroll 2/40 | Leads: 1
+2026-07-04 21:51:28,843 INFO     scraper.group_scraper:   ↓ Scroll 3/40 | Leads: 1
+2026-07-04 21:51:31,738 INFO     scraper.group_scraper:   ↓ Scroll 4/40 | Leads: 1
+2026-07-04 21:51:38,743 INFO     scraper.group_scraper:   ↓ Scroll 5/40 | Leads: 1
+2026-07-04 21:51:41,751 INFO     scraper.group_scraper:   ↓ Scroll 6/40 | Leads: 1
+2026-07-04 21:51:51,286 INFO     scraper.group_scraper:   ↓ Scroll 7/40 | Leads: 1
+2026-07-04 21:51:53,995 INFO     scraper.group_scraper:   ↓ Scroll 8/40 | Leads: 1
+2026-07-04 21:51:56,919 INFO     scraper.group_scraper:   ↓ Scroll 9/40 | Leads: 1
+2026-07-04 21:51:57,309 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-07-04 21:52:17,161 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-07-04 21:52:17,197 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     Mohamed Omar
+     Score:    6/100
+     Intent:   buy
+     Type:     unknown
+     Location: ?
+     Budget:   N/A EGP
+     Phones:   []
+     Emails:   []
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     None m²
+     Lives in: N/A
+     Work:     N/A
+2026-07-04 21:52:23,748 INFO     scraper.group_scraper:   ↓ Scroll 10/40 | Leads: 2
+2026-07-04 21:52:23,748 INFO     scraper.group_scraper:   😴 Extended pause: 44s
+2026-07-04 22:13:53,575 INFO     __main__: 
+=======================================================
+2026-07-04 22:13:53,575 INFO     __main__:   🚀 Egypt RE Buyer Scraper (Post Scrape)
+2026-07-04 22:13:53,575 INFO     __main__: =======================================================
+2026-07-04 22:13:53,575 INFO     __main__:   Post URL: https://facebook.com/groups/112701896835795/posts/1105374437435198/
+2026-07-04 22:13:53,575 INFO     __main__: =======================================================
+
+2026-07-04 22:13:53,591 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-07-04 22:13:53,591 INFO     scraper.browser: 🌐 Starting browser ...
+2026-07-04 22:13:54,153 INFO     scraper.browser:   📂 Loaded session: C:\Users\Mostafa Atta\Downloads\New folder\fb_buyers_egypt\config\session.json
+2026-07-04 22:13:54,167 INFO     scraper.browser:   📅 Session age: 23 minutes
+2026-07-04 22:13:54,361 INFO     scraper.browser:   ✅ Browser ready | headless=True | viewport=1440x900
+2026-07-04 22:13:59,729 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-07-04 22:13:59,739 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\Downloads\New folder\fb_buyers_egypt\config\session.json
+2026-07-04 22:13:59,739 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-07-04 22:14:34,114 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-07-04 22:14:34,114 INFO     scraper.browser: 🌐 Starting browser ...
+2026-07-04 22:14:34,702 INFO     scraper.browser:   📂 Loaded session: C:\Users\Mostafa Atta\Downloads\New folder\fb_buyers_egypt\config\session.json
+2026-07-04 22:14:34,713 INFO     scraper.browser:   📅 Session age: 0 minutes
+2026-07-04 22:14:34,907 INFO     scraper.browser:   ✅ Browser ready | headless=True | viewport=1440x900
+2026-07-04 22:14:48,733 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-07-04 22:14:48,745 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\Downloads\New folder\fb_buyers_egypt\config\session.json
+2026-07-04 22:14:48,745 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-07-04 22:15:12,137 INFO     scraper.human: ✅ Warmup complete
+2026-07-04 22:15:12,137 INFO     __main__: 
+═══════════════════════════════════════════════════════
+2026-07-04 22:15:12,137 INFO     __main__:   Group 1/1
+2026-07-04 22:15:12,137 INFO     __main__: ═══════════════════════════════════════════════════════
+2026-07-04 22:15:12,137 INFO     scraper.group_scraper: ────────────────────────────────────────────────────────────
+2026-07-04 22:15:12,138 INFO     scraper.group_scraper: 📂 ⚡️X Estate Developments⚡️The Society of Real Estate in Egypt
+2026-07-04 22:15:12,138 INFO     scraper.group_scraper:    Region: general | URL: https://web.facebook.com/groups/mrsre
+2026-07-04 22:15:24,743 INFO     scraper.group_scraper:   ↓ Scroll 1/40 | Leads: 0
+2026-07-04 22:15:27,815 INFO     scraper.group_scraper:   ↓ Scroll 2/40 | Leads: 0
+2026-07-04 22:15:30,556 INFO     scraper.group_scraper:   ↓ Scroll 3/40 | Leads: 0
+2026-07-04 22:15:40,179 INFO     scraper.group_scraper:   ↓ Scroll 4/40 | Leads: 0
+2026-07-04 22:15:45,487 INFO     scraper.group_scraper:   ↓ Scroll 5/40 | Leads: 0
+2026-07-04 22:15:48,936 INFO     scraper.group_scraper:   ↓ Scroll 6/40 | Leads: 0
+2026-07-04 22:15:50,878 INFO     scraper.group_scraper:   ↓ Scroll 7/40 | Leads: 0
+2026-07-04 22:15:57,434 INFO     scraper.group_scraper:   ↓ Scroll 8/40 | Leads: 0
+2026-07-04 22:16:01,547 INFO     scraper.group_scraper:   ↓ Scroll 9/40 | Leads: 0
+2026-07-04 22:16:06,708 INFO     scraper.group_scraper:   ↓ Scroll 10/40 | Leads: 0
+2026-07-04 22:16:06,708 INFO     scraper.group_scraper:   😴 Extended pause: 42s
+2026-07-04 22:16:49,081 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-07-04 22:17:13,691 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-07-04 22:17:13,926 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     45m
+     Score:    6/100
+     Intent:   buy
+     Type:     unknown
+     Location: ?
+     Budget:   N/A EGP
+     Phones:   []
+     Emails:   []
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     None m²
+     Lives in: N/A
+     Work:     N/A
+2026-07-04 22:17:13,929 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-07-04 22:17:13,959 INFO     database.db:   💾 DB: {'saved': 1, 'skipped': 0, 'updated': 0}
+2026-07-04 22:17:22,612 INFO     scraper.group_scraper:   ↓ Scroll 11/40 | Leads: 1
+2026-07-04 22:17:30,409 INFO     scraper.group_scraper:   ↓ Scroll 12/40 | Leads: 1
+2026-07-04 22:17:32,577 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-07-04 22:17:53,407 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-07-04 22:17:53,426 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     GreenRaspberry6581
+     Score:    27/100
+     Intent:   buy
+     Type:     land
+     Location: مستقبل سيتي
+     Budget:   N/A EGP
+     Phones:   []
+     Emails:   []
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     None m²
+     Lives in: N/A
+     Work:     N/A
+2026-07-04 22:17:53,430 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-07-04 22:17:53,456 INFO     database.db:   💾 DB: {'saved': 1, 'skipped': 0, 'updated': 0}
+2026-07-04 22:17:53,924 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-07-04 22:18:11,680 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-07-04 22:18:11,697 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     ualoshs
+     Score:    10/100
+     Intent:   buy
+     Type:     villa
+     Location: ?
+     Budget:   N/A EGP
+     Phones:   []
+     Emails:   []
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     None m²
+     Lives in: N/A
+     Work:     N/A
+2026-07-04 22:18:11,704 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-07-04 22:18:11,733 INFO     database.db:   💾 DB: {'saved': 1, 'skipped': 0, 'updated': 0}
+2026-07-04 22:18:19,574 INFO     scraper.group_scraper:   ↓ Scroll 13/40 | Leads: 3
+2026-07-04 22:18:26,696 INFO     scraper.group_scraper:   ↓ Scroll 14/40 | Leads: 3
+2026-07-04 22:18:30,218 INFO     scraper.group_scraper:   ↓ Scroll 15/40 | Leads: 3
+2026-07-04 22:18:32,427 INFO     scraper.group_scraper:   ↓ Scroll 16/40 | Leads: 3
+2026-07-04 22:18:42,821 INFO     scraper.group_scraper:   ↓ Scroll 17/40 | Leads: 3
+2026-07-04 22:18:48,557 INFO     scraper.group_scraper:   ↓ Scroll 18/40 | Leads: 3
+2026-07-04 22:18:56,652 INFO     scraper.group_scraper:   ↓ Scroll 19/40 | Leads: 3
+2026-07-04 22:19:02,366 INFO     scraper.group_scraper:   ↓ Scroll 20/40 | Leads: 3
+2026-07-04 22:19:02,366 INFO     scraper.group_scraper:   😴 Extended pause: 27s
+2026-07-04 22:19:31,539 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-07-04 22:19:49,968 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-07-04 22:19:49,979 INFO     scraper.group_scraper:   ──────────────────────────────────────────────────
+  💰 LEAD ⚪ COLD
+     Name:     Mohamed Omar
+     Score:    6/100
+     Intent:   buy
+     Type:     unknown
+     Location: ?
+     Budget:   N/A EGP
+     Phones:   []
+     Emails:   []
+     WhatsApp: []
+     Comment#: []
+     Payment:  N/A
+     Urgency:  N/A
+     Rooms:    None bed / None bath
+     Area:     None m²
+     Lives in: N/A
+     Work:     N/A
+2026-07-04 22:19:49,987 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-07-04 22:19:50,011 INFO     database.db:   💾 DB: {'saved': 1, 'skipped': 0, 'updated': 0}
+2026-07-04 22:19:54,226 INFO     scraper.group_scraper:   ↓ Scroll 21/40 | Leads: 4
+2026-07-04 22:20:04,500 INFO     scraper.group_scraper:   ↓ Scroll 22/40 | Leads: 4
+2026-07-04 22:20:16,591 INFO     scraper.group_scraper:   ↓ Scroll 23/40 | Leads: 4
+2026-07-04 22:20:20,316 INFO     scraper.group_scraper:   ↓ Scroll 24/40 | Leads: 4
+2026-07-04 22:20:24,323 INFO     scraper.group_scraper:   ↓ Scroll 25/40 | Leads: 4
+2026-07-04 22:20:34,139 INFO     scraper.group_scraper:   ↓ Scroll 26/40 | Leads: 4
+2026-07-04 22:20:43,406 INFO     scraper.group_scraper:   ↓ Scroll 27/40 | Leads: 4
+2026-07-04 22:20:46,224 INFO     scraper.group_scraper:   ↓ Scroll 28/40 | Leads: 4
+2026-07-04 22:20:49,525 INFO     scraper.group_scraper:   ↓ Scroll 29/40 | Leads: 4
+2026-07-04 22:20:50,774 INFO     scraper.group_scraper:   ↓ Scroll 30/40 | Leads: 4
+2026-07-04 22:20:50,774 INFO     scraper.group_scraper:   😴 Extended pause: 23s
+2026-07-04 22:21:18,677 INFO     scraper.group_scraper:   ↓ Scroll 31/40 | Leads: 4
+2026-07-04 22:21:24,666 INFO     scraper.group_scraper:   ↓ Scroll 32/40 | Leads: 4
+2026-07-04 22:21:26,595 INFO     scraper.group_scraper:   ↓ Scroll 33/40 | Leads: 4
+2026-07-04 22:21:30,471 INFO     scraper.group_scraper:   ↓ Scroll 34/40 | Leads: 4
+2026-07-04 22:21:32,124 INFO     scraper.group_scraper:   ↓ Scroll 35/40 | Leads: 4
+2026-07-04 22:21:33,503 INFO     scraper.group_scraper:   ↓ Scroll 36/40 | Leads: 4
+2026-07-04 22:21:35,198 INFO     scraper.group_scraper:   ↓ Scroll 37/40 | Leads: 4
+2026-07-04 22:21:42,851 INFO     scraper.group_scraper:   ↓ Scroll 38/40 | Leads: 4
+2026-07-04 22:21:50,659 INFO     scraper.group_scraper:   ↓ Scroll 39/40 | Leads: 4
+2026-07-04 22:21:57,810 INFO     scraper.group_scraper:   ↓ Scroll 40/40 | Leads: 4
+2026-07-04 22:21:57,810 INFO     scraper.group_scraper:   😴 Extended pause: 40s
+2026-07-04 22:22:37,517 INFO     scraper.group_scraper:   👥 4 buyer leads | 🔥 0 hot | 📱 0 phone numbers
+2026-07-04 22:22:37,525 INFO     database.db:   💾 DB: {'saved': 0, 'skipped': 4, 'updated': 0}
+2026-07-04 22:22:37,526 INFO     __main__:   📊 Batch saved: {'saved': 0, 'skipped': 4, 'updated': 0}
+2026-07-04 22:22:37,851 INFO     database.db:   📊 Exported 37 leads → C:\Users\Mostafa Atta\Downloads\New folder\fb_buyers_egypt\exports\leads_20260704_2222.xlsx
+2026-07-04 22:22:38,013 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\Downloads\New folder\fb_buyers_egypt\config\session.json
+2026-07-04 22:22:38,144 INFO     scraper.browser:   🛑 Browser stopped
+2026-07-04 22:24:35,570 INFO     __main__: 
+=======================================================
+2026-07-04 22:24:35,570 INFO     __main__:   🚀 Egypt RE Buyer Scraper (Post Scrape)
+2026-07-04 22:24:35,571 INFO     __main__: =======================================================
+2026-07-04 22:24:35,571 INFO     __main__:   Post URL: https://web.facebook.com/share/p/1DFnqdAwaf/
+2026-07-04 22:24:35,571 INFO     __main__: =======================================================
+
+2026-07-04 22:24:35,587 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-07-04 22:24:35,587 INFO     scraper.browser: 🌐 Starting browser ...
+2026-07-04 22:24:36,129 INFO     scraper.browser:   📂 Loaded session: C:\Users\Mostafa Atta\Downloads\New folder\fb_buyers_egypt\config\session.json
+2026-07-04 22:24:36,141 INFO     scraper.browser:   📅 Session age: 1 minutes
+2026-07-04 22:24:36,338 INFO     scraper.browser:   ✅ Browser ready | headless=True | viewport=1600x900
+2026-07-04 22:24:49,093 INFO     scraper.auth: ✅ Session active — already logged in.
+2026-07-04 22:24:49,255 INFO     scraper.browser:   💾 Session saved → C:\Users\Mostafa Atta\Downloads\New folder\fb_buyers_egypt\config\session.json
+2026-07-04 22:24:49,256 INFO     scraper.human: 🔥 Session warmup — acting natural ...
+2026-07-04 22:25:21,001 INFO     scraper.human: ✅ Warmup complete
+2026-07-04 22:25:21,001 INFO     scraper.post_scraper: ────────────────────────────────────────────────────────────
+2026-07-04 22:25:21,002 INFO     scraper.post_scraper: 📄 Scraping Post: https://web.facebook.com/share/p/1DFnqdAwaf/
+2026-07-04 22:25:31,324 INFO     scraper.post_scraper: Expanding comments...
+2026-07-04 22:25:39,263 INFO     scraper.post_scraper: Extracting post and comments...
+2026-07-04 22:25:41,743 INFO     scraper.post_scraper: Scraping profile for: UnderstandingLychee9943
+2026-07-04 22:25:41,743 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-07-04 22:26:00,560 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-07-04 22:26:00,575 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-07-04 22:26:00,589 INFO     database.db:   💾 DB: {'saved': 1, 'skipped': 0, 'updated': 0}
+2026-07-04 22:26:00,589 INFO     scraper.post_scraper: Scraping profile for: بعتلك
+2026-07-04 22:26:00,590 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-07-04 22:26:20,498 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-07-04 22:26:20,524 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-07-04 22:26:20,540 INFO     database.db:   💾 DB: {'saved': 1, 'skipped': 0, 'updated': 0}
+2026-07-04 22:26:20,541 INFO     scraper.post_scraper: Scraping profile for: Karim Bahaa Eldin
+2026-07-04 22:26:20,541 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-07-04 22:26:40,163 INFO     scraper.profile_scraper:       ✅ Profile: 📱 1 phones
+2026-07-04 22:26:40,175 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-07-04 22:26:40,210 INFO     database.db:   💾 DB: {'saved': 1, 'skipped': 0, 'updated': 0}
+2026-07-04 22:26:40,210 INFO     scraper.post_scraper: Scraping profile for: SerenePineapple2828
+2026-07-04 22:26:40,211 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-07-04 22:26:59,534 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-07-04 22:26:59,544 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-07-04 22:26:59,561 INFO     database.db:   💾 DB: {'saved': 1, 'skipped': 0, 'updated': 0}
+2026-07-04 22:26:59,566 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-07-04 22:26:59,575 INFO     database.db:   💾 DB: {'saved': 1, 'skipped': 0, 'updated': 0}
+2026-07-04 22:26:59,575 INFO     scraper.post_scraper: Scraping profile for: Omar Ezz
+2026-07-04 22:26:59,576 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-07-04 22:27:19,532 INFO     scraper.profile_scraper:       ✅ Profile: 📱 1 phones
+2026-07-04 22:27:19,552 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-07-04 22:27:19,561 INFO     database.db:   💾 DB: {'saved': 1, 'skipped': 0, 'updated': 0}
+2026-07-04 22:27:19,564 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-07-04 22:27:19,573 INFO     database.db:   💾 DB: {'saved': 1, 'skipped': 0, 'updated': 0}
+2026-07-04 22:27:19,574 INFO     scraper.post_scraper: Scraping profile for: Menna Osama
+2026-07-04 22:27:19,574 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-07-04 22:27:36,731 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-07-04 22:27:36,750 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-07-04 22:27:36,768 INFO     database.db:   💾 DB: {'saved': 1, 'skipped': 0, 'updated': 0}
+2026-07-04 22:27:36,768 INFO     scraper.post_scraper: Scraping profile for: GentleReindeer9187
+2026-07-04 22:27:36,768 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-07-04 22:27:55,222 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-07-04 22:27:55,238 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-07-04 22:27:55,255 INFO     database.db:   💾 DB: {'saved': 1, 'skipped': 0, 'updated': 0}
+2026-07-04 22:27:55,255 INFO     scraper.post_scraper: Scraping profile for: Bla Ck
+2026-07-04 22:27:55,256 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-07-04 22:28:11,949 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-07-04 22:28:11,964 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-07-04 22:28:11,987 INFO     database.db:   💾 DB: {'saved': 1, 'skipped': 0, 'updated': 0}
+2026-07-04 22:28:11,987 INFO     scraper.post_scraper: Scraping profile for: SerenePineapple2828رقمك لو سمحت1dLikeReplyShare
+2026-07-04 22:28:11,987 INFO     scraper.profile_scraper:     📋 Profile cached — skipping re-scrape
+2026-07-04 22:28:11,990 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-07-04 22:28:11,996 INFO     database.db:   💾 DB: {'saved': 1, 'skipped': 0, 'updated': 0}
+2026-07-04 22:28:11,996 INFO     scraper.post_scraper: Scraping profile for: GentleReindeer9187ممكن رقمك2dLikeReplyShare
+2026-07-04 22:28:11,996 INFO     scraper.profile_scraper:     📋 Profile cached — skipping re-scrape
+2026-07-04 22:28:11,999 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-07-04 22:28:12,006 INFO     database.db:   💾 DB: {'saved': 1, 'skipped': 0, 'updated': 0}
+2026-07-04 22:28:12,006 INFO     scraper.post_scraper: Scraping profile for: LavenderKoala1084Good luck Ensha’alah ya king 5dLikeReplyShare
+2026-07-04 22:28:12,006 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-07-04 22:28:30,560 INFO     scraper.profile_scraper:       ✅ Profile: 📱 1 phones
+2026-07-04 22:28:30,570 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-07-04 22:28:30,577 INFO     database.db:   💾 DB: {'saved': 1, 'skipped': 0, 'updated': 0}
+2026-07-04 22:28:30,578 INFO     scraper.post_scraper: Scraping profile for: Karim Bahaa Eldinرقمك21hLikeReplyShare
+2026-07-04 22:28:30,578 INFO     scraper.profile_scraper:     📋 Profile cached — skipping re-scrape
+2026-07-04 22:28:30,583 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-07-04 22:28:30,593 INFO     database.db:   💾 DB: {'saved': 1, 'skipped': 0, 'updated': 0}
+2026-07-04 22:28:30,593 INFO     scraper.post_scraper: Scraping profile for: Shady M. Kamelابعتلي رقمك4dLikeReplyShare
+2026-07-04 22:28:30,593 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...
+2026-07-04 22:28:48,905 INFO     scraper.profile_scraper:       ❌ No additional data found on profile
+2026-07-04 22:28:48,922 INFO     database.db: 📦 Database ready: sqlite:///egypt_buyers.db
+2026-07-04 22:28:48,931 INFO     database.db:   💾 DB: {'saved': 1, 'skipped': 0, 'updated': 0}
+2026-07-04 22:28:48,931 INFO     scraper.post_scraper: Scraping profile for: Muhamed E ELhmamsiابعتلي رقمك3dLikeReplyShare
+2026-07-04 22:28:48,932 INFO     scraper.profile_scraper:     🔍 Deep-scraping profile...

@@ -26,7 +26,7 @@ RUN pip install --no-cache-dir -r /reqs/rekomnd_plus.txt || true
 RUN pip install --no-cache-dir -r /reqs/fb_poster.txt || true
 RUN pip install --no-cache-dir -r /reqs/fb_commenter.txt || true
 RUN pip install --no-cache-dir -r /reqs/fb_buyers.txt || true
-RUN pip install --no-cache-dir -r /reqs/wa_sender.txt
+RUN pip install --no-cache-dir -r /reqs/wa_sender.txt || true
 
 # Force compatible versions (base image ships old fastapi)
 RUN pip install --no-cache-dir "fastapi==0.111.0" "pydantic==2.7.1" "pydantic-settings==2.2.1" "uvicorn==0.29.0"

@@ -1,0 +1,17 @@
+{
+  "name": "wa-baileys-server",
+  "version": "1.0.0",
+  "description": "Lightweight WhatsApp gateway using Baileys — replaces Evolution API Docker setup",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.7.16",
+    "express": "^4.19.2",
+    "qrcode": "^1.5.3",
+    "pino": "^9.3.2",
+    "pino-pretty": "^11.2.1"
+  }
+}

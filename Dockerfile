@@ -32,7 +32,7 @@ RUN pip install --no-cache-dir -r /reqs/wa_sender.txt || true
 RUN pip install --no-cache-dir "fastapi==0.111.0" "pydantic==2.7.1" "pydantic-settings==2.2.1" "uvicorn==0.29.0"
 
 # Install Node dependencies and Playwright browsers
-RUN cd /app/whatsapp-bulk-sender/wa-server && npm install
+RUN cd /app/wa-server && npm install
 RUN playwright install --with-deps chromium || true
 
 # Configure Nginx

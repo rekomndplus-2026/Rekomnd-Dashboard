@@ -8,7 +8,7 @@ RUN apt-get update && \
 
 WORKDIR /app
 
-ARG CACHE_DATE=20260717
+ARG CACHE_DATE=20260718b
 
 # Force fresh copy with --link to bypass Railway stale cache
 COPY --link . /app
@@ -31,6 +31,12 @@ RUN pip install --no-cache-dir -r /reqs/wa_sender.txt || true
 # Force compatible versions (base image ships old fastapi)
 RUN pip install --no-cache-dir "fastapi==0.111.0" "pydantic==2.7.1" "pydantic-settings==2.2.1" "uvicorn==0.29.0"
 
+# Debug: show actual folder structure so we stop guessing
+RUN echo "=== /app top level ===" && ls -la /app && \
+    echo "=== searching whole /app for server.js ===" && find /app -iname "server.js" && \
+    echo "=== searching whole /app for wa-server dirs ===" && find /app -type d -iname "*wa-server*" && \
+    echo "=== searching whole /app for whatsapp dirs ===" && find /app -maxdepth 2 -type d -iname "*whatsapp*"
+
 # Install Node dependencies and Playwright browsers
 RUN cd /app/whatsapp-bulk-sender/wa-server && npm install
 RUN playwright install --with-deps chromium || true
@@ -39,6 +45,6 @@ RUN playwright install --with-deps chromium || true
 RUN cp /app/nginx.conf.template /etc/nginx/nginx.conf.template
 RUN cp /app/start.sh /start.sh && chmod +x /start.sh
 
-EXPOSE 80
+EXPOSE 8080
 
 CMD ["/start.sh"]

@@ -31,7 +31,7 @@ echo "Buyers API :8000"
 (cd whatsapp-bulk-sender/whatsapp-bulk-sender/backend && uvicorn main:app --host 127.0.0.1 --port 3001 --no-access-log) &
 echo "WA Backend :3001"
 
-(cd wa-server && PORT=8085 node server.js) &
+(cd whatsapp-bulk-sender/wa-server && PORT=8085 node server.js) &
 echo "WA Gateway :8085"
 
 (cd rekomnd_plus && uvicorn main:app --host 127.0.0.1 --port 7070 --no-access-log) &

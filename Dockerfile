@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/playwright/python:v1.44.0-jammy
 
 RUN apt-get update && \
     curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
-    apt-get install -y nodejs nginx gettext-base && \
+    apt-get install -y nodejs nginx gettext-base xvfb x11vnc novnc websockify && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 

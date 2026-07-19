@@ -30,6 +30,7 @@ except ImportError:
     _CORS = None
 
 load_dotenv(Path(__file__).resolve().parent / "config.env")
+import remote_login
 # ---------------------------------------------------------------------------
 # App & Logging Setup
 # ---------------------------------------------------------------------------
@@ -1232,6 +1233,33 @@ def api_session_upload():
         json.dump(session_data, f, indent=2)
 
     return jsonify({"success": True, "message": f"Saved {len(cookies)} cookies", "valid": True})
+
+@app.route("/api/session/remote-login/start", methods=["POST"])
+def api_remote_login_start():
+    """Boot a real, visible Chrome on a virtual display + VNC so a human can log in."""
+    result = remote_login.start_remote_login()
+    status = 200 if result.get("success") else 500
+    return jsonify(result), status
+
+
+@app.route("/api/session/remote-login/finish", methods=["POST"])
+def api_remote_login_finish():
+    """Pull cookies out of the still-open remote browser and save the session."""
+    session_path = _get_session_path()
+    result = remote_login.finish_remote_login(session_path)
+    status = 200 if result.get("success") else 400
+    return jsonify(result), status
+
+
+@app.route("/api/session/remote-login/stop", methods=["POST"])
+def api_remote_login_stop():
+    return jsonify(remote_login.stop_remote_login())
+
+
+@app.route("/api/session/remote-login/status", methods=["GET"])
+def api_remote_login_status():
+    return jsonify({"running": remote_login.is_running()})
+
 
 @app.route("/api/session/refresh", methods=["POST"])
 def api_session_refresh():

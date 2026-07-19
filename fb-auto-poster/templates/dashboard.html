@@ -798,9 +798,12 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="mt-4 flex justify-between items-center">
+                        <div class="mt-4 flex justify-between items-center gap-2">
                             <div class="text-sm text-muted" id="dash-session-msg"></div>
-                            <button class="btn btn-secondary" onclick="openModal('cookie-modal')">Update Session (Paste Cookies)</button>
+                            <div class="flex gap-2">
+                                <button class="btn btn-secondary" onclick="openModal('cookie-modal')">Paste Cookies</button>
+                                <button class="btn btn-primary" onclick="openRemoteLogin()">Log In via Remote Browser</button>
+                            </div>
                         </div>
                     </div>
 
@@ -1202,6 +1205,26 @@
         </div>
     </div>
 
+    <!-- MODAL: Remote Browser Login (real Chrome on a virtual display, viewed via VNC) -->
+    <div class="modal-overlay" id="remote-login-modal">
+        <div class="modal-content" style="max-width: 900px;">
+            <h3 class="text-xl font-semibold mb-4">Log In via Remote Browser</h3>
+            <p class="text-sm text-muted mb-4" id="remote-login-status">Starting a real Chrome browser on the server…</p>
+            <div id="remote-login-frame-wrap" style="display:none; border:1px solid rgba(255,255,255,0.1); border-radius:8px; overflow:hidden;">
+                <iframe id="remote-login-iframe" style="width:100%; height:520px; border:0; background:#111;"></iframe>
+            </div>
+            <p class="text-sm text-muted mt-3">
+                Log into Facebook directly in the window above (click inside it first). Once your
+                feed loads, click "I'm Logged In — Save Session" below.
+            </p>
+            <div id="remote-login-error" class="text-sm" style="color:#f87171; display:none;"></div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-secondary" onclick="closeRemoteLogin()">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="finishRemoteLogin()">I'm Logged In — Save Session</button>
+            </div>
+        </div>
+    </div>
+
     <!-- MODAL: Cookie Upload (Session Refresh for headless/Railway environments) -->
     <div class="modal-overlay" id="cookie-modal">
         <div class="modal-content">
@@ -1471,6 +1494,55 @@
             }
         }
 
+
+        async function openRemoteLogin() {
+            openModal('remote-login-modal');
+            document.getElementById('remote-login-status').textContent = 'Starting a real Chrome browser on the server…';
+            document.getElementById('remote-login-frame-wrap').style.display = 'none';
+            document.getElementById('remote-login-error').style.display = 'none';
+            try {
+                const res = await apiFetch('/api/session/remote-login/start', { method: 'POST' });
+                if (res.success) {
+                    document.getElementById('remote-login-iframe').src = res.vnc_path;
+                    document.getElementById('remote-login-status').textContent =
+                        'Browser is live below — log into Facebook, then click "Save Session".';
+                    document.getElementById('remote-login-frame-wrap').style.display = 'block';
+                } else {
+                    showRemoteLoginError(res.error || 'Failed to start remote browser.');
+                }
+            } catch (err) {
+                showRemoteLoginError('Request failed: ' + err);
+            }
+        }
+
+        async function finishRemoteLogin() {
+            const errorEl = document.getElementById('remote-login-error');
+            errorEl.style.display = 'none';
+            try {
+                const res = await apiFetch('/api/session/remote-login/finish', { method: 'POST' });
+                if (res.success) {
+                    showToast(res.message || 'Session saved!', 'success');
+                    closeRemoteLogin();
+                    loadDashboard();
+                } else {
+                    showRemoteLoginError(res.error || 'Could not save session yet.');
+                }
+            } catch (err) {
+                showRemoteLoginError('Request failed: ' + err);
+            }
+        }
+
+        function showRemoteLoginError(msg) {
+            const errorEl = document.getElementById('remote-login-error');
+            errorEl.textContent = msg;
+            errorEl.style.display = 'block';
+        }
+
+        async function closeRemoteLogin() {
+            closeModal('remote-login-modal');
+            document.getElementById('remote-login-iframe').src = 'about:blank';
+            try { await apiFetch('/api/session/remote-login/stop', { method: 'POST' }); } catch (err) {}
+        }
 
         async function saveCookies(event) {
             event.preventDefault();
